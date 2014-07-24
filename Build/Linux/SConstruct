@@ -1,0 +1,49 @@
+
+def TmpDir(x):
+    return '#/@tmp/' + x
+def LibDir(x):
+    return '#/@lib/' + x
+def BinDir(x):
+    return '#/@bin/' + x
+
+env = Environment()
+
+env.Replace(CC = 'gcc')
+env.Replace(CXX = 'g++')
+env.Replace(CCFLAGS = '-g -DPOSIX -O2 -Wall')
+env.Replace(CXXFLAGS = '-std=gnu++11 -D__STRICT_ANSI__')
+env.Replace(LINKFLAGS = '-static')
+
+env.VariantDir(TmpDir('Common'), '../../Common')
+
+includepath = Split('''
+    /usr/local/include
+    ''')
+libs = Split('''
+    liblua
+    libboost_filesystem
+    libboost_system
+    libpthread
+    dl
+    ''')
+libpath = Split('''
+    /usr/local/lib
+    /usr/lib
+    ''')
+
+env.VariantDir(TmpDir('ServerLib'), '../../ServerLib')
+ServerLib = env.StaticLibrary(
+    LibDir('ServerLib'),
+    [Glob(TmpDir('ServerLib/*.cpp'))],
+)
+
+libs.insert(0, ServerLib)
+env.VariantDir(TmpDir('Driver'), '../../Driver')
+Driver = env.Program(
+    BinDir('Driver'),
+    [Glob(TmpDir('Driver/*.cpp'))],
+    INCLUDEPATH = includepath,
+    LIBS        = libs,
+    LIBPATH     = libpath,
+)
+Default(Driver)
