@@ -14,17 +14,11 @@
     <ClCompile Include="..\..\Driver\Driver.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Driver\lua_tinker.cpp">
-      <Filter>Sript</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Driver\IoDispatcher.cpp">
       <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Driver\lua_tinker.h">
-      <Filter>Sript</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Driver\IoDispatcher.h">
       <Filter>Sript</Filter>
     </ClInclude>
