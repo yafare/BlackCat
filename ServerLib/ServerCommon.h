@@ -32,11 +32,11 @@ using Acceptor  = boost::asio::ip::tcp::acceptor;
 class TcpConnection;
 using ConnectionPtr = std::shared_ptr<TcpConnection>;
 
-using FuncOnAccept          = std::function<void(ConnectionPtr)>;
-using FuncOnConnect         = std::function<void(ConnectionPtr)>;
-using FuncOnRead            = std::function<uint32(ConnectionPtr, const uint8 *, uint32)>;
-using FuncOnWrite           = std::function<void(ConnectionPtr, uint32)>;
-using FuncOnDisconnect      = std::function<void(ConnectionPtr)>;
+using FuncOnAccept          = std::function<void(const ConnectionPtr&)>;
+using FuncOnConnect         = std::function<void(const ConnectionPtr&)>;
+using FuncOnRead            = std::function<uint32(const ConnectionPtr&, const uint8 *, uint32)>;
+using FuncOnWrite           = std::function<void(const ConnectionPtr&, uint32)>;
+using FuncOnDisconnect      = std::function<void(const ConnectionPtr&)>;
 struct ConnectionCallBacks
 {
     FuncOnConnect       OnConnected;

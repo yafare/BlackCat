@@ -12,10 +12,6 @@ int main()
     LuaVM *lua_vm = new LuaVM;
 
     lua_vm->Load("test.lua");
-    module(lua_vm->GetLuaState())
-    [
-        class_<int64, std::shared_ptr<int64>>("int64")
-    ];
 
     int id = 123;
     lua_vm->Call("Test", id);

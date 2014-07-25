@@ -10,8 +10,8 @@
 class SessionMgr
 {
 public:
-    void    Add(ConnectionPtr conn);
-    void    Del(ConnectionPtr conn);
+    void    Add(const ConnectionPtr& conn);
+    void    Del(const ConnectionPtr& conn);
 
 private:
     std::map<int32, ConnectionPtr> connections_;

@@ -34,7 +34,7 @@ void LuaVM::Load(const std::string& file)
     }
 }
 
-ScriptSystem* ScriptSystem::instance_ = 0;
+ScriptSystem *ScriptSystem::instance_ = 0;
 ScriptSystem::ScriptSystem()
 {
 }

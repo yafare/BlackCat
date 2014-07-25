@@ -47,9 +47,13 @@ void TcpConnection::OnRead(const ErrorCode& e, uint32 len)
 
     if (cb_.OnRead) {
         uint8 *buf = socket_.GetBuf();
-        std::copy(buf, buf + len, std::back_inserter(recv_buf_));
+        int cur_pos = recv_buf_.size();
+        recv_buf_.resize(cur_pos + len);
+        memcpy(&recv_buf_[0] + cur_pos, buf, len);
         uint32 proc_len = cb_.OnRead(shared_from_this(), &recv_buf_[0], recv_buf_.size());
-        recv_buf_.erase(recv_buf_.begin(), recv_buf_.begin() + proc_len);
+        if (proc_len != 0) {
+            recv_buf_.erase(recv_buf_.begin(), recv_buf_.begin() + proc_len);
+        }
     }
     Recv();
 }

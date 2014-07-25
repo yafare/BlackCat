@@ -55,7 +55,7 @@ void TcpServer::StartAccept()
     ConnectionPtr new_connection(new TcpConnection(io_service_pool_.get_io_service()));
     new_connection->Init(++conn_id_);
 
-    auto handle_accept = [&](ConnectionPtr conn, const ErrorCode& e) {
+    auto handle_accept = [&](const ConnectionPtr& conn, const ErrorCode& e) {
         if (!e) {
             if (OnAccept) {
                 OnAccept(conn);

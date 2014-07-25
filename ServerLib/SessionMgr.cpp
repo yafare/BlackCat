@@ -2,13 +2,13 @@
 
 #include "TcpConnection.h"
 
-void SessionMgr::Add(ConnectionPtr conn)
+void SessionMgr::Add(const ConnectionPtr& conn)
 {
     Lock l(mutex_);
     connections_[conn->GetId()] = conn;
 }
 
-void SessionMgr::Del(ConnectionPtr conn)
+void SessionMgr::Del(const ConnectionPtr& conn)
 {
     Lock l(mutex_);
     connections_.erase(conn->GetId());
