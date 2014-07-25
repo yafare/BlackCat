@@ -1,29 +1,42 @@
 #include <stdio.h>
 
-#include "../ServerLib/lua_tinker.h"
+#include <luabind/luabind.hpp>
 
-#pragma comment(lib, "lua52.lib")
+#include "../Common/Types.h"
+#include "LuaVM.h"
+
+using namespace luabind;
 
 int main()
 {
-    lua_State *L = luaL_newstate();
-    luaL_openlibs(L);
+    LuaVM *lua_vm = new LuaVM;
 
-    lua_tinker::init(L);
+    lua_vm->Load("test.lua");
+    module(lua_vm->GetLuaState())
+    [
+        class_<int64, std::shared_ptr<int64>>("int64")
+    ];
 
-    lua_tinker::dofile(L, "./script/test.lua");
-    __int64 id = 0x1234567887654321;
-    lua_tinker::call<void, __int64>(L, "TestI64", id);
+    int id = 123;
+    lua_vm->Call("Test", id);
 
-    lua_tinker::table fishes(L);
-    int index = 1;
+    object params(newtable(lua_vm->GetLuaState()));
     for (int i = 1; i <= 10; i++) {
-        lua_tinker::table fish(L);
-        fish.set("fish_type", i);
-        fish.set("fish_count", i);
-        fishes.set(index++, fish);
+        object param(newtable(lua_vm->GetLuaState()));
+        param["type"] = i;
+        param["count"] = i;
+        params[i] = param;
     }
-    lua_tinker::table result = lua_tinker::call<lua_tinker::table, __int64, lua_tinker::table>(L, "TestTable", id, fishes);
+    object result = lua_vm->Call<object, int, object>("TestTable", id, params);
+    for (iterator it(result), end; it != end; it++) {
+        std::string key = object_cast<std::string>(it.key());
+
+        object val = *it;
+        if (type(val) == LUA_TNUMBER) {
+            int v = object_cast<int>(val);
+            printf("CPP: %s %d\n", key.c_str(), v);
+        }
+    }
 
     getchar();
 }

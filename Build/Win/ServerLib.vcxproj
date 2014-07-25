@@ -20,7 +20,6 @@
     <ClInclude Include="../../ServerLib/Socket.h" />
     <ClInclude Include="../../ServerLib/TcpConnection.h" />
     <ClInclude Include="../../ServerLib/TcpServer.h" />
-    <ClInclude Include="..\..\ServerLib\lua_tinker.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="../../ServerLib/io_service_pool.cpp" />
@@ -30,7 +29,6 @@
     <ClCompile Include="../../ServerLib/Socket.cpp" />
     <ClCompile Include="../../ServerLib/TcpConnection.cpp" />
     <ClCompile Include="../../ServerLib/TcpServer.cpp" />
-    <ClCompile Include="..\..\ServerLib\lua_tinker.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5AB351F5-29C6-44CA-9BB6-9B43650780A1}</ProjectGuid>
