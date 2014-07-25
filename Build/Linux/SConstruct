@@ -21,6 +21,7 @@ includepath = Split('''
     ''')
 libs = Split('''
     liblua
+    libluabind
     libboost_filesystem
     libboost_system
     libpthread
@@ -46,4 +47,13 @@ Driver = env.Program(
     LIBS        = libs,
     LIBPATH     = libpath,
 )
-Default(Driver)
+
+env.VariantDir(TmpDir('UnitTest'), '../../UnitTest')
+UnitTest = env.Program(
+    BinDir('UnitTest'),
+    [Glob(TmpDir('UnitTest/*.cpp'))],
+    INCLUDEPATH = includepath,
+    LIBS        = libs,
+    LIBPATH     = libpath,
+)
+Default(UnitTest)
