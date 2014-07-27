@@ -13,8 +13,8 @@ int main()
 
     lua_vm->Load("test.lua");
 
-    int id = 123;
-    lua_vm->Call("Test", id);
+    uint64 id = 123;
+    uint64 v = lua_vm->Call<uint64, uint64>("Test", id);
 
     object params(newtable(lua_vm->GetLuaState()));
     for (int i = 1; i <= 10; i++) {
@@ -23,7 +23,7 @@ int main()
         param["count"] = i;
         params[i] = param;
     }
-    object result = lua_vm->Call<object, int, object>("TestTable", id, params);
+    object result = lua_vm->Call<object, uint64, object>("TestTable", id, params);
     for (iterator it(result), end; it != end; it++) {
         std::string key = object_cast<std::string>(it.key());
 

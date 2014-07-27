@@ -5,11 +5,40 @@ extern "C"
 #include <lua.hpp>
 };
 
+#include <luabind/operator.hpp>
+
+#include "../Common/Types.h"
+
 LuaVM::LuaVM()
 {
     L = luaL_newstate();
     luaL_openlibs(L);
+
     luabind::open(L);
+
+#define POD_MODULE(t) \
+    luabind::class_<t>(#t) \
+        .def(luabind::constructor<t>()) \
+        .def(luabind::constructor<int>()) \
+        .def(luabind::tostring(luabind::self)) \
+        .def(luabind::const_self * int()) \
+        .def(luabind::const_self * t()) \
+        .def(luabind::const_self * luabind::const_self) \
+        .def(luabind::const_self / int()) \
+        .def(luabind::const_self / t()) \
+        .def(luabind::const_self / luabind::const_self) \
+        .def(luabind::const_self + int()) \
+        .def(luabind::const_self + t()) \
+        .def(luabind::const_self + luabind::const_self) \
+        .def(luabind::const_self - int()) \
+        .def(luabind::const_self - t()) \
+        .def(luabind::const_self - luabind::const_self)
+
+    luabind::module(L)
+    [
+        POD_MODULE(int64),
+        POD_MODULE(uint64)
+    ];
 }
 
 LuaVM::~LuaVM()
@@ -54,7 +83,7 @@ ScriptSystem& ScriptSystem::Instance()
 
 LuaVM *ScriptSystem::CreateVM()
 {
-    LuaVM* vm = new LuaVM;
+    LuaVM *vm = new LuaVM;
     vms_.push_back(vm);
     return vm;
 }
