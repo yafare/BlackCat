@@ -71,6 +71,9 @@ namespace luabind
 				}
 
 				~proxy_member_caller()
+#ifdef LINUX_CXX_11
+					noexcept(false)
+#endif // LINUX_CXX_11
 				{
 					if (m_called) return;
 
@@ -238,6 +241,9 @@ namespace luabind
 				}
 
 				~proxy_member_void_caller()
+#ifdef LINUX_CXX_11
+					noexcept(false)
+#endif // LINUX_CXX_11
 				{
 					if (m_called) return;
 
