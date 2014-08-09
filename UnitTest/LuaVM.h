@@ -26,10 +26,6 @@ public:
     TRet            Call(const std::string& func, Args&... args);
 
 private:
-    void            init_s64();
-    void            init_u64();
-
-private:
     lua_State      *L;
 };
 inline lua_State *LuaVM::GetLuaState()

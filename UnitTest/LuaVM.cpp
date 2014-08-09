@@ -32,7 +32,10 @@ LuaVM::LuaVM()
         .def(luabind::const_self + luabind::const_self) \
         .def(luabind::const_self - int()) \
         .def(luabind::const_self - t()) \
-        .def(luabind::const_self - luabind::const_self)
+        .def(luabind::const_self - luabind::const_self) \
+        .def(luabind::const_self < t()) \
+        .def(luabind::const_self == t()) \
+        .def(luabind::const_self <= t())
 
     luabind::module(L)
     [
