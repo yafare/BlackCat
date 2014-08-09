@@ -910,7 +910,7 @@ bool CommandLineInterface::InterpretArgument(const string& name,
         cerr << disk_path << ": warning: directory does not exist." << endl;
       }
 
-      proto_path_.push_back(make_pair<string, string>(std::move(virtual_path), std::move(disk_path)));
+      proto_path_.push_back(make_pair<string, string>(std::string(virtual_path), std::string(disk_path)));
     }
 
   } else if (name == "-o" || name == "--descriptor_set_out") {

@@ -12,7 +12,6 @@ env.Replace(CC = 'gcc')
 env.Replace(CXX = 'g++')
 env.Replace(CCFLAGS = '-g -DPOSIX -O2 -Wall')
 env.Replace(CXXFLAGS = '-std=gnu++11 -D__STRICT_ANSI__')
-env.Replace(LINKFLAGS = '-static')
 
 env.VariantDir(TmpDir('Common'), '../../Common')
 
@@ -28,8 +27,8 @@ libs = Split('''
     dl
     ''')
 libpath = Split('''
-    /usr/local/lib
     /usr/lib
+    /usr/local/lib
     ''')
 
 env.VariantDir(TmpDir('ServerLib'), '../../ServerLib')

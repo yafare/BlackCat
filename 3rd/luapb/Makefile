@@ -1,7 +1,7 @@
 .PHONY: all  clean 
 
 # Flags
-CFLAGS =-g -Wall -fpic
+CFLAGS =-g -Wall -fPIC -DLUA_COMPAT_MODULE
 LDFLAGS = -shared
 
 CC?=gcc
@@ -9,14 +9,14 @@ CXX?=g++
 LD?=gcc
 
 # Directories
-LUA_INC_DIR ?= /usr/include/lua5.1
+LUA_INC_DIR ?= /usr/local/include
 PROTOBUF_INC_DIR ?=/usr/local/include
 # Files
 LIB = luapb.so
 
 all:
 	$(CXX) $(CFLAGS) -c -Iinclude -I$(LUA_INC_DIR) -I$(PROTOBUF_INC_DIR) src/*.cc
-	$(CXX) $(LDFLAGS) -o $(LIB) *.o -L/usr/local/lib -lprotobuf  -llua
+	$(CXX) $(LDFLAGS) -o $(LIB) *.o -L/usr/local/lib -lprotobuf -llua
 
 clean:
 	rm -f *.so
