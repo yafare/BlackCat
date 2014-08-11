@@ -18,7 +18,7 @@ void GameScript::Init()
         logger_->Log("Script env init fail");
         return;
     }
-    vm_->Load("./z_scripts/game_main.lua");
+    vm_->Load("./game_main.lua");
     running_ = true;
 }
 

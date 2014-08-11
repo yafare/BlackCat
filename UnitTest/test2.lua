@@ -1,5 +1,5 @@
 
-local protobuf = require "protobuf"
+local protobuf = require "lib.protobuf"
 
 print(tostring(protobuf))
 

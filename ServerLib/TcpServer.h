@@ -8,7 +8,7 @@
 #include "io_service_pool.hpp"
 
 #define NEW_LOG_FILE_INTERVAL 2 // hours
-#define LOGIC_TIMER_INTERVAL  5 // ms
+#define LOGIC_TIMER_INTERVAL  1 // ms
 
 class TcpServer : private boost::noncopyable
 {
