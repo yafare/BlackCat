@@ -23,11 +23,12 @@ struct PacketHeader
 };
 #pragma pack(pop)
 
-using Lock      = std::lock_guard<std::mutex>;
-using ErrorCode = boost::system::error_code;
-using IoService = boost::asio::io_service;
-using TcpSocket = boost::asio::ip::tcp::socket;
-using Acceptor  = boost::asio::ip::tcp::acceptor;
+using Lock                  = std::lock_guard<std::mutex>;
+using ErrorCode             = boost::system::error_code;
+using IoService             = boost::asio::io_service;
+using TcpSocket             = boost::asio::ip::tcp::socket;
+using Acceptor              = boost::asio::ip::tcp::acceptor;
+using ScriptFrameFunc       = std::function<void()>;
 
 class TcpConnection;
 using ConnectionPtr = std::shared_ptr<TcpConnection>;

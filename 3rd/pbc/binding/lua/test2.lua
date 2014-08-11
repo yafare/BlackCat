@@ -1,3 +1,4 @@
+
 local protobuf = require "protobuf"
 
 addr = io.open("../../build/addressbook.pb","rb")
@@ -29,4 +30,3 @@ print(t.phone[2].type)
 for k,v in pairs(t.phone[1]) do
 	print(k,v)
 end
-

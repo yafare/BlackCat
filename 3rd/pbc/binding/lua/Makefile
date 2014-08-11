@@ -1,11 +1,9 @@
-.PHONY : all 51 clean
+.PHONY : all clean
 
 all :
-	gcc -O2 -Wall --shared -o protobuf.dll -I../.. -I/usr/local/include -L/usr/local/bin -L../../build pbc-lua.c -lpbc -llua52
-
-51 :
-#	gcc -O2 -Wall --shared -o protobuf.dll -I../.. -I/d/project/luajit-2.0/src -L/usr/local/bin -L../../build pbc-lua.c -lpbc -llua51
-	gcc -O2 -Wall --shared -o protobuf.dll -I../.. -I/d/project/lua-5.1.4/src -L/usr/local/bin -L../../build pbc-lua.c -lpbc -llua51
+	gcc -g -O2 -Wall -fPIC -c -I../.. -I/usr/local/include pbc-lua.c
+	gcc -g -shared -o protobuf.so -L/usr/local/lib -L../../build pbc-lua.o -lpbc -llua
 
 clean :
-	rm protobuf.dll
+	rm protobuf.so
+

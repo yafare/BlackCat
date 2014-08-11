@@ -5,6 +5,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Src\Script">
+      <UniqueIdentifier>{f71e66ca-fde0-4b88-8494-e93da0793da1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Driver\Driver.cpp">
@@ -13,10 +16,22 @@
     <ClCompile Include="..\..\Driver\IoDispatcher.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Driver\LuaVM.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Driver\GameScript.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Driver\IoDispatcher.h">
       <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Driver\LuaVM.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Driver\GameScript.h">
+      <Filter>Src\Script</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

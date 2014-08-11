@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -O2
+CFLAGS = -O2 -fPIC
 AR = ar rc
 
 BUILD = build

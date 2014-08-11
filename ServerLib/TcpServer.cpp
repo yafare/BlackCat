@@ -45,6 +45,11 @@ void TcpServer::SetCallBacks(const ConnectionCallBacks& cb)
     cb_ = cb;
 }
 
+int TcpServer::SetTimer(const ScriptFrameFunc& /*func*/, uint32 /*interval*/)
+{
+    return 0;
+}
+
 void TcpServer::Run()
 {
     io_service_pool_.run();

@@ -14,16 +14,16 @@ public:
     explicit TcpServer(const std::string& address, const std::string& port,
         std::size_t io_service_pool_size, const FuncOnAccept& func);
 
-    void SetCallBacks(const ConnectionCallBacks& cb);
+    void    SetCallBacks(const ConnectionCallBacks& cb);
 
-    void Run();
-    void Log(const std::string& str);
-    void Log(const char *fmt, ...);
+    void    Run();
+
+    int     SetTimer(const ScriptFrameFunc& func, uint32 interval);
 
 private:
-    void StartAccept();
+    void    StartAccept();
 
-    void ResetLoggerTimer();
+    void    ResetLoggerTimer();
 
 private:
     io_service_pool             io_service_pool_;
