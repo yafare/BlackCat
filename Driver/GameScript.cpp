@@ -1,6 +1,7 @@
 #include "GameScript.h"
 
 #include "../ServerLib/logger.hpp"
+#include "../ServerLib/TcpServer.h"
 
 #include "LuaVM.h"
 
@@ -30,7 +31,7 @@ void GameScript::Run()
     vm_->Call("game_main");
 }
 
-ScriptFrameFunc GameScript::GetScriptFrameFunc()
+TimerFunc GameScript::GetScriptFrameFunc()
 {
     return std::bind(&GameScript::Run, shared_from_this());
 }

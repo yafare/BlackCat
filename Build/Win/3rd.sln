@@ -30,6 +30,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pbc", "..\..\3rd\pbc\pbc.vcxproj", "{82356F33-956B-4931-9977-BD7994B1C761}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protobuf", "..\..\3rd\pbc\protobuf.vcxproj", "{BFD18A3C-AEAC-425C-8458-19DEA8DA8FDF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FC410EBE-EBBB-420D-8ED0-27C331730EA1} = {FC410EBE-EBBB-420D-8ED0-27C331730EA1}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

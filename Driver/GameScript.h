@@ -17,7 +17,7 @@ public:
     void            Init();
     void            Stop();
 
-    ScriptFrameFunc GetScriptFrameFunc();
+    TimerFunc       GetScriptFrameFunc();
 
 private:
     // called by Driver with an interval 5ms
