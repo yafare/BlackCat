@@ -43,9 +43,14 @@ int main()
         }
     }
 
+    // pbc Test
+    {
+        lua_vm->Load("test2.lua");
+    }
+
     // LuaPBTest
     {
-        lua_vm->Load("testpb.lua");
+        lua_vm->Load("testluapb.lua");
 
         try {
             lua_vm->Call("encodeSimp");

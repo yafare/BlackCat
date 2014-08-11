@@ -71,6 +71,9 @@
     <ClInclude Include="..\..\3rd\lua-5.2.3\src\lvm.h" />
     <ClInclude Include="..\..\3rd\lua-5.2.3\src\lzio.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\3rd\pbc\pbc.vcxproj" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FC410EBE-EBBB-420D-8ED0-27C331730EA1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
