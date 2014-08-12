@@ -11,18 +11,26 @@ namespace PB
 class IoDispatcher
 {
 public:
+    FuncOnAccept        GetAcceptCallBack();
     ConnectionCallBacks GetCallBacks();
 
 private:
     // handler
-    void Dispatch(const ConnectionPtr& conn, const uint8 *buf, uint32 len);
+    void                Dispatch(uint32 conn_id, const uint8 *buf, uint32 len);
 
     // call backs
-    void OnConnected(ConnectionPtr conn);
-    uint32 OnRead(ConnectionPtr conn, const uint8 *buf, uint32 len);
-    void OnWrite(ConnectionPtr conn, uint32 len);
-    void OnDisconnect(ConnectionPtr conn);
-}; 
+    void                OnAccept(const ConnectionPtr& conn);
+
+    void                OnConnected(const ConnectionPtr& conn);
+    uint32              OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len);
+    void                OnWrite(const ConnectionPtr& conn, uint32 len);
+    void                OnDisconnect(const ConnectionPtr& conn);
+};
+
+inline FuncOnAccept IoDispatcher::GetAcceptCallBack()
+{
+    return std::bind(&IoDispatcher::OnAccept, this, std::placeholders::_1);
+}
 
 inline ConnectionCallBacks IoDispatcher::GetCallBacks()
 {

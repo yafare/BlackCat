@@ -8,7 +8,7 @@
 #include "io_service_pool.hpp"
 
 #define NEW_LOG_FILE_INTERVAL 2 // hours
-#define LOGIC_TIMER_INTERVAL  1 // ms
+#define LOGIC_TIMER_INTERVAL  2 // ms
 
 class TcpServer : private boost::noncopyable
 {
@@ -44,9 +44,9 @@ private:
     FuncOnAccept                        OnAccept;
     ConnectionCallBacks                 cb_;
 
-    std::atomic<int32>                  conn_id_;
+    std::atomic<uint32>                 conn_id_;
 
-    std::atomic<int32>                  timer_id_;
+    std::atomic<uint32>                 timer_id_;
     std::mutex                          timer_mutex_;
     std::map<uint32, TimerContext>      timer_map_;
 

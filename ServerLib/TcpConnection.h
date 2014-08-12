@@ -12,32 +12,32 @@ public:
     TcpConnection(IoService& io_service);
     ~TcpConnection();
 
-    void Init(int32 id);
+    void            Init(uint32 id);
 
 public:
-    int GetId();
-    Socket& GetSocket();
+    uint32          GetId();
+    Socket&         GetSocket();
 
 public:
-    void SetCallBacks(const ConnectionCallBacks& callbacks);
-    void Send(const uint8 *buf, uint32 len);
-    void Recv();
+    void            SetCallBacks(const ConnectionCallBacks& callbacks);
+    void            Send(const uint8 *buf, uint32 len);
+    void            Recv();
 
 private:
-    void OnConnected(const ErrorCode& e);
-    void OnRead(const ErrorCode& e, uint32 len);
-    void OnWrite(const ErrorCode& e, uint32 len);
-    void OnDisconnect(const ErrorCode& e);
+    void            OnConnected(const ErrorCode& e);
+    void            OnRead(const ErrorCode& e, uint32 len);
+    void            OnWrite(const ErrorCode& e, uint32 len);
+    void            OnDisconnect(const ErrorCode& e);
 
 private:
-    int32                       conn_id_;
+    uint32                      conn_id_;
     Socket                      socket_;
     ConnectionCallBacks         cb_;
     std::vector<uint8>          recv_buf_;
     std::mutex                  mutex_;
 };
 
-inline int TcpConnection::GetId()
+inline uint32 TcpConnection::GetId()
 {
     return conn_id_;
 }

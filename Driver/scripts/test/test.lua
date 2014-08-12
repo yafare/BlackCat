@@ -2,7 +2,7 @@
 require('libs.common')
 local protobuf = require('protobuf')
 
-addr = io.open('./zscripts/pb/addressbook.pb', 'rb')
+addr = io.open('./scripts/pb/addressbook.pb', 'rb')
 buffer = addr:read('*a')
 addr:close()
 

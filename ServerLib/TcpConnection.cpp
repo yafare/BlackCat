@@ -12,7 +12,7 @@ TcpConnection::TcpConnection(IoService& io_service) : socket_(io_service)
 {
 }
 
-void TcpConnection::Init(int32 id)
+void TcpConnection::Init(uint32 id)
 {
     conn_id_ = id;
 }

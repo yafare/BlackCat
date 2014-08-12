@@ -7,7 +7,7 @@
 
 #include "../ServerLib/ServerCommon.h"
 
-#define SCRIPT_FRAME_INTERVAL 5 // ms
+#define SCRIPT_FRAME_INTERVAL 6 // ms
 
 class LuaVM;
 class GameScript : public std::enable_shared_from_this<GameScript>
@@ -18,6 +18,14 @@ public:
 public:
     void            Init();
     void            Stop();
+
+    // script callbacks
+    void            OnUserConnected(uint32 conn_id);
+    void            OnUserDisconnected(uint32 conn_id);
+    void            OnUserData(uint32 conn_id, const uint8 *buf, uint32 len);
+
+    // function to lua
+    void            SendData(uint32 conn_id, const uint8 *buf, uint32 len);
 
     TimerFunc       GetScriptFrameFunc();
 

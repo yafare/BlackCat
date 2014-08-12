@@ -1,15 +1,23 @@
 #include "SessionMgr.h"
 
-#include "TcpConnection.h"
-
-void SessionMgr::Add(const ConnectionPtr& conn)
+void SessionMgr::Add(uint32 id, const ConnectionPtr& conn)
 {
     Lock l(mutex_);
-    connections_[conn->GetId()] = conn;
+    connections_[id] = conn;
 }
 
-void SessionMgr::Del(const ConnectionPtr& conn)
+void SessionMgr::Del(uint32 id)
 {
     Lock l(mutex_);
-    connections_.erase(conn->GetId());
+    connections_.erase(id);
+}
+
+ConnectionPtr SessionMgr::Get(uint32 id)
+{
+    Lock l(mutex_);
+    auto it = connections_.find(id);
+    if (it == connections_.end()) {
+        return ConnectionPtr();
+    }
+    return it->second;
 }

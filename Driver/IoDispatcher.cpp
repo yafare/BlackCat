@@ -3,20 +3,31 @@
 #include "../ServerLib/SessionMgr.h"
 #include "../ServerLib/TcpConnection.h"
 
-void IoDispatcher::Dispatch(const ConnectionPtr& conn, const uint8 *buf, uint32 len)
+#include "GameScript.h"
+
+void IoDispatcher::Dispatch(uint32 conn_id, const uint8 *buf, uint32 len)
 {
-    conn->Send(buf, len);
+    game_script->OnUserData(conn_id, buf, len);
 }
 
-void IoDispatcher::OnConnected(ConnectionPtr conn)
+void IoDispatcher::OnAccept(const ConnectionPtr& conn)
+{
+    uint32 conn_id = conn->GetId();
+    GetSessionMgr().Add(conn_id, conn);
+    game_script->OnUserConnected(conn_id);
+}
+
+void IoDispatcher::OnConnected(const ConnectionPtr& /*conn*/)
 {
 }
 
-uint32 IoDispatcher::OnRead(ConnectionPtr conn, const uint8 *buf, uint32 len)
+uint32 IoDispatcher::OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len)
 {
     if (len > MAX_RECV_BUF) {
         return len;
     }
+
+    uint32 conn_id = conn->GetId();
 
     uint32 total_len = 0;
     while (len > sizeof(PacketHeader)) {
@@ -26,7 +37,7 @@ uint32 IoDispatcher::OnRead(ConnectionPtr conn, const uint8 *buf, uint32 len)
             break;
         }
 
-        Dispatch(conn, p->buf, p->len);
+        Dispatch(conn_id, p->buf, p->len);
 
         total_len += cur_len;
         buf += cur_len;
@@ -36,11 +47,13 @@ uint32 IoDispatcher::OnRead(ConnectionPtr conn, const uint8 *buf, uint32 len)
     return total_len;
 }
 
-void IoDispatcher::OnWrite(ConnectionPtr /*conn*/, uint32 /*len*/)
+void IoDispatcher::OnWrite(const ConnectionPtr& /*conn*/, uint32 /*len*/)
 {
 }
 
-void IoDispatcher::OnDisconnect(ConnectionPtr conn)
+void IoDispatcher::OnDisconnect(const ConnectionPtr& conn)
 {
-    GetSessionMgr().Del(conn);
+    uint32 conn_id = conn->GetId();
+    GetSessionMgr().Del(conn_id);
+    game_script->OnUserDisconnected(conn_id);
 }
