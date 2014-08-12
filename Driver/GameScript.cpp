@@ -13,12 +13,18 @@ GameScript::GameScript() : running_(false), vm_(0)
 
 void GameScript::Init()
 {
+    script_timer_ = server->SetTimer(game_script->GetScriptFrameFunc(), SCRIPT_FRAME_INTERVAL);
+
     vm_ = new LuaVM;
     if (vm_ == 0) {
         logger_->Log("Script env init fail");
         return;
     }
-    vm_->Load("./game_main.lua");
+    if (!vm_->Load("./game_main.lua")) {
+        logger_->Log("Load game main script fail");
+        return;
+    }
+
     running_ = true;
 }
 
@@ -39,4 +45,5 @@ TimerFunc GameScript::GetScriptFrameFunc()
 void GameScript::Stop()
 {
     running_ = false;
+    server->KillTimer(script_timer_);
 }

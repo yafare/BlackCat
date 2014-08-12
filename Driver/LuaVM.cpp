@@ -59,11 +59,12 @@ void LuaVM::Execute(const std::string& script)
     }
 }
 
-void LuaVM::Load(const std::string& file)
+bool LuaVM::Load(const std::string& file)
 {
     if (L) {
-        luaL_dofile(L, file.c_str());
+        return luaL_dofile(L, file.c_str()) == 0;
     }
+    return false;
 }
 
 ScriptSystem *ScriptSystem::instance_ = 0;

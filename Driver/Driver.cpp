@@ -14,7 +14,6 @@ int main()
         // Init script env
         game_script.reset(new GameScript);
         game_script->Init();
-        server->SetTimer(game_script->GetScriptFrameFunc(), 5);
 
         IoDispatcher dispatcher;
         server->SetCallBacks(dispatcher.GetCallBacks());

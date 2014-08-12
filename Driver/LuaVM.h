@@ -17,7 +17,7 @@ public:
     lua_State      *GetLuaState();
 
     void            Execute(const std::string& script);
-    void            Load(const std::string& file);
+    bool            Load(const std::string& file);
 
     template <typename... Args>
     void            Call(const std::string& func, Args&... args);
