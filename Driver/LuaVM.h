@@ -6,6 +6,8 @@
 
 #include <luabind/luabind.hpp>
 
+#include "../ServerLib/logger.hpp"
+
 struct lua_State;
 class LuaVM
 {
@@ -35,15 +37,25 @@ inline lua_State *LuaVM::GetLuaState()
 template <typename... Args>
 void LuaVM::Call(const std::string& func, Args&... args)
 {
-    if (L) {
+    if (L == 0) {
+        return;
+    }
+    try {
         luabind::call_function<void>(L, func.c_str(), args...);
+    } catch (...) {
+        logger_->Log("exception @ lua function: %s", func.c_str());
     }
 }
 template <typename TRet, typename... Args>
 TRet LuaVM::Call(const std::string& func, Args&... args)
 {
-    if (L) {
+    if (L == 0) {
+        return TRet();
+    }
+    try {
         return luabind::call_function<TRet>(L, func.c_str(), args...);
+    } catch (...) {
+        logger_->Log("exception @ lua function: %s", func.c_str());
     }
     return TRet();
 }
