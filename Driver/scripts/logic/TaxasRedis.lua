@@ -1,0 +1,3 @@
+function RedisGetPlayerInfo(uid)
+
+end

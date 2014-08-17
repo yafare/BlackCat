@@ -7,13 +7,10 @@
 
 #include "LuaVM.h"
 
-std::shared_ptr<GameScript> game_script;
-
 #define CHECK_AND_LOCK() \
     if (!running_ || vm_ == 0) { \
         return; \
-    } \
-    Lock l(vm_mutex_);
+    }
 
 GameScript::GameScript() : running_(false), vm_(0)
 {
@@ -21,15 +18,13 @@ GameScript::GameScript() : running_(false), vm_(0)
 
 void GameScript::Init()
 {
-    script_timer_ = server->SetTimer(game_script->GetScriptFrameFunc(), SCRIPT_FRAME_INTERVAL);
-
     vm_ = new LuaVM;
     if (vm_ == 0) {
-        logger_->Log("Script env init fail");
+        LOG("Script env init fail");
         return;
     }
     if (!vm_->Load("./game_main.lua")) {
-        logger_->Log("Load game main script fail");
+        LOG("Load game main script fail");
         return;
     }
 
@@ -51,7 +46,6 @@ TimerFunc GameScript::GetScriptFrameFunc()
 void GameScript::Stop()
 {
     running_ = false;
-    server->KillTimer(script_timer_);
 }
 
 void GameScript::OnUserConnected(uint32 conn_id)

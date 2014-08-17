@@ -43,7 +43,7 @@ void LuaVM::Call(const std::string& func, Args&... args)
     try {
         luabind::call_function<void>(L, func.c_str(), args...);
     } catch (...) {
-        logger_->Log("exception @ lua function: %s", func.c_str());
+        LOG("exception @ lua function: %s", func.c_str());
     }
 }
 template <typename TRet, typename... Args>
@@ -55,7 +55,7 @@ TRet LuaVM::Call(const std::string& func, Args&... args)
     try {
         return luabind::call_function<TRet>(L, func.c_str(), args...);
     } catch (...) {
-        logger_->Log("exception @ lua function: %s", func.c_str());
+        LOG("exception @ lua function: %s", func.c_str());
     }
     return TRet();
 }

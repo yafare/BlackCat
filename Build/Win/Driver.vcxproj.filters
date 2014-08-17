@@ -10,28 +10,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Driver\Driver.cpp">
-      <Filter>Src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Driver\IoDispatcher.cpp">
-      <Filter>Src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Driver\LuaVM.cpp">
       <Filter>Src\Script</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Driver\GameScript.cpp">
       <Filter>Src\Script</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Driver\Main.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Driver\Driver.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Driver\TimerMgr.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Driver\IoDispatcher.h">
-      <Filter>Src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Driver\LuaVM.h">
       <Filter>Src\Script</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Driver\GameScript.h">
       <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Driver\Driver.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Driver\Timer.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Driver\TimerMgr.h">
+      <Filter>Src</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

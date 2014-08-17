@@ -8,7 +8,9 @@
         return; \
     }
 
-TcpConnection::TcpConnection(IoService& io_service) : socket_(io_service)
+TcpConnection::TcpConnection(IoService& io_service) :
+    socket_(io_service),
+    io_service_(io_service)
 {
 }
 

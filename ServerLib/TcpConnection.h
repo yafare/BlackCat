@@ -23,14 +23,15 @@ public:
     void            Send(const uint8 *buf, uint32 len);
     void            Recv();
 
-private:
+public:
     void            OnConnected(const ErrorCode& e);
     void            OnRead(const ErrorCode& e, uint32 len);
     void            OnWrite(const ErrorCode& e, uint32 len);
     void            OnDisconnect(const ErrorCode& e);
 
-private:
+protected:
     uint32                      conn_id_;
+    IoService&                  io_service_;
     Socket                      socket_;
     ConnectionCallBacks         cb_;
     std::vector<uint8>          recv_buf_;

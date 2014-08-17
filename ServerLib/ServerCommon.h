@@ -26,6 +26,8 @@ struct PacketHeader
 using Lock                  = std::lock_guard<std::mutex>;
 using ErrorCode             = boost::system::error_code;
 using IoService             = boost::asio::io_service;
+using EndPoint              = boost::asio::ip::tcp::endpoint;
+using Resolver              = boost::asio::ip::tcp::resolver;
 using TcpSocket             = boost::asio::ip::tcp::socket;
 using Acceptor              = boost::asio::ip::tcp::acceptor;
 using TimerFunc             = std::function<void()>;
@@ -51,11 +53,11 @@ struct AutoLogFunc
 {
     AutoLogFunc(const char *func) : func_(func)
     {
-        logger_->Log("enter %s", func);
+        LOG("enter %s", func);
     }
     ~AutoLogFunc()
     {
-        logger_->Log("leave %s", func_);
+        LOG("leave %s", func_);
     }
     const char *func_;
 };

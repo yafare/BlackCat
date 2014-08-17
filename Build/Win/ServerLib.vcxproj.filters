@@ -38,6 +38,9 @@
     <ClInclude Include="../../ServerLib/logger_service.hpp">
       <Filter>log</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\ServerLib\TcpClient.h">
+      <Filter>server</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="../../ServerLib/io_service_pool.cpp">
@@ -59,6 +62,9 @@
       <Filter>server</Filter>
     </ClCompile>
     <ClCompile Include="../../ServerLib/TcpServer.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ServerLib\TcpClient.cpp">
       <Filter>server</Filter>
     </ClCompile>
   </ItemGroup>
