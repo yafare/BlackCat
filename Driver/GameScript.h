@@ -22,9 +22,6 @@ public:
     void            OnUserDisconnected(uint32 conn_id);
     void            OnUserData(uint32 conn_id, const uint8 *buf, uint32 len);
 
-    // function to lua
-    void            SendData(uint32 conn_id, const uint8 *buf, uint32 len);
-
     TimerFunc       GetScriptFrameFunc();
 
 private:

@@ -9,6 +9,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{fd4dd291-245e-45ad-b3ad-371a8f094b22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="../../ServerLib/ServerCommon.h">
@@ -38,8 +41,20 @@
     <ClInclude Include="../../ServerLib/logger_service.hpp">
       <Filter>log</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ServerLib\TcpClient.h">
+    <ClInclude Include="../../ServerLib/TcpClient.h">
       <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="../../ServerLib/TimerMgr.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="../../ServerLib/Timer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="../../ServerLib/strop.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="../../ServerLib/CfgReader.h">
+      <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -64,8 +79,14 @@
     <ClCompile Include="../../ServerLib/TcpServer.cpp">
       <Filter>server</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ServerLib\TcpClient.cpp">
+    <ClCompile Include="../../ServerLib/strop.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="../../ServerLib/TcpClient.cpp">
       <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="../../ServerLib/TimerMgr.cpp">
+      <Filter>common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

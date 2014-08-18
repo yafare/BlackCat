@@ -38,8 +38,8 @@ void TcpConnection::Send(const uint8 *buf, uint32 len)
 
 void TcpConnection::OnConnected(const ErrorCode& e)
 {
-    if (!e && cb_.OnConnected) {
-        cb_.OnConnected(shared_from_this());
+    if (cb_.OnConnected) {
+        cb_.OnConnected(shared_from_this(), !e);
     }
 }
 

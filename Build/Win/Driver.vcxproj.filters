@@ -22,8 +22,11 @@
     <ClCompile Include="..\..\Driver\Driver.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Driver\TimerMgr.cpp">
+    <ClCompile Include="..\..\Driver\DriverFunc.cpp">
       <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Driver\LuaBinder.cpp">
+      <Filter>Src\Script</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -36,11 +39,8 @@
     <ClInclude Include="..\..\Driver\Driver.h">
       <Filter>Src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Driver\Timer.h">
-      <Filter>Src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Driver\TimerMgr.h">
-      <Filter>Src</Filter>
+    <ClInclude Include="..\..\Driver\LuaBinder.h">
+      <Filter>Src\Script</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

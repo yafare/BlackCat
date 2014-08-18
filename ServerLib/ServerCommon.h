@@ -36,7 +36,7 @@ class TcpConnection;
 using ConnectionPtr         = std::shared_ptr<TcpConnection>;
 
 using FuncOnAccept          = std::function<void(const ConnectionPtr&)>;
-using FuncOnConnect         = std::function<void(const ConnectionPtr&)>;
+using FuncOnConnect         = std::function<void(const ConnectionPtr&, bool)>;
 using FuncOnRead            = std::function<uint32(const ConnectionPtr&, const uint8 *, uint32)>;
 using FuncOnWrite           = std::function<void(const ConnectionPtr&, uint32)>;
 using FuncOnDisconnect      = std::function<void(const ConnectionPtr&)>;

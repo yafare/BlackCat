@@ -82,17 +82,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Driver\Driver.cpp" />
+    <ClCompile Include="..\..\Driver\DriverFunc.cpp" />
+    <ClCompile Include="..\..\Driver\LuaBinder.cpp" />
     <ClCompile Include="..\..\Driver\Main.cpp" />
     <ClCompile Include="..\..\Driver\GameScript.cpp" />
     <ClCompile Include="..\..\Driver\LuaVM.cpp" />
-    <ClCompile Include="..\..\Driver\TimerMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Driver\Driver.h" />
     <ClInclude Include="..\..\Driver\GameScript.h" />
+    <ClInclude Include="..\..\Driver\LuaBinder.h" />
     <ClInclude Include="..\..\Driver\LuaVM.h" />
-    <ClInclude Include="..\..\Driver\Timer.h" />
-    <ClInclude Include="..\..\Driver\TimerMgr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

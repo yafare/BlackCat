@@ -1,4 +1,4 @@
-#include "Driver.h"
+#include "Gateway.h"
 
 #include <vector>
 #include <string>
@@ -10,22 +10,28 @@ static std::vector<std::string> GetConfig()
     std::vector<std::string> result;
 
     CfgReader reader;
-    reader.Read("./Driver.cfg");
+    reader.Read("./Gateway.cfg");
     std::string ip = reader["GatewayIP"];
     std::string port = reader["GatewayPort"];
+    std::string pool_size = reader["IoServicePoolSize"];
     if (ip.empty() || port.empty()) {
-        LOG("Please check Driver.cfg!");
+        LOG("Please check Gateway.cfg!");
         return result;
+    }
+
+    if (pool_size.empty()) {
+        pool_size = "1";
     }
 
     result.push_back(ip);
     result.push_back(port);
+    result.push_back(pool_size);
     return result;
 }
 
 int main()
 {
-    driver = new Driver;
+    Gateway gate;
 
     auto cfg = GetConfig();
     if (cfg.empty()) {
@@ -33,7 +39,7 @@ int main()
     }
 
     try {
-        driver->Run(cfg[0], cfg[1]);
+        gate.Run(cfg[0], cfg[1], atoi(cfg[2].c_str()));
     } catch (std::exception& e) {
         LOG("exception: %s", e.what());
     }

@@ -6,6 +6,7 @@
 #include "../ServerLib/TcpConnection.h"
 
 #include "LuaVM.h"
+#include "LuaBinder.h"
 
 #define CHECK_AND_LOCK() \
     if (!running_ || vm_ == 0) { \
@@ -23,6 +24,10 @@ void GameScript::Init()
         LOG("Script env init fail");
         return;
     }
+
+    LuaBinder binder;
+    binder.Bind(vm_);
+
     if (!vm_->Load("./game_main.lua")) {
         LOG("Load game main script fail");
         return;
@@ -74,15 +79,4 @@ void GameScript::OnUserData(uint32 conn_id, const uint8 *buf, uint32 len)
     lua_pushinteger(L, conn_id);
     lua_pushlstring(L, (const char *)buf, len);
     lua_pcall(L, 2, 0, 0);
-}
-
-void GameScript::SendData(uint32 conn_id, const uint8 *buf, uint32 len)
-{
-    CHECK_AND_LOCK();
-
-    auto conn = GetSessionMgr().Get(conn_id);
-    if (conn == 0) {
-        return;
-    }
-    conn->Send(buf, len);
 }

@@ -2,20 +2,16 @@
 
 #include <luabind/luabind.hpp>
 
+#include "../ServerLib/CfgReader.h"
 #include "../ServerLib/TcpClient.h"
 #include "../Common/Types.h"
 #include "LuaVM.h"
+#include "TestProtoBuf.h"
 
 using namespace luabind;
 
 void TestLua()
 {
-    for (int i = 0; i < 1000; i++) {
-        LuaVM *lua_vm = new LuaVM;
-        lua_vm->Load("test2.lua");
-    }
-
-
     LuaVM *lua_vm = new LuaVM;
 
     // pbc Test
@@ -61,8 +57,18 @@ void TestTcpClient()
     ios.run();
 }
 
+void TestCfgReader()
+{
+    CfgReader reader;
+    reader.Read("./test.cfg");
+
+    std::string port = reader["port"];
+    std::string thread = reader["thread"];
+    printf("result: %s %s\n", port.c_str(), thread.c_str());
+}
+
 int main()
 {
-    TestTcpClient();
+    TestProtoBuf();
     getchar();
 }

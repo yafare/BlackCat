@@ -9,18 +9,33 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="ProtoBuf">
+      <UniqueIdentifier>{c303b29c-fb3f-4802-be05-5bcfe82957dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="../../UnitTest/UnitTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\UnitTest\LuaVM.cpp">
+    <ClCompile Include="../../UnitTest/TestProtoBuf.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="../../UnitTest/LuaVM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="../../UnitTest/addressbook.pb.cc">
+      <Filter>ProtoBuf</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\UnitTest\LuaVM.h">
+    <ClInclude Include="../../UnitTest/TestProtoBuf.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="../../UnitTest/LuaVM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="../../UnitTest/addressbook.pb.h">
+      <Filter>ProtoBuf</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -20,7 +20,11 @@
     <ClInclude Include="../../ServerLib/Socket.h" />
     <ClInclude Include="../../ServerLib/TcpConnection.h" />
     <ClInclude Include="../../ServerLib/TcpServer.h" />
-    <ClInclude Include="..\..\ServerLib\TcpClient.h" />
+    <ClInclude Include="../../ServerLib/CfgReader.h" />
+    <ClInclude Include="../../ServerLib/strop.h" />
+    <ClInclude Include="../../ServerLib/Timer.h" />
+    <ClInclude Include="../../ServerLib/TimerMgr.h" />
+    <ClInclude Include="../../ServerLib/TcpClient.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="../../ServerLib/io_service_pool.cpp" />
@@ -30,7 +34,9 @@
     <ClCompile Include="../../ServerLib/Socket.cpp" />
     <ClCompile Include="../../ServerLib/TcpConnection.cpp" />
     <ClCompile Include="../../ServerLib/TcpServer.cpp" />
-    <ClCompile Include="..\..\ServerLib\TcpClient.cpp" />
+    <ClCompile Include="../../ServerLib/strop.cpp" />
+    <ClCompile Include="../../ServerLib/TimerMgr.cpp" />
+    <ClCompile Include="../../ServerLib/TcpClient.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5AB351F5-29C6-44CA-9BB6-9B43650780A1}</ProjectGuid>

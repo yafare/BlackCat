@@ -1,7 +1,5 @@
 
-local protobuf = require "lib.protobuf"
-
-print(tostring(protobuf))
+local protobuf = require "protobuf"
 
 addr = io.open("addressbook.pb","rb")
 buffer = addr:read "*a"
@@ -18,19 +16,37 @@ local person = {
 	}
 }
 
-local buffer = protobuf.encode("tutorial.Person", person)
+function TestLuaCodec()
+    local buffer = protobuf.encode("tutorial.Person", person)
 
-local t = protobuf.decode("tutorial.Person", buffer)
-
-for k,v in pairs(t) do
-	if type(k) == "string" then
-		print(k,v)
-	end
+    local t = protobuf.decode("tutorial.Person", buffer)
+    for k,v in pairs(t) do
+        if type(k) == "string" then
+            print(k,v)
+        end
+    end
+    print(t.phone[2].type)
+    for k,v in pairs(t.phone[1]) do
+        print(k,v)
+    end
 end
 
-print(t.phone[2].type)
+TestLuaCodec()
 
-for k,v in pairs(t.phone[1]) do
-	print(k,v)
+print('\n===================================================\n')
+
+function OnUserData(packet)
+    print('test begin, OnUserData')
+
+    local t = protobuf.decode("tutorial.Person", packet)
+    
+    for k,v in pairs(t) do
+        if type(k) == "string" then
+            print(k,v)
+        end
+    end
+    print(t.phone[2].type)
+    for k,v in pairs(t.phone[1]) do
+        print(k,v)
+    end
 end
-

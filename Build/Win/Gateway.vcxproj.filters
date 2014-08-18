@@ -6,15 +6,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Gateway\Gateway.cpp">
+    <ClCompile Include="..\..\Gateway\Main.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Gateway\IoDispatcher.cpp">
+    <ClCompile Include="..\..\Gateway\Gateway.cpp">
       <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Gateway\IoDispatcher.h">
+    <ClInclude Include="..\..\Gateway\Gateway.h">
       <Filter>Src</Filter>
     </ClInclude>
   </ItemGroup>
