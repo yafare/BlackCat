@@ -5,29 +5,6 @@
 #include <vector>
 
 template <typename T>
-class FastBuf
-{
-    static const int max_size_ = 10 * 1024;
-public:
-    FastBuf(int size)
-    {
-        if (size > max_size_) {
-            buf = new T[size];
-        } else {
-            buf = buf_;
-        }
-    }
-    ~FastBuf()
-    {
-        if (buf != buf_) {
-            delete buf;
-        }
-    }
-    T buf_[max_size_];
-    T *buf;
-};
-
-template <typename T>
 struct general_const_strings
 {
     static const T blank_str;

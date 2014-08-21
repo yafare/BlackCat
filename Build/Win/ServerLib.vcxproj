@@ -16,7 +16,6 @@
     <ClInclude Include="../../ServerLib/logger.hpp" />
     <ClInclude Include="../../ServerLib/logger_service.hpp" />
     <ClInclude Include="../../ServerLib/ServerCommon.h" />
-    <ClInclude Include="../../ServerLib/SessionMgr.h" />
     <ClInclude Include="../../ServerLib/Socket.h" />
     <ClInclude Include="../../ServerLib/TcpConnection.h" />
     <ClInclude Include="../../ServerLib/TcpServer.h" />
@@ -25,18 +24,22 @@
     <ClInclude Include="../../ServerLib/Timer.h" />
     <ClInclude Include="../../ServerLib/TimerMgr.h" />
     <ClInclude Include="../../ServerLib/TcpClient.h" />
+    <ClInclude Include="..\..\..\..\..\%40TexasPoker\trunk\TexasServer\ServerLib\fasthash.h" />
+    <ClInclude Include="..\..\ServerLib\IndexMgr.h" />
+    <ClInclude Include="..\..\ServerLib\md5.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="../../ServerLib/io_service_pool.cpp" />
     <ClCompile Include="../../ServerLib/logger.cpp" />
     <ClCompile Include="../../ServerLib/logger_service.cpp" />
-    <ClCompile Include="../../ServerLib/SessionMgr.cpp" />
     <ClCompile Include="../../ServerLib/Socket.cpp" />
     <ClCompile Include="../../ServerLib/TcpConnection.cpp" />
     <ClCompile Include="../../ServerLib/TcpServer.cpp" />
     <ClCompile Include="../../ServerLib/strop.cpp" />
     <ClCompile Include="../../ServerLib/TimerMgr.cpp" />
     <ClCompile Include="../../ServerLib/TcpClient.cpp" />
+    <ClCompile Include="..\..\..\..\..\%40TexasPoker\trunk\TexasServer\ServerLib\fasthash.cpp" />
+    <ClCompile Include="..\..\ServerLib\md5.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5AB351F5-29C6-44CA-9BB6-9B43650780A1}</ProjectGuid>
@@ -87,7 +90,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <Optimization>Disabled</Optimization>

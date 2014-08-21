@@ -2,15 +2,16 @@
 
 #define CHECK_ERROR(e) \
     if (e) { \
-        printf("%d - %s\n", e.value(), e.message().c_str()); \
         socket_.Shutdown(); \
         OnDisconnect(e); \
         return; \
     }
 
-TcpConnection::TcpConnection(IoService& io_service) :
+TcpConnection::TcpConnection(IoService& io_service, DisconnectCallBack disconnect_func) :
+    conn_id_(0),
     socket_(io_service),
-    io_service_(io_service)
+    io_service_(io_service),
+    disconnect_func_(disconnect_func)
 {
 }
 
@@ -74,5 +75,8 @@ void TcpConnection::OnDisconnect(const ErrorCode& /*e*/)
     printf("disconnect: %d\n", GetId());
     if (cb_.OnDisconnect) {
         cb_.OnDisconnect(shared_from_this());
+    }
+    if (disconnect_func_) {
+        disconnect_func_(GetId());
     }
 }

@@ -66,33 +66,3 @@ bool LuaVM::Load(const std::string& file)
     }
     return false;
 }
-
-ScriptSystem *ScriptSystem::instance_ = 0;
-ScriptSystem::ScriptSystem()
-{
-}
-
-ScriptSystem::~ScriptSystem()
-{
-    vms_.clear();
-}
-
-ScriptSystem& ScriptSystem::Instance()
-{
-    if (!instance_) {
-        instance_ = new ScriptSystem;
-    }
-    return *instance_;
-}
-
-LuaVM *ScriptSystem::CreateVM()
-{
-    LuaVM *vm = new LuaVM;
-    vms_.push_back(vm);
-    return vm;
-}
-
-LuaVM *ScriptSystem::GetVM(int index)
-{
-    return vms_[index];
-}

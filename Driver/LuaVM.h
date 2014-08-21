@@ -60,27 +60,4 @@ TRet LuaVM::Call(const std::string& func, Args&... args)
     return TRet();
 }
 
-typedef std::vector<LuaVM *> VMList;
-class ScriptSystem
-{
-private:
-    ScriptSystem();
-    ~ScriptSystem();
-
-public:
-    static ScriptSystem&    Instance();
-    LuaVM                  *CreateVM();
-    LuaVM                  *GetVM(int index);
-
-private:
-    VMList                  vms_;
-    static ScriptSystem    *instance_;
-};
-
-class Binder
-{
-public:
-    void Bind(LuaVM *vm);
-};
-
 #endif  // _LUAVM_H

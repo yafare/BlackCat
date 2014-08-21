@@ -10,8 +10,7 @@ TcpServer::TcpServer(const std::string& address, const std::string& port,
     : io_service_pool_(io_service_pool_size),
       signals_(io_service_pool_.get_io_service()),
       acceptor_(io_service_pool_.get_io_service()),
-      OnAccept(func),
-      conn_id_(0)
+      OnAccept(func)
 {
     signals_.add(SIGINT);
     signals_.add(SIGTERM);
@@ -35,20 +34,11 @@ TcpServer::TcpServer(const std::string& address, const std::string& port,
     StartAccept();
 }
 
-void TcpServer::SetCallBacks(const ConnectionCallBacks& cb)
-{
-    cb_ = cb;
-}
-
-void TcpServer::Run()
-{
-    io_service_pool_.run();
-}
-
 void TcpServer::StartAccept()
 {
-    ConnectionPtr new_connection(new TcpConnection(io_service_pool_.get_io_service()));
-    new_connection->Init(++conn_id_);
+    ConnectionPtr new_connection(new TcpConnection(io_service_pool_.get_io_service(),
+        std::bind(&TcpServer::ConnectionDown, this, std::placeholders::_1)));
+    new_connection->Init(conn_id_mgr_.GetId());
 
     auto handle_accept = [&](const ConnectionPtr& conn, const ErrorCode& e) {
         if (!e) {

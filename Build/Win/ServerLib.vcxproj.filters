@@ -17,9 +17,6 @@
     <ClInclude Include="../../ServerLib/ServerCommon.h">
       <Filter>server</Filter>
     </ClInclude>
-    <ClInclude Include="../../ServerLib/SessionMgr.h">
-      <Filter>server</Filter>
-    </ClInclude>
     <ClInclude Include="../../ServerLib/Socket.h">
       <Filter>server</Filter>
     </ClInclude>
@@ -56,6 +53,15 @@
     <ClInclude Include="../../ServerLib/CfgReader.h">
       <Filter>common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\ServerLib\md5.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerLib\IndexMgr.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\%40TexasPoker\trunk\TexasServer\ServerLib\fasthash.h">
+      <Filter>server</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="../../ServerLib/io_service_pool.cpp">
@@ -66,9 +72,6 @@
     </ClCompile>
     <ClCompile Include="../../ServerLib/logger_service.cpp">
       <Filter>log</Filter>
-    </ClCompile>
-    <ClCompile Include="../../ServerLib/SessionMgr.cpp">
-      <Filter>server</Filter>
     </ClCompile>
     <ClCompile Include="../../ServerLib/Socket.cpp">
       <Filter>server</Filter>
@@ -87,6 +90,12 @@
     </ClCompile>
     <ClCompile Include="../../ServerLib/TimerMgr.cpp">
       <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ServerLib\md5.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\%40TexasPoker\trunk\TexasServer\ServerLib\fasthash.cpp">
+      <Filter>server</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

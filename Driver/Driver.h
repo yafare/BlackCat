@@ -4,7 +4,13 @@
 #include "../ServerLib/TcpClient.h"
 #include "../ServerLib/TimerMgr.h"
 
+#include "../Common/Misc.h"
+
 #include "GameScript.h"
+
+#include "Protocol.pb.h"
+#include "packet.pb.h"
+#include "Gateway.pb.h"
 
 #define SCRIPT_FRAME_INTERVAL 6 // ms
 
@@ -20,6 +26,10 @@ public:
     void                Send(uint32 conn_id, const std::string& pkt);
 
 private:
+    template <typename T>
+    void                SendToGate(uint32 cmd, const T& pkt);
+
+private:
     void                LoginToGate();
 
 private:
@@ -30,8 +40,6 @@ private:
     void                Dispatch(uint32 conn_id, const uint8 *buf, uint32 len);
 
     // call backs
-    void                OnAccept(const ConnectionPtr& conn);
-
     void                OnConnected(const ConnectionPtr& conn, bool success);
     uint32              OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len);
     void                OnWrite(const ConnectionPtr& conn, uint32 len);
@@ -58,6 +66,22 @@ inline ConnectionCallBacks Driver::GetCallBacks()
         std::bind(&Driver::OnDisconnect, this, std::placeholders::_1),
     };
     return cb;
+}
+
+template <typename T>
+void Driver::SendToGate(uint32 cmd, const T& pkt)
+{
+    PB::Packet packet;
+    packet.set_version(Protocol::PROTOCOL_VERSION);
+    packet.set_command(cmd);
+
+    pkt.SerializeToString(packet.mutable_serialized());
+    uint32 len = packet.ByteSize();
+
+    FastBuf<uint8> buf(len + 4);
+    packet.SerializeToArray(buf.buf + 4, len);
+    memcpy(buf.buf, &len, 4);
+    client_->Send(buf.buf, len + 4);
 }
 
 #endif // _DRIVER_H

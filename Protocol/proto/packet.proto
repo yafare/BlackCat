@@ -1,0 +1,11 @@
+
+package PB;
+
+option optimize_for = LITE_RUNTIME;
+
+message Packet
+{
+    required uint32     version     = 1;
+    required uint32     command     = 2;
+    optional bytes      serialized  = 3;
+};

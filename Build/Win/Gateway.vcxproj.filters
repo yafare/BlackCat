@@ -4,6 +4,9 @@
     <Filter Include="Src">
       <UniqueIdentifier>{6b2cd7dc-d1bb-4ec5-9f2a-265e8d99eb05}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ProtoBuf">
+      <UniqueIdentifier>{45be5d4a-d826-4a7a-a373-0d5108843c85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Gateway\Main.cpp">
@@ -12,9 +15,51 @@
     <ClCompile Include="..\..\Gateway\Gateway.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Gateway\GateUser.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Protocol\cpp\ClientGate.pb.cc">
+      <Filter>ProtoBuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Protocol\cpp\Gateway.pb.cc">
+      <Filter>ProtoBuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Protocol\cpp\packet.pb.cc">
+      <Filter>ProtoBuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Protocol\cpp\Protocol.pb.cc">
+      <Filter>ProtoBuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gateway\GateUserMgr.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gateway\GatewayHandler.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\%40TexasPoker\trunk\TexasServer\Gateway\Router.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Gateway\Gateway.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gateway\GateUser.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Protocol\cpp\ClientGate.pb.h">
+      <Filter>ProtoBuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Protocol\cpp\Gateway.pb.h">
+      <Filter>ProtoBuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Protocol\cpp\packet.pb.h">
+      <Filter>ProtoBuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Protocol\cpp\Protocol.pb.h">
+      <Filter>ProtoBuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\%40TexasPoker\trunk\TexasServer\Gateway\Router.h">
       <Filter>Src</Filter>
     </ClInclude>
   </ItemGroup>

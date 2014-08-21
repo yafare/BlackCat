@@ -22,7 +22,6 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/generated_message_reflection.h>
 // @@protoc_insertion_point(includes)
 
 namespace tutorial {
@@ -47,19 +46,9 @@ const Person_PhoneType Person_PhoneType_PhoneType_MIN = Person_PhoneType_MOBILE;
 const Person_PhoneType Person_PhoneType_PhoneType_MAX = Person_PhoneType_WORK;
 const int Person_PhoneType_PhoneType_ARRAYSIZE = Person_PhoneType_PhoneType_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* Person_PhoneType_descriptor();
-inline const ::std::string& Person_PhoneType_Name(Person_PhoneType value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    Person_PhoneType_descriptor(), value);
-}
-inline bool Person_PhoneType_Parse(
-    const ::std::string& name, Person_PhoneType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Person_PhoneType>(
-    Person_PhoneType_descriptor(), name, value);
-}
 // ===================================================================
 
-class Person_PhoneNumber : public ::google::protobuf::Message {
+class Person_PhoneNumber : public ::google::protobuf::MessageLite {
  public:
   Person_PhoneNumber();
   virtual ~Person_PhoneNumber();
@@ -71,15 +60,6 @@ class Person_PhoneNumber : public ::google::protobuf::Message {
     return *this;
   }
   
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-  
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-  
-  static const ::google::protobuf::Descriptor* descriptor();
   static const Person_PhoneNumber& default_instance();
   
   void Swap(Person_PhoneNumber* other);
@@ -87,8 +67,7 @@ class Person_PhoneNumber : public ::google::protobuf::Message {
   // implements Message ----------------------------------------------
   
   Person_PhoneNumber* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const Person_PhoneNumber& from);
   void MergeFrom(const Person_PhoneNumber& from);
   void Clear();
@@ -99,7 +78,6 @@ class Person_PhoneNumber : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -107,7 +85,7 @@ class Person_PhoneNumber : public ::google::protobuf::Message {
   void SetCachedSize(int size) const;
   public:
   
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
   
   // nested types ----------------------------------------------------
   
@@ -138,8 +116,6 @@ class Person_PhoneNumber : public ::google::protobuf::Message {
   inline void set_has_type();
   inline void clear_has_type();
   
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-  
   ::std::string* number_;
   int type_;
   
@@ -155,7 +131,7 @@ class Person_PhoneNumber : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class Person : public ::google::protobuf::Message {
+class Person : public ::google::protobuf::MessageLite {
  public:
   Person();
   virtual ~Person();
@@ -167,15 +143,6 @@ class Person : public ::google::protobuf::Message {
     return *this;
   }
   
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-  
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-  
-  static const ::google::protobuf::Descriptor* descriptor();
   static const Person& default_instance();
   
   void Swap(Person* other);
@@ -183,8 +150,7 @@ class Person : public ::google::protobuf::Message {
   // implements Message ----------------------------------------------
   
   Person* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const Person& from);
   void MergeFrom(const Person& from);
   void Clear();
@@ -195,7 +161,6 @@ class Person : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -203,7 +168,7 @@ class Person : public ::google::protobuf::Message {
   void SetCachedSize(int size) const;
   public:
   
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
   
   // nested types ----------------------------------------------------
   
@@ -222,17 +187,6 @@ class Person : public ::google::protobuf::Message {
     Person_PhoneType_PhoneType_MAX;
   static const int PhoneType_ARRAYSIZE =
     Person_PhoneType_PhoneType_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  PhoneType_descriptor() {
-    return Person_PhoneType_descriptor();
-  }
-  static inline const ::std::string& PhoneType_Name(PhoneType value) {
-    return Person_PhoneType_Name(value);
-  }
-  static inline bool PhoneType_Parse(const ::std::string& name,
-      PhoneType* value) {
-    return Person_PhoneType_Parse(name, value);
-  }
   
   // accessors -------------------------------------------------------
   
@@ -247,12 +201,12 @@ class Person : public ::google::protobuf::Message {
   inline ::std::string* mutable_name();
   inline ::std::string* release_name();
   
-  // required int32 id = 2;
+  // required int64 id = 2;
   inline bool has_id() const;
   inline void clear_id();
   static const int kIdFieldNumber = 2;
-  inline ::google::protobuf::int32 id() const;
-  inline void set_id(::google::protobuf::int32 value);
+  inline ::google::protobuf::int64 id() const;
+  inline void set_id(::google::protobuf::int64 value);
   
   // optional string email = 3;
   inline bool has_email() const;
@@ -301,14 +255,12 @@ class Person : public ::google::protobuf::Message {
   
   ::google::protobuf::internal::ExtensionSet _extensions_;
   
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-  
   ::std::string* name_;
+  ::google::protobuf::int64 id_;
   ::std::string* email_;
   ::google::protobuf::RepeatedPtrField< ::tutorial::Person_PhoneNumber > phone_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > test_;
   mutable int _test_cached_byte_size_;
-  ::google::protobuf::int32 id_;
   
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
@@ -322,7 +274,7 @@ class Person : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class Ext : public ::google::protobuf::Message {
+class Ext : public ::google::protobuf::MessageLite {
  public:
   Ext();
   virtual ~Ext();
@@ -334,15 +286,6 @@ class Ext : public ::google::protobuf::Message {
     return *this;
   }
   
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-  
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-  
-  static const ::google::protobuf::Descriptor* descriptor();
   static const Ext& default_instance();
   
   void Swap(Ext* other);
@@ -350,8 +293,7 @@ class Ext : public ::google::protobuf::Message {
   // implements Message ----------------------------------------------
   
   Ext* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const Ext& from);
   void MergeFrom(const Ext& from);
   void Clear();
@@ -362,7 +304,6 @@ class Ext : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -370,7 +311,7 @@ class Ext : public ::google::protobuf::Message {
   void SetCachedSize(int size) const;
   public:
   
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
   
   // nested types ----------------------------------------------------
   
@@ -382,8 +323,6 @@ class Ext : public ::google::protobuf::Message {
     test;
   // @@protoc_insertion_point(class_scope:tutorial.Ext)
  private:
-  
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   
   mutable int _cached_size_;
@@ -398,7 +337,7 @@ class Ext : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class AddressBook : public ::google::protobuf::Message {
+class AddressBook : public ::google::protobuf::MessageLite {
  public:
   AddressBook();
   virtual ~AddressBook();
@@ -410,15 +349,6 @@ class AddressBook : public ::google::protobuf::Message {
     return *this;
   }
   
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-  
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-  
-  static const ::google::protobuf::Descriptor* descriptor();
   static const AddressBook& default_instance();
   
   void Swap(AddressBook* other);
@@ -426,8 +356,7 @@ class AddressBook : public ::google::protobuf::Message {
   // implements Message ----------------------------------------------
   
   AddressBook* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const AddressBook& from);
   void MergeFrom(const AddressBook& from);
   void Clear();
@@ -438,7 +367,6 @@ class AddressBook : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -446,7 +374,7 @@ class AddressBook : public ::google::protobuf::Message {
   void SetCachedSize(int size) const;
   public:
   
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
   
   // nested types ----------------------------------------------------
   
@@ -466,8 +394,6 @@ class AddressBook : public ::google::protobuf::Message {
   
   // @@protoc_insertion_point(class_scope:tutorial.AddressBook)
  private:
-  
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::google::protobuf::RepeatedPtrField< ::tutorial::Person > person_;
   
@@ -631,7 +557,7 @@ inline ::std::string* Person::release_name() {
   }
 }
 
-// required int32 id = 2;
+// required int64 id = 2;
 inline bool Person::has_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -642,13 +568,13 @@ inline void Person::clear_has_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void Person::clear_id() {
-  id_ = 0;
+  id_ = GOOGLE_LONGLONG(0);
   clear_has_id();
 }
-inline ::google::protobuf::int32 Person::id() const {
+inline ::google::protobuf::int64 Person::id() const {
   return id_;
 }
-inline void Person::set_id(::google::protobuf::int32 value) {
+inline void Person::set_id(::google::protobuf::int64 value) {
   set_has_id();
   id_ = value;
 }
@@ -798,19 +724,6 @@ AddressBook::mutable_person() {
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace tutorial
-
-#ifndef SWIG
-namespace google {
-namespace protobuf {
-
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::tutorial::Person_PhoneType>() {
-  return ::tutorial::Person_PhoneType_descriptor();
-}
-
-}  // namespace google
-}  // namespace protobuf
-#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

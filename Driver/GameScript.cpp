@@ -2,13 +2,12 @@
 
 #include "../ServerLib/logger.hpp"
 #include "../ServerLib/TcpServer.h"
-#include "../ServerLib/SessionMgr.h"
 #include "../ServerLib/TcpConnection.h"
 
 #include "LuaVM.h"
 #include "LuaBinder.h"
 
-#define CHECK_AND_LOCK() \
+#define CHECK_VM_RUNNING() \
     if (!running_ || vm_ == 0) { \
         return; \
     }
@@ -38,7 +37,7 @@ void GameScript::Init()
 
 void GameScript::Run()
 {
-    CHECK_AND_LOCK();
+    CHECK_VM_RUNNING();
 
     vm_->Call("game_main");
 }
@@ -55,28 +54,23 @@ void GameScript::Stop()
 
 void GameScript::OnUserConnected(uint32 conn_id)
 {
-    CHECK_AND_LOCK();
+    CHECK_VM_RUNNING();
 
     vm_->Call("OnUserConnected", conn_id);
 }
 
 void GameScript::OnUserDisconnected(uint32 conn_id)
 {
-    CHECK_AND_LOCK();
+    CHECK_VM_RUNNING();
 
     vm_->Call("OnUserDisconnected", conn_id);
 }
 
 void GameScript::OnUserData(uint32 conn_id, const uint8 *buf, uint32 len)
 {
-    CHECK_AND_LOCK();
+    CHECK_VM_RUNNING();
 
-    lua_State *L = vm_->GetLuaState();
-    lua_getglobal(L, "OnUserData");
-    if (!lua_isfunction(L, 1)) {
-        return;
-    }
-    lua_pushinteger(L, conn_id);
-    lua_pushlstring(L, (const char *)buf, len);
-    lua_pcall(L, 2, 0, 0);
+    std::string pkt;
+    pkt.append((const char *)buf, len);
+    vm_->Call("OnUserData", conn_id, pkt);
 }

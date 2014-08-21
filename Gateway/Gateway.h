@@ -14,7 +14,7 @@ public:
     Gateway();
 
 public:
-    void        Run(const std::string& ip, const std::string& port, int pool_size);
+    void                Run(const std::string& ip, const std::string& port, int pool_size);
 
 private:
     FuncOnAccept        GetAcceptCallBack();
@@ -22,7 +22,7 @@ private:
 
 private:
     // handler
-    void                Dispatch(uint32 conn_id, const uint8 *buf, uint32 len);
+    void                Dispatch(const ConnectionPtr& conn, const uint8 *buf, uint32 len);
 
     // call backs
     void                OnAccept(const ConnectionPtr& conn);
@@ -31,6 +31,11 @@ private:
     uint32              OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len);
     void                OnWrite(const ConnectionPtr& conn, uint32 len);
     void                OnDisconnect(const ConnectionPtr& conn);
+
+private:
+    void                HandlePacket(const ConnectionPtr& conn, const PB::Packet& packet);
+    void                HandleServerLogin(const ConnectionPtr& conn, const PB::Packet& packet);
+    void                HandleClientLogin(const ConnectionPtr& conn, const PB::Packet& packet);
 };
 
 inline FuncOnAccept Gateway::GetAcceptCallBack()

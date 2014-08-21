@@ -8,10 +8,11 @@
 #include <boost/array.hpp>
 #include <boost/noncopyable.hpp>
 
+#include "../Common/Misc.h"
 #include "../Common/Types.h"
 #include "logger.hpp"
 
-#define MAX_RECV_BUF (8*1024)
+#define MAX_RECV_BUF (32*1024)
 #pragma pack(push, 1)
 #ifdef _MSC_VER
 #pragma warning(disable:4200)

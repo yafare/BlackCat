@@ -1,6 +1,6 @@
 
-def TmpDir(x):
-    return '#/@tmp/' + x
+def SrcDir(x):
+    return '#/../../' + x
 def LibDir(x):
     return '#/@lib/' + x
 def BinDir(x):
@@ -13,16 +13,16 @@ env.Replace(CXX = 'g++')
 env.Replace(CCFLAGS = '-g -DPOSIX -O2 -Wall')
 env.Replace(CXXFLAGS = '-std=gnu++11 -D__STRICT_ANSI__ -DLINUX_CXX_11')
 
-env.VariantDir(TmpDir('Common'), '../../Common')
-
 includepath = Split('''
     /usr/local/include
     ''')
 libs = Split('''
     liblua
     libluabind
+    libprotobuf
     libboost_filesystem
     libboost_system
+    libboost_timer
     libpthread
     dl
     ''')
@@ -31,28 +31,36 @@ libpath = Split('''
     /usr/local/lib
     ''')
 
-env.VariantDir(TmpDir('ServerLib'), '../../ServerLib')
 ServerLib = env.StaticLibrary(
     LibDir('ServerLib'),
-    [Glob(TmpDir('ServerLib/*.cpp'))],
+    [Glob(SrcDir('ServerLib/*.cpp'))],
 )
 
 libs.insert(0, ServerLib)
-env.VariantDir(TmpDir('Driver'), '../../Driver')
+
 Driver = env.Program(
     BinDir('Driver'),
-    [Glob(TmpDir('Driver/*.cpp'))],
+    [Glob(SrcDir('Driver/*.cpp')), Glob(SrcDir('Protocol/cpp/*.cc'))],
+    CPPPATH     = [SrcDir('Protocol/cpp')],
     INCLUDEPATH = includepath,
     LIBS        = libs,
     LIBPATH     = libpath,
 )
 
-env.VariantDir(TmpDir('UnitTest'), '../../UnitTest')
-UnitTest = env.Program(
-    BinDir('UnitTest'),
-    [Glob(TmpDir('UnitTest/*.cpp'))],
+Gateway = env.Program(
+    BinDir('Gateway'),
+    [Glob(SrcDir('Gateway/*.cpp')), Glob(SrcDir('Protocol/cpp/*.cc'))],
+    CPPPATH     = [SrcDir('Protocol/cpp')],
     INCLUDEPATH = includepath,
     LIBS        = libs,
     LIBPATH     = libpath,
 )
-Default(UnitTest)
+
+UnitTest = env.Program(
+    BinDir('UnitTest'),
+    [Glob(SrcDir('UnitTest/*.cpp')), Glob(SrcDir('UnitTest/*.cc'))],
+    INCLUDEPATH = includepath,
+    LIBS        = libs,
+    LIBPATH     = libpath,
+)
+Default(Gateway)

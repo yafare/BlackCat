@@ -1,7 +1,5 @@
 #include "Driver.h"
 
-#include "../ServerLib/SessionMgr.h"
-
 #include "GameScript.h"
 #include "LuaBinder.h"
 #include "LuaVM.h"
@@ -33,13 +31,6 @@ void Driver::Stop()
 {
     timer_mgr_->Cancel(script_timer_);
     script_->Stop();
-}
-
-void Driver::OnAccept(const ConnectionPtr& conn)
-{
-    uint32 conn_id = conn->GetId();
-    GetSessionMgr().Add(conn_id, conn);
-    script_->OnUserConnected(conn_id);
 }
 
 void Driver::OnConnected(const ConnectionPtr& /*conn*/, bool success)
@@ -85,7 +76,7 @@ void Driver::OnWrite(const ConnectionPtr& /*conn*/, uint32 /*len*/)
 
 void Driver::OnDisconnect(const ConnectionPtr& conn)
 {
-    uint32 conn_id = conn->GetId();
-    GetSessionMgr().Del(conn_id);
-    script_->OnUserDisconnected(conn_id);
+    LOG("disconnected from gate server, try to reconnect");
+    client_->Shutdown();
+    client_->Connect(gate_ip_, gate_port_);
 }

@@ -1,6 +1,6 @@
 #include "TcpClient.h"
 
-TcpClient::TcpClient(IoService& service) : TcpConnection(service), connected_(false)
+TcpClient::TcpClient(IoService& service) : TcpConnection(service, [](uint32){}), connected_(false)
 {
 }
 

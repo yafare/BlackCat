@@ -8,8 +8,9 @@ class TcpConnection
     : private boost::noncopyable,
       public std::enable_shared_from_this<TcpConnection>
 {
+    using DisconnectCallBack = std::function<void(uint32)>;
 public:
-    TcpConnection(IoService& io_service);
+    TcpConnection(IoService& io_service, DisconnectCallBack disconnect_func);
     ~TcpConnection();
 
     void            Init(uint32 id);
@@ -22,6 +23,7 @@ public:
     void            SetCallBacks(const ConnectionCallBacks& callbacks);
     void            Send(const uint8 *buf, uint32 len);
     void            Recv();
+    void            Shutdown();
 
 public:
     void            OnConnected(const ErrorCode& e);
@@ -36,6 +38,7 @@ protected:
     ConnectionCallBacks         cb_;
     std::vector<uint8>          recv_buf_;
     std::mutex                  mutex_;
+    DisconnectCallBack          disconnect_func_;
 };
 
 inline uint32 TcpConnection::GetId()
@@ -50,6 +53,11 @@ inline Socket& TcpConnection::GetSocket()
 inline void TcpConnection::SetCallBacks(const ConnectionCallBacks& callbacks)
 {
     cb_ = callbacks;
+}
+
+inline void TcpConnection::Shutdown()
+{
+    socket_.Shutdown();
 }
 
 #endif // _TCPCONNECTION_H

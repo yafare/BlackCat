@@ -8,6 +8,9 @@
     <Filter Include="Src\Script">
       <UniqueIdentifier>{f71e66ca-fde0-4b88-8494-e93da0793da1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\ProtoBuf">
+      <UniqueIdentifier>{7da1d014-2864-4af3-ae70-ce3b5bfa32e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Driver\LuaVM.cpp">
@@ -28,6 +31,15 @@
     <ClCompile Include="..\..\Driver\LuaBinder.cpp">
       <Filter>Src\Script</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Protocol\cpp\Gateway.pb.cc">
+      <Filter>Src\ProtoBuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Protocol\cpp\packet.pb.cc">
+      <Filter>Src\ProtoBuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Protocol\cpp\Protocol.pb.cc">
+      <Filter>Src\ProtoBuf</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Driver\LuaVM.h">
@@ -41,6 +53,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Driver\LuaBinder.h">
       <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Protocol\cpp\Gateway.pb.h">
+      <Filter>Src\ProtoBuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Protocol\cpp\packet.pb.h">
+      <Filter>Src\ProtoBuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Protocol\cpp\Protocol.pb.h">
+      <Filter>Src\ProtoBuf</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,18 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerLib", "ServerLib.vcxproj", "{5AB351F5-29C6-44CA-9BB6-9B43650780A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B23A0576-7936-46CA-B288-DF4CDA189771}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\Common\Misc.h = ..\..\Common\Misc.h
 		..\..\Common\Types.h = ..\..\Common\Types.h
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Driver", "Driver.vcxproj", "{85AA5602-22D1-4B4E-85FE-5111D8A0E62E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{5AB351F5-29C6-44CA-9BB6-9B43650780A1} = {5AB351F5-29C6-44CA-9BB6-9B43650780A1}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest.vcxproj", "{E0B802BE-C5C7-4E2B-81A4-8D2DF4373FC5}"
@@ -35,10 +31,6 @@ Global
 		{5AB351F5-29C6-44CA-9BB6-9B43650780A1}.Debug|Win32.Build.0 = Debug|Win32
 		{5AB351F5-29C6-44CA-9BB6-9B43650780A1}.Release|Win32.ActiveCfg = Release|Win32
 		{5AB351F5-29C6-44CA-9BB6-9B43650780A1}.Release|Win32.Build.0 = Release|Win32
-		{85AA5602-22D1-4B4E-85FE-5111D8A0E62E}.Debug|Win32.ActiveCfg = Debug|Win32
-		{85AA5602-22D1-4B4E-85FE-5111D8A0E62E}.Debug|Win32.Build.0 = Debug|Win32
-		{85AA5602-22D1-4B4E-85FE-5111D8A0E62E}.Release|Win32.ActiveCfg = Release|Win32
-		{85AA5602-22D1-4B4E-85FE-5111D8A0E62E}.Release|Win32.Build.0 = Release|Win32
 		{E0B802BE-C5C7-4E2B-81A4-8D2DF4373FC5}.Debug|Win32.ActiveCfg = Debug|Win32
 		{E0B802BE-C5C7-4E2B-81A4-8D2DF4373FC5}.Debug|Win32.Build.0 = Debug|Win32
 		{E0B802BE-C5C7-4E2B-81A4-8D2DF4373FC5}.Release|Win32.ActiveCfg = Release|Win32

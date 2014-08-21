@@ -13,7 +13,6 @@ function SendPkt()
 end
 
 function game_main()
-    SendPkt()
 end
 
 print('load game_main.lua')

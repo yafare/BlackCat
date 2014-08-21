@@ -2,9 +2,11 @@
 #define _SERVER_H
 
 #include <atomic>
+#include <unordered_set>
 
 #include "ServerCommon.h"
 #include "io_service_pool.hpp"
+#include "IndexMgr.h"
 
 class TcpServer : private boost::noncopyable
 {
@@ -18,6 +20,7 @@ public:
 
 private:
     void    StartAccept();
+    void    ConnectionDown(uint32 id);
 
 private:
     io_service_pool                     io_service_pool_;
@@ -26,8 +29,23 @@ private:
     FuncOnAccept                        OnAccept;
     ConnectionCallBacks                 cb_;
 
-    std::atomic<uint32>                 conn_id_;
+    IndexMgr<uint32>                    conn_id_mgr_;
 };
 extern std::shared_ptr<TcpServer> server;
+
+inline void TcpServer::SetCallBacks(const ConnectionCallBacks& cb)
+{
+    cb_ = cb;
+}
+
+inline void TcpServer::Run()
+{
+    io_service_pool_.run();
+}
+
+inline void TcpServer::ConnectionDown(uint32 id)
+{
+    conn_id_mgr_.PutId(id);
+}
 
 #endif // _SERVER_H
