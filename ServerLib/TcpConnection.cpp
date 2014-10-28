@@ -8,10 +8,11 @@
     }
 
 TcpConnection::TcpConnection(IoService& io_service, DisconnectCallBack disconnect_func) :
-    conn_id_(0),
+    conn_id_(INVALID_CONN_ID),
     socket_(io_service),
     io_service_(io_service),
-    disconnect_func_(disconnect_func)
+    disconnect_func_(disconnect_func),
+    writting_msg_(false)
 {
 }
 
@@ -33,8 +34,19 @@ void TcpConnection::Recv()
 
 void TcpConnection::Send(const uint8 *buf, uint32 len)
 {
+    BufferPtr buffer(new std::vector<uint8>(buf, buf + len));
+    io_service_.post(std::bind(&TcpConnection::RealSend, shared_from_this(), buffer));
+}
+void TcpConnection::RealSend(const BufferPtr& buffer)
+{
+    send_buf_.push_back(buffer);
+    if (writting_msg_) {
+        return;
+    }
+
+    writting_msg_ = true;
     socket_.Send(std::bind(&TcpConnection::OnWrite, shared_from_this(),
-        std::placeholders::_1, std::placeholders::_2), buf, len);
+        std::placeholders::_1, std::placeholders::_2), &(*buffer->begin()), buffer->size());
 }
 
 void TcpConnection::OnConnected(const ErrorCode& e)
@@ -63,10 +75,23 @@ void TcpConnection::OnRead(const ErrorCode& e, uint32 len)
 
 void TcpConnection::OnWrite(const ErrorCode& e, uint32 len)
 {
+    writting_msg_ = false;
+
     CHECK_ERROR(e);
 
     if (cb_.OnWrite) {
         cb_.OnWrite(shared_from_this(), len);
+    }
+
+    send_buf_.pop_front();
+
+    // continue send
+    if (!send_buf_.empty()) {
+        auto buffer = send_buf_.front();
+
+        writting_msg_ = true;
+        socket_.Send(std::bind(&TcpConnection::OnWrite, shared_from_this(),
+            std::placeholders::_1, std::placeholders::_2), &(*buffer->begin()), buffer->size());
     }
 }
 

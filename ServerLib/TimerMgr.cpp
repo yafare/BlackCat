@@ -12,13 +12,22 @@ void TimerMgr::ResetLogicTimer()
 {
     auto logic_timer_func = [&]() {
         {
+            std::vector<uint32> timer_need_to_execute;
             for (auto it = timer_map_.begin(); it != timer_map_.end(); it++) {
                 boost::timer::cpu_times elapsed_times(it->second.timer.elapsed());
                 boost::timer::nanosecond_type elapsed(elapsed_times.wall);
                 if (elapsed >= it->second.interval * 1000000LL) {
-                    it->second.func();
-                    it->second.timer.start();
+                    timer_need_to_execute.push_back(it->first);
                 }
+            }
+
+            for (uint32 timer_id : timer_need_to_execute) {
+                auto it = timer_map_.find(timer_id);
+                if (it == timer_map_.end()) {
+                    continue;
+                }
+                it->second.timer.start();
+                it->second.func();
             }
         }
 
@@ -41,9 +50,14 @@ uint32 TimerMgr::AddTimer(const TimerFunc& func, uint32 interval)
 
 void TimerMgr::Cancel(uint32 timer_id)
 {
-    auto it = timer_map_.find(timer_id);
-    if (it == timer_map_.end()) {
-        return;
+    timer_map_.erase(timer_id);
+}
+
+int32 TimerMgr::GetRestTime(uint32 time_id)
+{
+    auto it = timer_map_.find(time_id);
+    if (it != timer_map_.end()) {
+        return it->second.GetRestTick();
     }
-    timer_map_.erase(it);
+    return 0;
 }

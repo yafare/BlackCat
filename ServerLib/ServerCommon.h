@@ -29,6 +29,7 @@ using ErrorCode             = boost::system::error_code;
 using IoService             = boost::asio::io_service;
 using EndPoint              = boost::asio::ip::tcp::endpoint;
 using Resolver              = boost::asio::ip::tcp::resolver;
+using Query                 = boost::asio::ip::tcp::resolver::query;
 using TcpSocket             = boost::asio::ip::tcp::socket;
 using Acceptor              = boost::asio::ip::tcp::acceptor;
 using TimerFunc             = std::function<void()>;

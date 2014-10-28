@@ -18,6 +18,8 @@ public:
 
     void    Run();
 
+    boost::asio::io_service& IoService() { return io_service_pool_.get_io_service(); }
+
 private:
     void    StartAccept();
     void    ConnectionDown(uint32 id);

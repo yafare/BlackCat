@@ -23,13 +23,15 @@ TcpServer::TcpServer(const std::string& address, const std::string& port,
         io_service_pool_.stop();
     }));
 
-    boost::asio::ip::tcp::resolver resolver(acceptor_.get_io_service());
-    boost::asio::ip::tcp::resolver::query query(address, port);
-    boost::asio::ip::tcp::endpoint endpoint = *resolver.resolve(query);
+    Resolver resolver(acceptor_.get_io_service());
+    Query query(address, port);
+    EndPoint endpoint = *resolver.resolve(query);
     acceptor_.open(endpoint.protocol());
     acceptor_.set_option(boost::asio::ip::tcp::acceptor::reuse_address(true));
     acceptor_.bind(endpoint);
     acceptor_.listen();
+
+    logger_.reset(new services::logger(io_service_pool_.get_io_service(), ""));
 
     StartAccept();
 }

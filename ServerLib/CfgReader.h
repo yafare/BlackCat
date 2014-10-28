@@ -7,6 +7,8 @@
 #include <string>
 #include <functional>
 
+#include <string.h>
+
 #include "strop.h"
 
 typedef std::map<std::string, std::string> KVMap;
