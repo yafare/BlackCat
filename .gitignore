@@ -1,1 +1,5 @@
 /Build/Win/*.suo
+/Build/Win/*.sdf
+/Build/Win/@bin/*
+/Build/Win/@lib/*
+/Build/Win/@obj/*
