@@ -62,6 +62,15 @@
     <ClInclude Include="../../ServerLib/fasthash.h">
       <Filter>server</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\ServerLib\SessionMgr.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerLib\Codec.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ServerLib\Dispatcher.h">
+      <Filter>server</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="../../ServerLib/io_service_pool.cpp">
@@ -96,6 +105,9 @@
     </ClCompile>
     <ClCompile Include="../../ServerLib/fasthash.cpp">
       <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ServerLib\SessionMgr.cpp">
+      <Filter>server</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

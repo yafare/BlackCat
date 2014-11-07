@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RpcClient", "RpcClient.vcxproj", "{4C86E479-0462-4EA2-991F-10298A714E30}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5AB351F5-29C6-44CA-9BB6-9B43650780A1} = {5AB351F5-29C6-44CA-9BB6-9B43650780A1}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerLib", "ServerLib.vcxproj", "{5AB351F5-29C6-44CA-9BB6-9B43650780A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C86E479-0462-4EA2-991F-10298A714E30}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4C86E479-0462-4EA2-991F-10298A714E30}.Debug|Win32.Build.0 = Debug|Win32
+		{4C86E479-0462-4EA2-991F-10298A714E30}.Release|Win32.ActiveCfg = Release|Win32
+		{4C86E479-0462-4EA2-991F-10298A714E30}.Release|Win32.Build.0 = Release|Win32
+		{5AB351F5-29C6-44CA-9BB6-9B43650780A1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5AB351F5-29C6-44CA-9BB6-9B43650780A1}.Debug|Win32.Build.0 = Debug|Win32
+		{5AB351F5-29C6-44CA-9BB6-9B43650780A1}.Release|Win32.ActiveCfg = Release|Win32
+		{5AB351F5-29C6-44CA-9BB6-9B43650780A1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

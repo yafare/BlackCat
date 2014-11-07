@@ -10,55 +10,20 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="../../ServerLib/basic_logger.hpp" />
-    <ClInclude Include="../../ServerLib/io_service_pool.hpp" />
-    <ClInclude Include="../../ServerLib/logger.hpp" />
-    <ClInclude Include="../../ServerLib/logger_service.hpp" />
-    <ClInclude Include="../../ServerLib/ServerCommon.h" />
-    <ClInclude Include="../../ServerLib/Socket.h" />
-    <ClInclude Include="../../ServerLib/TcpConnection.h" />
-    <ClInclude Include="../../ServerLib/TcpServer.h" />
-    <ClInclude Include="../../ServerLib/CfgReader.h" />
-    <ClInclude Include="../../ServerLib/strop.h" />
-    <ClInclude Include="../../ServerLib/Timer.h" />
-    <ClInclude Include="../../ServerLib/TimerMgr.h" />
-    <ClInclude Include="../../ServerLib/TcpClient.h" />
-    <ClInclude Include="../../ServerLib/fasthash.h" />
-    <ClInclude Include="..\..\ServerLib\Codec.h" />
-    <ClInclude Include="..\..\ServerLib\Dispatcher.h" />
-    <ClInclude Include="..\..\ServerLib\IndexMgr.h" />
-    <ClInclude Include="..\..\ServerLib\md5.h" />
-    <ClInclude Include="..\..\ServerLib\SessionMgr.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="../../ServerLib/io_service_pool.cpp" />
-    <ClCompile Include="../../ServerLib/logger.cpp" />
-    <ClCompile Include="../../ServerLib/logger_service.cpp" />
-    <ClCompile Include="../../ServerLib/Socket.cpp" />
-    <ClCompile Include="../../ServerLib/TcpConnection.cpp" />
-    <ClCompile Include="../../ServerLib/TcpServer.cpp" />
-    <ClCompile Include="../../ServerLib/strop.cpp" />
-    <ClCompile Include="../../ServerLib/TimerMgr.cpp" />
-    <ClCompile Include="../../ServerLib/TcpClient.cpp" />
-    <ClCompile Include="../../ServerLib/fasthash.cpp" />
-    <ClCompile Include="..\..\ServerLib\md5.cpp" />
-    <ClCompile Include="..\..\ServerLib\SessionMgr.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5AB351F5-29C6-44CA-9BB6-9B43650780A1}</ProjectGuid>
+    <ProjectGuid>{4C86E479-0462-4EA2-991F-10298A714E30}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ServerLib</RootNamespace>
+    <RootNamespace>RpcClient</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -74,21 +39,24 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)@lib\</OutDir>
-    <IntDir>$(SolutionDir)@obj\ServerLib\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)@bin\</OutDir>
+    <IntDir>$(SolutionDir)@obj\RpcClient\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -100,17 +68,30 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\3rd\protobuf-2.4.1\src</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\3rd\protobuf-2.4.1\src;$(SolutionDir)..\..\Protocol\cpp</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)@lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ServerLib.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Protocol\cpp\DBService.pb.h" />
+    <ClInclude Include="..\..\Protocol\cpp\RpcServer.pb.h" />
+    <ClInclude Include="..\..\RpcLib\rpc_service.h" />
+    <ClInclude Include="..\..\RpcLib\rpc_stubs.h" />
+    <ClInclude Include="..\..\RpcLib\rpc_task.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Protocol\cpp\DBService.pb.cc" />
+    <ClCompile Include="..\..\Protocol\cpp\RpcServer.pb.cc" />
+    <ClCompile Include="..\..\RpcClient\Source.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

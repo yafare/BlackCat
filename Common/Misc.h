@@ -4,7 +4,7 @@
 template <typename T>
 class FastBuf
 {
-    static const int max_size_ = 10 * 1024;
+    static const int max_size_ = 20 * 1024;
 public:
     FastBuf(int size)
     {
@@ -20,7 +20,7 @@ public:
             delete buf;
         }
     }
-    T buf_[max_size_];
+    T  buf_[max_size_];
     T *buf;
 };
 
@@ -29,4 +29,4 @@ public:
     void Set##name(const type& name) { name##_ = name; } \
     type Get##name() { return name##_; }
 
-#endif // !_MISC_H
+#endif // _MISC_H

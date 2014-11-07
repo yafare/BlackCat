@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="rpclib">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Protobuf">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{82efeed6-d10a-429a-9f7e-b8ca9e4b5b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Protobuf">
+      <UniqueIdentifier>{b6efea87-96be-4fad-8f94-a3b983824e2d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\RpcLib\rpc_service.h">
+      <Filter>rpclib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RpcLib\rpc_stubs.h">
+      <Filter>rpclib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RpcLib\rpc_task.h">
+      <Filter>rpclib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Protocol\cpp\RpcServer.pb.h">
+      <Filter>Protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Protocol\cpp\DBService.pb.h">
+      <Filter>Src\Protobuf</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Protocol\cpp\RpcServer.pb.cc">
+      <Filter>Protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RpcClient\Source.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Protocol\cpp\DBService.pb.cc">
+      <Filter>Src\Protobuf</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
