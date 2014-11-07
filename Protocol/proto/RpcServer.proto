@@ -1,0 +1,55 @@
+
+package RpcServer;
+
+enum EnumResult
+{
+    result_success                  = 0;
+    result_fail                     = 1;
+}
+
+// rpc service or client login request
+message LoginRequest
+{
+    required string service_name    = 1;
+    required string secure_key      = 2;
+}
+message LoginResponse
+{
+    required EnumResult result      = 1;
+    optional string fail_reason     = 2;
+}
+
+// rpc request
+message RpcRequest
+{
+    // to which service
+    required string service_name    = 1;
+    // requestor
+    required string requestor       = 2;
+    // request callback id
+    required uint64 callback_id     = 3;
+
+    // request
+    required string request_name    = 4;
+    required string request_body    = 5;
+}
+message RpcResponse
+{
+    // to which service
+    required string service_name    = 1;
+    // requestor
+    required string requestor       = 2;
+    // request callback id
+    required uint64 callback_id     = 3;
+
+    // response
+    required string response_name   = 4;
+    required string response_body   = 5;
+}
+
+// error handler
+message RpcError
+{
+    // error
+    required string error           = 1;
+}

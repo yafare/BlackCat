@@ -22,6 +22,7 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_message_reflection.h>
 // @@protoc_insertion_point(includes)
 
 namespace PB {
@@ -35,7 +36,7 @@ class Packet;
 
 // ===================================================================
 
-class Packet : public ::google::protobuf::MessageLite {
+class Packet : public ::google::protobuf::Message {
  public:
   Packet();
   virtual ~Packet();
@@ -47,6 +48,15 @@ class Packet : public ::google::protobuf::MessageLite {
     return *this;
   }
   
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
   static const Packet& default_instance();
   
   void Swap(Packet* other);
@@ -54,7 +64,8 @@ class Packet : public ::google::protobuf::MessageLite {
   // implements Message ----------------------------------------------
   
   Packet* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const Packet& from);
   void MergeFrom(const Packet& from);
   void Clear();
@@ -65,6 +76,7 @@ class Packet : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -72,7 +84,7 @@ class Packet : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
   
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
   
   // nested types ----------------------------------------------------
   
@@ -111,6 +123,8 @@ class Packet : public ::google::protobuf::MessageLite {
   inline void clear_has_command();
   inline void set_has_serialized();
   inline void clear_has_serialized();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::google::protobuf::uint32 version_;
   ::google::protobuf::uint32 command_;
@@ -239,6 +253,15 @@ inline ::std::string* Packet::release_serialized() {
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace PB
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+
+}  // namespace google
+}  // namespace protobuf
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

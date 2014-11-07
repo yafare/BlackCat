@@ -22,6 +22,7 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_message_reflection.h>
 // @@protoc_insertion_point(includes)
 
 namespace ClientGate {
@@ -45,6 +46,16 @@ const EnumLoginType EnumLoginType_MIN = enumLoginTypeRegisterNewUser;
 const EnumLoginType EnumLoginType_MAX = enumLoginTypeRegisterAccount;
 const int EnumLoginType_ARRAYSIZE = EnumLoginType_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* EnumLoginType_descriptor();
+inline const ::std::string& EnumLoginType_Name(EnumLoginType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EnumLoginType_descriptor(), value);
+}
+inline bool EnumLoginType_Parse(
+    const ::std::string& name, EnumLoginType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EnumLoginType>(
+    EnumLoginType_descriptor(), name, value);
+}
 enum EnumGender {
   enumGenderFemale = 0,
   enumGenderMale = 1,
@@ -55,6 +66,16 @@ const EnumGender EnumGender_MIN = enumGenderFemale;
 const EnumGender EnumGender_MAX = enumGenderUnknown;
 const int EnumGender_ARRAYSIZE = EnumGender_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* EnumGender_descriptor();
+inline const ::std::string& EnumGender_Name(EnumGender value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EnumGender_descriptor(), value);
+}
+inline bool EnumGender_Parse(
+    const ::std::string& name, EnumGender* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EnumGender>(
+    EnumGender_descriptor(), name, value);
+}
 enum EnumDeviceType {
   enumDeviceTypeiPhone = 0,
   enumDeviceTypeiPad = 1,
@@ -66,6 +87,16 @@ const EnumDeviceType EnumDeviceType_MIN = enumDeviceTypeiPhone;
 const EnumDeviceType EnumDeviceType_MAX = enumDeviceTypeWindows;
 const int EnumDeviceType_ARRAYSIZE = EnumDeviceType_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* EnumDeviceType_descriptor();
+inline const ::std::string& EnumDeviceType_Name(EnumDeviceType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EnumDeviceType_descriptor(), value);
+}
+inline bool EnumDeviceType_Parse(
+    const ::std::string& name, EnumDeviceType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EnumDeviceType>(
+    EnumDeviceType_descriptor(), name, value);
+}
 enum EnumResult {
   enumResultSucc = 0,
   enumResultFail = 1
@@ -75,6 +106,16 @@ const EnumResult EnumResult_MIN = enumResultSucc;
 const EnumResult EnumResult_MAX = enumResultFail;
 const int EnumResult_ARRAYSIZE = EnumResult_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* EnumResult_descriptor();
+inline const ::std::string& EnumResult_Name(EnumResult value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EnumResult_descriptor(), value);
+}
+inline bool EnumResult_Parse(
+    const ::std::string& name, EnumResult* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EnumResult>(
+    EnumResult_descriptor(), name, value);
+}
 enum EnumNewVersion {
   enumUpdateTipNoNewVersion = 0,
   enumUpdateTipHasNewVersion = 1,
@@ -85,6 +126,16 @@ const EnumNewVersion EnumNewVersion_MIN = enumUpdateTipNoNewVersion;
 const EnumNewVersion EnumNewVersion_MAX = enumUpdateTipHasNewVersionMandatoryUpdate;
 const int EnumNewVersion_ARRAYSIZE = EnumNewVersion_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* EnumNewVersion_descriptor();
+inline const ::std::string& EnumNewVersion_Name(EnumNewVersion value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EnumNewVersion_descriptor(), value);
+}
+inline bool EnumNewVersion_Parse(
+    const ::std::string& name, EnumNewVersion* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EnumNewVersion>(
+    EnumNewVersion_descriptor(), name, value);
+}
 enum EnumVIPLevel {
   enumVIPLevelNone = 0,
   enumVIPLevelSilver = 1,
@@ -97,9 +148,19 @@ const EnumVIPLevel EnumVIPLevel_MIN = enumVIPLevelNone;
 const EnumVIPLevel EnumVIPLevel_MAX = enumVIPLevelDiamond;
 const int EnumVIPLevel_ARRAYSIZE = EnumVIPLevel_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* EnumVIPLevel_descriptor();
+inline const ::std::string& EnumVIPLevel_Name(EnumVIPLevel value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EnumVIPLevel_descriptor(), value);
+}
+inline bool EnumVIPLevel_Parse(
+    const ::std::string& name, EnumVIPLevel* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EnumVIPLevel>(
+    EnumVIPLevel_descriptor(), name, value);
+}
 // ===================================================================
 
-class LoginRequest : public ::google::protobuf::MessageLite {
+class LoginRequest : public ::google::protobuf::Message {
  public:
   LoginRequest();
   virtual ~LoginRequest();
@@ -111,6 +172,15 @@ class LoginRequest : public ::google::protobuf::MessageLite {
     return *this;
   }
   
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
   static const LoginRequest& default_instance();
   
   void Swap(LoginRequest* other);
@@ -118,7 +188,8 @@ class LoginRequest : public ::google::protobuf::MessageLite {
   // implements Message ----------------------------------------------
   
   LoginRequest* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const LoginRequest& from);
   void MergeFrom(const LoginRequest& from);
   void Clear();
@@ -129,6 +200,7 @@ class LoginRequest : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -136,7 +208,7 @@ class LoginRequest : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
   
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
   
   // nested types ----------------------------------------------------
   
@@ -298,6 +370,8 @@ class LoginRequest : public ::google::protobuf::MessageLite {
   inline void set_has_phone_no();
   inline void clear_has_phone_no();
   
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
   ::std::string* account_;
   ::std::string* password_;
   int login_type_;
@@ -324,7 +398,7 @@ class LoginRequest : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class BasicUserInfo : public ::google::protobuf::MessageLite {
+class BasicUserInfo : public ::google::protobuf::Message {
  public:
   BasicUserInfo();
   virtual ~BasicUserInfo();
@@ -336,6 +410,15 @@ class BasicUserInfo : public ::google::protobuf::MessageLite {
     return *this;
   }
   
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
   static const BasicUserInfo& default_instance();
   
   void Swap(BasicUserInfo* other);
@@ -343,7 +426,8 @@ class BasicUserInfo : public ::google::protobuf::MessageLite {
   // implements Message ----------------------------------------------
   
   BasicUserInfo* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const BasicUserInfo& from);
   void MergeFrom(const BasicUserInfo& from);
   void Clear();
@@ -354,6 +438,7 @@ class BasicUserInfo : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -361,7 +446,7 @@ class BasicUserInfo : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
   
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
   
   // nested types ----------------------------------------------------
   
@@ -436,6 +521,8 @@ class BasicUserInfo : public ::google::protobuf::MessageLite {
   inline void set_has_experience();
   inline void clear_has_experience();
   
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
   ::std::string* user_id_;
   ::std::string* nick_;
   ::std::string* avatar_;
@@ -455,7 +542,7 @@ class BasicUserInfo : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class LoginResponse : public ::google::protobuf::MessageLite {
+class LoginResponse : public ::google::protobuf::Message {
  public:
   LoginResponse();
   virtual ~LoginResponse();
@@ -467,6 +554,15 @@ class LoginResponse : public ::google::protobuf::MessageLite {
     return *this;
   }
   
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
   static const LoginResponse& default_instance();
   
   void Swap(LoginResponse* other);
@@ -474,7 +570,8 @@ class LoginResponse : public ::google::protobuf::MessageLite {
   // implements Message ----------------------------------------------
   
   LoginResponse* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const LoginResponse& from);
   void MergeFrom(const LoginResponse& from);
   void Clear();
@@ -485,6 +582,7 @@ class LoginResponse : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -492,7 +590,7 @@ class LoginResponse : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
   
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
   
   // nested types ----------------------------------------------------
   
@@ -571,6 +669,8 @@ class LoginResponse : public ::google::protobuf::MessageLite {
   inline void clear_has_latest_version();
   inline void set_has_update_info();
   inline void clear_has_update_info();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::ClientGate::BasicUserInfo* basic_user_info_;
   ::std::string* update_url_;
@@ -1746,6 +1846,39 @@ inline ::std::string* LoginResponse::release_update_info() {
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace ClientGate
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ClientGate::EnumLoginType>() {
+  return ClientGate::EnumLoginType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ClientGate::EnumGender>() {
+  return ClientGate::EnumGender_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ClientGate::EnumDeviceType>() {
+  return ClientGate::EnumDeviceType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ClientGate::EnumResult>() {
+  return ClientGate::EnumResult_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ClientGate::EnumNewVersion>() {
+  return ClientGate::EnumNewVersion_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ClientGate::EnumVIPLevel>() {
+  return ClientGate::EnumVIPLevel_descriptor();
+}
+
+}  // namespace google
+}  // namespace protobuf
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

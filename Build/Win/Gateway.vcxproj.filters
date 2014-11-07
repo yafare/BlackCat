@@ -36,9 +36,7 @@
     <ClCompile Include="..\..\Gateway\GatewayHandler.cpp">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\%40TexasPoker\trunk\TexasServer\Gateway\Router.cpp">
-      <Filter>Src</Filter>
-    </ClCompile>
+    <ClCompile Include="..\..\Gateway\Router.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Gateway\Gateway.h">
@@ -59,8 +57,6 @@
     <ClInclude Include="..\..\Protocol\cpp\Protocol.pb.h">
       <Filter>ProtoBuf</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\%40TexasPoker\trunk\TexasServer\Gateway\Router.h">
-      <Filter>Src</Filter>
-    </ClInclude>
+    <ClInclude Include="..\..\Gateway\Router.h" />
   </ItemGroup>
 </Project>

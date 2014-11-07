@@ -8,14 +8,142 @@
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/descriptor.h>
+#include <google/protobuf/reflection_ops.h>
+#include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
 namespace ClientGate {
 
+namespace {
+
+const ::google::protobuf::Descriptor* LoginRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  LoginRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BasicUserInfo_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BasicUserInfo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* LoginResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  LoginResponse_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* EnumLoginType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* EnumGender_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* EnumDeviceType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* EnumResult_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* EnumNewVersion_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* EnumVIPLevel_descriptor_ = NULL;
+
+}  // namespace
+
+
+void protobuf_AssignDesc_ClientGate_2eproto() {
+  protobuf_AddDesc_ClientGate_2eproto();
+  const ::google::protobuf::FileDescriptor* file =
+    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
+      "ClientGate.proto");
+  GOOGLE_CHECK(file != NULL);
+  LoginRequest_descriptor_ = file->message_type(0);
+  static const int LoginRequest_offsets_[13] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, login_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, account_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, password_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, nick_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, gender_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, device_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, device_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, device_token_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, mac_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, secure_key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, channel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, version_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, phone_no_),
+  };
+  LoginRequest_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      LoginRequest_descriptor_,
+      LoginRequest::default_instance_,
+      LoginRequest_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(LoginRequest));
+  BasicUserInfo_descriptor_ = file->message_type(1);
+  static const int BasicUserInfo_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, nick_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, avatar_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, gender_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, user_score_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, experience_),
+  };
+  BasicUserInfo_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BasicUserInfo_descriptor_,
+      BasicUserInfo::default_instance_,
+      BasicUserInfo_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BasicUserInfo));
+  LoginResponse_descriptor_ = file->message_type(2);
+  static const int LoginResponse_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, result_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, basic_user_info_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, update_url_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, ios_update_url_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, latest_version_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, update_info_),
+  };
+  LoginResponse_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      LoginResponse_descriptor_,
+      LoginResponse::default_instance_,
+      LoginResponse_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(LoginResponse));
+  EnumLoginType_descriptor_ = file->enum_type(0);
+  EnumGender_descriptor_ = file->enum_type(1);
+  EnumDeviceType_descriptor_ = file->enum_type(2);
+  EnumResult_descriptor_ = file->enum_type(3);
+  EnumNewVersion_descriptor_ = file->enum_type(4);
+  EnumVIPLevel_descriptor_ = file->enum_type(5);
+}
+
+namespace {
+
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
+inline void protobuf_AssignDescriptorsOnce() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
+                 &protobuf_AssignDesc_ClientGate_2eproto);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    LoginRequest_descriptor_, &LoginRequest::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BasicUserInfo_descriptor_, &BasicUserInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    LoginResponse_descriptor_, &LoginResponse::default_instance());
+}
+
+}  // namespace
+
 void protobuf_ShutdownFile_ClientGate_2eproto() {
   delete LoginRequest::default_instance_;
+  delete LoginRequest_reflection_;
   delete BasicUserInfo::default_instance_;
+  delete BasicUserInfo_reflection_;
   delete LoginResponse::default_instance_;
+  delete LoginResponse_reflection_;
 }
 
 void protobuf_AddDesc_ClientGate_2eproto() {
@@ -24,6 +152,43 @@ void protobuf_AddDesc_ClientGate_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+    "\n\020ClientGate.proto\022\nClientGate\"\305\002\n\014Login"
+    "Request\022-\n\nlogin_type\030\001 \002(\0162\031.ClientGate"
+    ".EnumLoginType\022\017\n\007account\030\002 \002(\t\022\020\n\010passw"
+    "ord\030\003 \002(\t\022\014\n\004nick\030\004 \002(\t\022&\n\006gender\030\005 \002(\0162"
+    "\026.ClientGate.EnumGender\022/\n\013device_type\030\006"
+    " \002(\0162\032.ClientGate.EnumDeviceType\022\021\n\tdevi"
+    "ce_id\030\007 \002(\t\022\024\n\014device_token\030\010 \001(\t\022\013\n\003mac"
+    "\030\t \002(\t\022\022\n\nsecure_key\030\n \002(\t\022\017\n\007channel\030\013 "
+    "\002(\t\022\017\n\007version\030\014 \002(\r\022\020\n\010phone_no\030\r \001(\t\"\216"
+    "\001\n\rBasicUserInfo\022\017\n\007user_id\030\001 \002(\t\022\014\n\004nic"
+    "k\030\002 \002(\t\022\016\n\006avatar\030\003 \002(\t\022&\n\006gender\030\004 \002(\0162"
+    "\026.ClientGate.EnumGender\022\022\n\nuser_score\030\005 "
+    "\002(\003\022\022\n\nexperience\030\006 \002(\004\"\304\001\n\rLoginRespons"
+    "e\022&\n\006result\030\001 \002(\0162\026.ClientGate.EnumResul"
+    "t\0222\n\017basic_user_info\030\002 \002(\0132\031.ClientGate."
+    "BasicUserInfo\022\022\n\nupdate_url\030\003 \001(\t\022\026\n\016ios"
+    "_update_url\030\004 \001(\t\022\026\n\016latest_version\030\005 \001("
+    "\t\022\023\n\013update_info\030\006 \001(\t*r\n\rEnumLoginType\022"
+    " \n\034enumLoginTypeRegisterNewUser\020\000\022\035\n\031enu"
+    "mLoginTypeGuestAccount\020\001\022 \n\034enumLoginTyp"
+    "eRegisterAccount\020\002*M\n\nEnumGender\022\024\n\020enum"
+    "GenderFemale\020\000\022\022\n\016enumGenderMale\020\001\022\025\n\021en"
+    "umGenderUnknown\020\002*x\n\016EnumDeviceType\022\030\n\024e"
+    "numDeviceTypeiPhone\020\000\022\026\n\022enumDeviceTypei"
+    "Pad\020\001\022\031\n\025enumDeviceTypeAndroid\020\002\022\031\n\025enum"
+    "DeviceTypeWindows\020\003*4\n\nEnumResult\022\022\n\016enu"
+    "mResultSucc\020\000\022\022\n\016enumResultFail\020\001*~\n\016Enu"
+    "mNewVersion\022\035\n\031enumUpdateTipNoNewVersion"
+    "\020\000\022\036\n\032enumUpdateTipHasNewVersion\020\001\022-\n)en"
+    "umUpdateTipHasNewVersionMandatoryUpdate\020"
+    "\002*\205\001\n\014EnumVIPLevel\022\024\n\020enumVIPLevelNone\020\000"
+    "\022\026\n\022enumVIPLevelSilver\020\001\022\024\n\020enumVIPLevel"
+    "Gold\020\002\022\030\n\024enumVIPLevelPlatinum\020\003\022\027\n\023enum"
+    "VIPLevelDiamond\020\004", 1337);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "ClientGate.proto", &protobuf_RegisterTypes);
   LoginRequest::default_instance_ = new LoginRequest();
   BasicUserInfo::default_instance_ = new BasicUserInfo();
   LoginResponse::default_instance_ = new LoginResponse();
@@ -40,6 +205,10 @@ struct StaticDescriptorInitializer_ClientGate_2eproto {
   }
 } static_descriptor_initializer_ClientGate_2eproto_;
 
+const ::google::protobuf::EnumDescriptor* EnumLoginType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EnumLoginType_descriptor_;
+}
 bool EnumLoginType_IsValid(int value) {
   switch(value) {
     case 0:
@@ -51,6 +220,10 @@ bool EnumLoginType_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* EnumGender_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EnumGender_descriptor_;
+}
 bool EnumGender_IsValid(int value) {
   switch(value) {
     case 0:
@@ -62,6 +235,10 @@ bool EnumGender_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* EnumDeviceType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EnumDeviceType_descriptor_;
+}
 bool EnumDeviceType_IsValid(int value) {
   switch(value) {
     case 0:
@@ -74,6 +251,10 @@ bool EnumDeviceType_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* EnumResult_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EnumResult_descriptor_;
+}
 bool EnumResult_IsValid(int value) {
   switch(value) {
     case 0:
@@ -84,6 +265,10 @@ bool EnumResult_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* EnumNewVersion_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EnumNewVersion_descriptor_;
+}
 bool EnumNewVersion_IsValid(int value) {
   switch(value) {
     case 0:
@@ -95,6 +280,10 @@ bool EnumNewVersion_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* EnumVIPLevel_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EnumVIPLevel_descriptor_;
+}
 bool EnumVIPLevel_IsValid(int value) {
   switch(value) {
     case 0:
@@ -128,7 +317,7 @@ const int LoginRequest::kPhoneNoFieldNumber;
 #endif  // !_MSC_VER
 
 LoginRequest::LoginRequest()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -136,7 +325,7 @@ void LoginRequest::InitAsDefaultInstance() {
 }
 
 LoginRequest::LoginRequest(const LoginRequest& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -200,6 +389,11 @@ void LoginRequest::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* LoginRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LoginRequest_descriptor_;
+}
+
 const LoginRequest& LoginRequest::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ClientGate_2eproto();  return *default_instance_;
 }
@@ -265,6 +459,7 @@ void LoginRequest::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool LoginRequest::MergePartialFromCodedStream(
@@ -283,6 +478,8 @@ bool LoginRequest::MergePartialFromCodedStream(
                  input, &value)));
           if (ClientGate::EnumLoginType_IsValid(value)) {
             set_login_type(static_cast< ClientGate::EnumLoginType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -298,6 +495,9 @@ bool LoginRequest::MergePartialFromCodedStream(
          parse_account:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_account()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->account().data(), this->account().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -312,6 +512,9 @@ bool LoginRequest::MergePartialFromCodedStream(
          parse_password:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_password()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->password().data(), this->password().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -326,6 +529,9 @@ bool LoginRequest::MergePartialFromCodedStream(
          parse_nick:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_nick()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->nick().data(), this->nick().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -344,6 +550,8 @@ bool LoginRequest::MergePartialFromCodedStream(
                  input, &value)));
           if (ClientGate::EnumGender_IsValid(value)) {
             set_gender(static_cast< ClientGate::EnumGender >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(5, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -363,6 +571,8 @@ bool LoginRequest::MergePartialFromCodedStream(
                  input, &value)));
           if (ClientGate::EnumDeviceType_IsValid(value)) {
             set_device_type(static_cast< ClientGate::EnumDeviceType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(6, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -378,6 +588,9 @@ bool LoginRequest::MergePartialFromCodedStream(
          parse_device_id:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_device_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->device_id().data(), this->device_id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -392,6 +605,9 @@ bool LoginRequest::MergePartialFromCodedStream(
          parse_device_token:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_device_token()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->device_token().data(), this->device_token().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -406,6 +622,9 @@ bool LoginRequest::MergePartialFromCodedStream(
          parse_mac:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_mac()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mac().data(), this->mac().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -420,6 +639,9 @@ bool LoginRequest::MergePartialFromCodedStream(
          parse_secure_key:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_secure_key()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->secure_key().data(), this->secure_key().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -434,6 +656,9 @@ bool LoginRequest::MergePartialFromCodedStream(
          parse_channel:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_channel()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->channel().data(), this->channel().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -464,6 +689,9 @@ bool LoginRequest::MergePartialFromCodedStream(
          parse_phone_no:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_phone_no()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->phone_no().data(), this->phone_no().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -477,7 +705,8 @@ bool LoginRequest::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -496,18 +725,27 @@ void LoginRequest::SerializeWithCachedSizes(
   
   // required string account = 2;
   if (has_account()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->account().data(), this->account().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       2, this->account(), output);
   }
   
   // required string password = 3;
   if (has_password()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->password().data(), this->password().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       3, this->password(), output);
   }
   
   // required string nick = 4;
   if (has_nick()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->nick().data(), this->nick().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       4, this->nick(), output);
   }
@@ -526,30 +764,45 @@ void LoginRequest::SerializeWithCachedSizes(
   
   // required string device_id = 7;
   if (has_device_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->device_id().data(), this->device_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       7, this->device_id(), output);
   }
   
   // optional string device_token = 8;
   if (has_device_token()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->device_token().data(), this->device_token().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       8, this->device_token(), output);
   }
   
   // required string mac = 9;
   if (has_mac()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mac().data(), this->mac().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       9, this->mac(), output);
   }
   
   // required string secure_key = 10;
   if (has_secure_key()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->secure_key().data(), this->secure_key().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       10, this->secure_key(), output);
   }
   
   // required string channel = 11;
   if (has_channel()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->channel().data(), this->channel().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       11, this->channel(), output);
   }
@@ -561,10 +814,139 @@ void LoginRequest::SerializeWithCachedSizes(
   
   // optional string phone_no = 13;
   if (has_phone_no()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->phone_no().data(), this->phone_no().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       13, this->phone_no(), output);
   }
   
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* LoginRequest::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required .ClientGate.EnumLoginType login_type = 1;
+  if (has_login_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->login_type(), target);
+  }
+  
+  // required string account = 2;
+  if (has_account()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->account().data(), this->account().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->account(), target);
+  }
+  
+  // required string password = 3;
+  if (has_password()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->password().data(), this->password().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->password(), target);
+  }
+  
+  // required string nick = 4;
+  if (has_nick()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->nick().data(), this->nick().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->nick(), target);
+  }
+  
+  // required .ClientGate.EnumGender gender = 5;
+  if (has_gender()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      5, this->gender(), target);
+  }
+  
+  // required .ClientGate.EnumDeviceType device_type = 6;
+  if (has_device_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      6, this->device_type(), target);
+  }
+  
+  // required string device_id = 7;
+  if (has_device_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->device_id().data(), this->device_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        7, this->device_id(), target);
+  }
+  
+  // optional string device_token = 8;
+  if (has_device_token()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->device_token().data(), this->device_token().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        8, this->device_token(), target);
+  }
+  
+  // required string mac = 9;
+  if (has_mac()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mac().data(), this->mac().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        9, this->mac(), target);
+  }
+  
+  // required string secure_key = 10;
+  if (has_secure_key()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->secure_key().data(), this->secure_key().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->secure_key(), target);
+  }
+  
+  // required string channel = 11;
+  if (has_channel()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->channel().data(), this->channel().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        11, this->channel(), target);
+  }
+  
+  // required uint32 version = 12;
+  if (has_version()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(12, this->version(), target);
+  }
+  
+  // optional string phone_no = 13;
+  if (has_phone_no()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->phone_no().data(), this->phone_no().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        13, this->phone_no(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int LoginRequest::ByteSize() const {
@@ -662,15 +1044,27 @@ int LoginRequest::ByteSize() const {
     }
     
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void LoginRequest::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const LoginRequest*>(&from));
+void LoginRequest::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const LoginRequest* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LoginRequest*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void LoginRequest::MergeFrom(const LoginRequest& from) {
@@ -718,6 +1112,13 @@ void LoginRequest::MergeFrom(const LoginRequest& from) {
       set_phone_no(from.phone_no());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void LoginRequest::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void LoginRequest::CopyFrom(const LoginRequest& from) {
@@ -748,12 +1149,17 @@ void LoginRequest::Swap(LoginRequest* other) {
     std::swap(version_, other->version_);
     std::swap(phone_no_, other->phone_no_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string LoginRequest::GetTypeName() const {
-  return "ClientGate.LoginRequest";
+::google::protobuf::Metadata LoginRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = LoginRequest_descriptor_;
+  metadata.reflection = LoginRequest_reflection_;
+  return metadata;
 }
 
 
@@ -769,7 +1175,7 @@ const int BasicUserInfo::kExperienceFieldNumber;
 #endif  // !_MSC_VER
 
 BasicUserInfo::BasicUserInfo()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -777,7 +1183,7 @@ void BasicUserInfo::InitAsDefaultInstance() {
 }
 
 BasicUserInfo::BasicUserInfo(const BasicUserInfo& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -816,6 +1222,11 @@ void BasicUserInfo::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* BasicUserInfo::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BasicUserInfo_descriptor_;
+}
+
 const BasicUserInfo& BasicUserInfo::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ClientGate_2eproto();  return *default_instance_;
 }
@@ -848,6 +1259,7 @@ void BasicUserInfo::Clear() {
     experience_ = GOOGLE_ULONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool BasicUserInfo::MergePartialFromCodedStream(
@@ -862,6 +1274,9 @@ bool BasicUserInfo::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_user_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->user_id().data(), this->user_id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -876,6 +1291,9 @@ bool BasicUserInfo::MergePartialFromCodedStream(
          parse_nick:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_nick()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->nick().data(), this->nick().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -890,6 +1308,9 @@ bool BasicUserInfo::MergePartialFromCodedStream(
          parse_avatar:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_avatar()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->avatar().data(), this->avatar().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -908,6 +1329,8 @@ bool BasicUserInfo::MergePartialFromCodedStream(
                  input, &value)));
           if (ClientGate::EnumGender_IsValid(value)) {
             set_gender(static_cast< ClientGate::EnumGender >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(4, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -954,7 +1377,8 @@ bool BasicUserInfo::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -967,18 +1391,27 @@ void BasicUserInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string user_id = 1;
   if (has_user_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->user_id().data(), this->user_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->user_id(), output);
   }
   
   // required string nick = 2;
   if (has_nick()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->nick().data(), this->nick().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       2, this->nick(), output);
   }
   
   // required string avatar = 3;
   if (has_avatar()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->avatar().data(), this->avatar().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       3, this->avatar(), output);
   }
@@ -999,6 +1432,65 @@ void BasicUserInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->experience(), output);
   }
   
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BasicUserInfo::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string user_id = 1;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->user_id().data(), this->user_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->user_id(), target);
+  }
+  
+  // required string nick = 2;
+  if (has_nick()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->nick().data(), this->nick().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->nick(), target);
+  }
+  
+  // required string avatar = 3;
+  if (has_avatar()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->avatar().data(), this->avatar().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->avatar(), target);
+  }
+  
+  // required .ClientGate.EnumGender gender = 4;
+  if (has_gender()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      4, this->gender(), target);
+  }
+  
+  // required int64 user_score = 5;
+  if (has_user_score()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->user_score(), target);
+  }
+  
+  // required uint64 experience = 6;
+  if (has_experience()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->experience(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int BasicUserInfo::ByteSize() const {
@@ -1047,15 +1539,27 @@ int BasicUserInfo::ByteSize() const {
     }
     
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void BasicUserInfo::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const BasicUserInfo*>(&from));
+void BasicUserInfo::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BasicUserInfo* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BasicUserInfo*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void BasicUserInfo::MergeFrom(const BasicUserInfo& from) {
@@ -1080,6 +1584,13 @@ void BasicUserInfo::MergeFrom(const BasicUserInfo& from) {
       set_experience(from.experience());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BasicUserInfo::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void BasicUserInfo::CopyFrom(const BasicUserInfo& from) {
@@ -1103,12 +1614,17 @@ void BasicUserInfo::Swap(BasicUserInfo* other) {
     std::swap(user_score_, other->user_score_);
     std::swap(experience_, other->experience_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string BasicUserInfo::GetTypeName() const {
-  return "ClientGate.BasicUserInfo";
+::google::protobuf::Metadata BasicUserInfo::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BasicUserInfo_descriptor_;
+  metadata.reflection = BasicUserInfo_reflection_;
+  return metadata;
 }
 
 
@@ -1124,7 +1640,7 @@ const int LoginResponse::kUpdateInfoFieldNumber;
 #endif  // !_MSC_VER
 
 LoginResponse::LoginResponse()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -1133,7 +1649,7 @@ void LoginResponse::InitAsDefaultInstance() {
 }
 
 LoginResponse::LoginResponse(const LoginResponse& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -1176,6 +1692,11 @@ void LoginResponse::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* LoginResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LoginResponse_descriptor_;
+}
+
 const LoginResponse& LoginResponse::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ClientGate_2eproto();  return *default_instance_;
 }
@@ -1214,6 +1735,7 @@ void LoginResponse::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool LoginResponse::MergePartialFromCodedStream(
@@ -1232,6 +1754,8 @@ bool LoginResponse::MergePartialFromCodedStream(
                  input, &value)));
           if (ClientGate::EnumResult_IsValid(value)) {
             set_result(static_cast< ClientGate::EnumResult >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(1, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -1261,6 +1785,9 @@ bool LoginResponse::MergePartialFromCodedStream(
          parse_update_url:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_update_url()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->update_url().data(), this->update_url().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1275,6 +1802,9 @@ bool LoginResponse::MergePartialFromCodedStream(
          parse_ios_update_url:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_ios_update_url()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->ios_update_url().data(), this->ios_update_url().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1289,6 +1819,9 @@ bool LoginResponse::MergePartialFromCodedStream(
          parse_latest_version:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_latest_version()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->latest_version().data(), this->latest_version().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1303,6 +1836,9 @@ bool LoginResponse::MergePartialFromCodedStream(
          parse_update_info:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_update_info()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->update_info().data(), this->update_info().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1316,7 +1852,8 @@ bool LoginResponse::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1335,34 +1872,112 @@ void LoginResponse::SerializeWithCachedSizes(
   
   // required .ClientGate.BasicUserInfo basic_user_info = 2;
   if (has_basic_user_info()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->basic_user_info(), output);
   }
   
   // optional string update_url = 3;
   if (has_update_url()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->update_url().data(), this->update_url().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       3, this->update_url(), output);
   }
   
   // optional string ios_update_url = 4;
   if (has_ios_update_url()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->ios_update_url().data(), this->ios_update_url().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       4, this->ios_update_url(), output);
   }
   
   // optional string latest_version = 5;
   if (has_latest_version()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->latest_version().data(), this->latest_version().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       5, this->latest_version(), output);
   }
   
   // optional string update_info = 6;
   if (has_update_info()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->update_info().data(), this->update_info().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       6, this->update_info(), output);
   }
   
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* LoginResponse::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required .ClientGate.EnumResult result = 1;
+  if (has_result()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->result(), target);
+  }
+  
+  // required .ClientGate.BasicUserInfo basic_user_info = 2;
+  if (has_basic_user_info()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->basic_user_info(), target);
+  }
+  
+  // optional string update_url = 3;
+  if (has_update_url()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->update_url().data(), this->update_url().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->update_url(), target);
+  }
+  
+  // optional string ios_update_url = 4;
+  if (has_ios_update_url()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->ios_update_url().data(), this->ios_update_url().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->ios_update_url(), target);
+  }
+  
+  // optional string latest_version = 5;
+  if (has_latest_version()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->latest_version().data(), this->latest_version().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->latest_version(), target);
+  }
+  
+  // optional string update_info = 6;
+  if (has_update_info()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->update_info().data(), this->update_info().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->update_info(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int LoginResponse::ByteSize() const {
@@ -1411,15 +2026,27 @@ int LoginResponse::ByteSize() const {
     }
     
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void LoginResponse::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const LoginResponse*>(&from));
+void LoginResponse::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const LoginResponse* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LoginResponse*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void LoginResponse::MergeFrom(const LoginResponse& from) {
@@ -1444,6 +2071,13 @@ void LoginResponse::MergeFrom(const LoginResponse& from) {
       set_update_info(from.update_info());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void LoginResponse::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void LoginResponse::CopyFrom(const LoginResponse& from) {
@@ -1470,12 +2104,17 @@ void LoginResponse::Swap(LoginResponse* other) {
     std::swap(latest_version_, other->latest_version_);
     std::swap(update_info_, other->update_info_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string LoginResponse::GetTypeName() const {
-  return "ClientGate.LoginResponse";
+::google::protobuf::Metadata LoginResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = LoginResponse_descriptor_;
+  metadata.reflection = LoginResponse_reflection_;
+  return metadata;
 }
 
 

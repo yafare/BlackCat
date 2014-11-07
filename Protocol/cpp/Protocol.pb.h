@@ -22,6 +22,7 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_message_reflection.h>
 // @@protoc_insertion_point(includes)
 
 namespace Protocol {
@@ -45,6 +46,16 @@ const ClientGateProtocol ClientGateProtocol_MIN = PROTOCOL_VERSION;
 const ClientGateProtocol ClientGateProtocol_MAX = CLIENT_LOGIN_RESPONSE;
 const int ClientGateProtocol_ARRAYSIZE = ClientGateProtocol_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* ClientGateProtocol_descriptor();
+inline const ::std::string& ClientGateProtocol_Name(ClientGateProtocol value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ClientGateProtocol_descriptor(), value);
+}
+inline bool ClientGateProtocol_Parse(
+    const ::std::string& name, ClientGateProtocol* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ClientGateProtocol>(
+    ClientGateProtocol_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -57,6 +68,19 @@ const int ClientGateProtocol_ARRAYSIZE = ClientGateProtocol_MAX + 1;
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace Protocol
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< Protocol::ClientGateProtocol>() {
+  return Protocol::ClientGateProtocol_descriptor();
+}
+
+}  // namespace google
+}  // namespace protobuf
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

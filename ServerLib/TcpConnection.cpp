@@ -32,7 +32,7 @@ void TcpConnection::Recv()
         std::placeholders::_1, std::placeholders::_2));
 }
 
-void TcpConnection::Send(const uint8 *buf, uint32 len)
+void TcpConnection::Send(const uint8 *buf, int len)
 {
     BufferPtr buffer(new std::vector<uint8>(buf, buf + len));
     io_service_.post(std::bind(&TcpConnection::RealSend, shared_from_this(), buffer));
@@ -56,16 +56,16 @@ void TcpConnection::OnConnected(const ErrorCode& e)
     }
 }
 
-void TcpConnection::OnRead(const ErrorCode& e, uint32 len)
+void TcpConnection::OnRead(const ErrorCode& e, int32 len)
 {
     CHECK_ERROR(e);
 
     if (cb_.OnRead) {
         uint8 *buf = socket_.GetBuf();
-        int cur_pos = recv_buf_.size();
+        int32 cur_pos = recv_buf_.size();
         recv_buf_.resize(cur_pos + len);
         memcpy(&recv_buf_[0] + cur_pos, buf, len);
-        uint32 proc_len = cb_.OnRead(shared_from_this(), &recv_buf_[0], recv_buf_.size());
+        int32 proc_len = cb_.OnRead(shared_from_this(), &recv_buf_[0], recv_buf_.size());
         if (proc_len != 0) {
             recv_buf_.erase(recv_buf_.begin(), recv_buf_.begin() + proc_len);
         }
@@ -73,7 +73,7 @@ void TcpConnection::OnRead(const ErrorCode& e, uint32 len)
     Recv();
 }
 
-void TcpConnection::OnWrite(const ErrorCode& e, uint32 len)
+void TcpConnection::OnWrite(const ErrorCode& e, int32 len)
 {
     writting_msg_ = false;
 
@@ -91,7 +91,7 @@ void TcpConnection::OnWrite(const ErrorCode& e, uint32 len)
 
         writting_msg_ = true;
         socket_.Send(std::bind(&TcpConnection::OnWrite, shared_from_this(),
-            std::placeholders::_1, std::placeholders::_2), &(*buffer->begin()), buffer->size());
+            std::placeholders::_1, std::placeholders::_2), &(*buffer->begin()), static_cast<int32>(buffer->size()));
     }
 }
 

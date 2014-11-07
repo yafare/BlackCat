@@ -19,7 +19,7 @@ void Gateway::Run(const std::string& ip, const std::string& port, int pool_size)
     server->Run();
 }
 
-void Gateway::Dispatch(const ConnectionPtr& conn, const uint8 *buf, uint32 len)
+void Gateway::Dispatch(const ConnectionPtr& conn, const uint8 *buf, int32 len)
 {
     PB::Packet packet;
     if (!packet.ParseFromArray(buf, len)) {
@@ -38,7 +38,7 @@ void Gateway::OnConnected(const ConnectionPtr& /*conn*/, bool /*success*/)
 {
 }
 
-uint32 Gateway::OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len)
+int32 Gateway::OnRead(const ConnectionPtr& conn, const uint8 *buf, int32 len)
 {
     if (len >= MAX_RECV_BUF) {
         LOG("Recv buffer overflow, shutdown this connection");
@@ -46,10 +46,10 @@ uint32 Gateway::OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len)
         return len;
     }
 
-    uint32 total_len = 0;
+    int32 total_len = 0;
     while (len > sizeof(PacketHeader)) {
         PacketHeader *p = (PacketHeader *)buf;
-        uint32 cur_len = p->len + sizeof(PacketHeader);
+        int32 cur_len = p->len + sizeof(PacketHeader);
         if (len < p->len) {
             break;
         }
@@ -64,7 +64,7 @@ uint32 Gateway::OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len)
     return total_len;
 }
 
-void Gateway::OnWrite(const ConnectionPtr& /*conn*/, uint32 /*len*/)
+void Gateway::OnWrite(const ConnectionPtr& /*conn*/, int32 /*len*/)
 {
 }
 

@@ -10,6 +10,8 @@
 
 #include "../Common/Misc.h"
 #include "../Common/Types.h"
+
+#include "Codec.h"
 #include "logger.hpp"
 
 #define MAX_RECV_BUF (32*1024)
@@ -19,7 +21,7 @@
 #endif // _MSC_VER
 struct PacketHeader
 {
-    uint32 len;
+    int32 len;
     uint8 buf[0];
 };
 #pragma pack(pop)
@@ -39,8 +41,8 @@ using ConnectionPtr         = std::shared_ptr<TcpConnection>;
 
 using FuncOnAccept          = std::function<void(const ConnectionPtr&)>;
 using FuncOnConnect         = std::function<void(const ConnectionPtr&, bool)>;
-using FuncOnRead            = std::function<uint32(const ConnectionPtr&, const uint8 *, uint32)>;
-using FuncOnWrite           = std::function<void(const ConnectionPtr&, uint32)>;
+using FuncOnRead            = std::function<int32(const ConnectionPtr&, const uint8 *, int32)>;
+using FuncOnWrite           = std::function<void(const ConnectionPtr&, int32)>;
 using FuncOnDisconnect      = std::function<void(const ConnectionPtr&)>;
 
 struct ConnectionCallBacks

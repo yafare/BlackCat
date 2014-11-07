@@ -25,7 +25,7 @@ public:
 
 public:
     void            SetCallBacks(const ConnectionCallBacks& callbacks);
-    void            Send(const uint8 *buf, uint32 len);
+    void            Send(const uint8 *buf, int32 len);
     void            Recv();
     void            Shutdown();
 
@@ -34,8 +34,8 @@ private:
 
 public:
     void            OnConnected(const ErrorCode& e);
-    void            OnRead(const ErrorCode& e, uint32 len);
-    void            OnWrite(const ErrorCode& e, uint32 len);
+    void            OnRead(const ErrorCode& e, int32 len);
+    void            OnWrite(const ErrorCode& e, int32 len);
     void            OnDisconnect(const ErrorCode& e);
 
 protected:

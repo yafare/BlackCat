@@ -22,6 +22,7 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_message_reflection.h>
 // @@protoc_insertion_point(includes)
 
 namespace GatewayServer {
@@ -44,6 +45,16 @@ const EnumServerType EnumServerType_MIN = ST_GameServer;
 const EnumServerType EnumServerType_MAX = ST_RecordServer;
 const int EnumServerType_ARRAYSIZE = EnumServerType_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* EnumServerType_descriptor();
+inline const ::std::string& EnumServerType_Name(EnumServerType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EnumServerType_descriptor(), value);
+}
+inline bool EnumServerType_Parse(
+    const ::std::string& name, EnumServerType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EnumServerType>(
+    EnumServerType_descriptor(), name, value);
+}
 enum EnumResult {
   enumResultSucc = 0,
   enumResultFail = 1
@@ -53,9 +64,19 @@ const EnumResult EnumResult_MIN = enumResultSucc;
 const EnumResult EnumResult_MAX = enumResultFail;
 const int EnumResult_ARRAYSIZE = EnumResult_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* EnumResult_descriptor();
+inline const ::std::string& EnumResult_Name(EnumResult value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    EnumResult_descriptor(), value);
+}
+inline bool EnumResult_Parse(
+    const ::std::string& name, EnumResult* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EnumResult>(
+    EnumResult_descriptor(), name, value);
+}
 // ===================================================================
 
-class LoginRequest : public ::google::protobuf::MessageLite {
+class LoginRequest : public ::google::protobuf::Message {
  public:
   LoginRequest();
   virtual ~LoginRequest();
@@ -67,6 +88,15 @@ class LoginRequest : public ::google::protobuf::MessageLite {
     return *this;
   }
   
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
   static const LoginRequest& default_instance();
   
   void Swap(LoginRequest* other);
@@ -74,7 +104,8 @@ class LoginRequest : public ::google::protobuf::MessageLite {
   // implements Message ----------------------------------------------
   
   LoginRequest* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const LoginRequest& from);
   void MergeFrom(const LoginRequest& from);
   void Clear();
@@ -85,6 +116,7 @@ class LoginRequest : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -92,7 +124,7 @@ class LoginRequest : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
   
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
   
   // nested types ----------------------------------------------------
   
@@ -136,6 +168,8 @@ class LoginRequest : public ::google::protobuf::MessageLite {
   inline void set_has_secure_key();
   inline void clear_has_secure_key();
   
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
   ::std::string* account_;
   ::std::string* secure_key_;
   int server_type_;
@@ -152,7 +186,7 @@ class LoginRequest : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class LoginResponse : public ::google::protobuf::MessageLite {
+class LoginResponse : public ::google::protobuf::Message {
  public:
   LoginResponse();
   virtual ~LoginResponse();
@@ -164,6 +198,15 @@ class LoginResponse : public ::google::protobuf::MessageLite {
     return *this;
   }
   
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
   static const LoginResponse& default_instance();
   
   void Swap(LoginResponse* other);
@@ -171,7 +214,8 @@ class LoginResponse : public ::google::protobuf::MessageLite {
   // implements Message ----------------------------------------------
   
   LoginResponse* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const LoginResponse& from);
   void MergeFrom(const LoginResponse& from);
   void Clear();
@@ -182,6 +226,7 @@ class LoginResponse : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -189,7 +234,7 @@ class LoginResponse : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
   
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
   
   // nested types ----------------------------------------------------
   
@@ -207,6 +252,8 @@ class LoginResponse : public ::google::protobuf::MessageLite {
   inline void set_has_result();
   inline void clear_has_result();
   
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
   int result_;
   
   mutable int _cached_size_;
@@ -221,7 +268,7 @@ class LoginResponse : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class UserDisconnect : public ::google::protobuf::MessageLite {
+class UserDisconnect : public ::google::protobuf::Message {
  public:
   UserDisconnect();
   virtual ~UserDisconnect();
@@ -233,6 +280,15 @@ class UserDisconnect : public ::google::protobuf::MessageLite {
     return *this;
   }
   
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
   static const UserDisconnect& default_instance();
   
   void Swap(UserDisconnect* other);
@@ -240,7 +296,8 @@ class UserDisconnect : public ::google::protobuf::MessageLite {
   // implements Message ----------------------------------------------
   
   UserDisconnect* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const UserDisconnect& from);
   void MergeFrom(const UserDisconnect& from);
   void Clear();
@@ -251,6 +308,7 @@ class UserDisconnect : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -258,7 +316,7 @@ class UserDisconnect : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
   
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
   
   // nested types ----------------------------------------------------
   
@@ -275,6 +333,8 @@ class UserDisconnect : public ::google::protobuf::MessageLite {
  private:
   inline void set_has_user_id();
   inline void clear_has_user_id();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::google::protobuf::uint32 user_id_;
   
@@ -491,6 +551,23 @@ inline void UserDisconnect::set_user_id(::google::protobuf::uint32 value) {
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace GatewayServer
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< GatewayServer::EnumServerType>() {
+  return GatewayServer::EnumServerType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< GatewayServer::EnumResult>() {
+  return GatewayServer::EnumResult_descriptor();
+}
+
+}  // namespace google
+}  // namespace protobuf
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

@@ -1,8 +1,6 @@
 
 package GatewayServer;
 
-option optimize_for = LITE_RUNTIME;
-
 enum EnumServerType
 {
     ST_GameServer   = 0;

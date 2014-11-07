@@ -8,9 +8,42 @@
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/descriptor.h>
+#include <google/protobuf/reflection_ops.h>
+#include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
 namespace Protocol {
+
+namespace {
+
+const ::google::protobuf::EnumDescriptor* ClientGateProtocol_descriptor_ = NULL;
+
+}  // namespace
+
+
+void protobuf_AssignDesc_Protocol_2eproto() {
+  protobuf_AddDesc_Protocol_2eproto();
+  const ::google::protobuf::FileDescriptor* file =
+    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
+      "Protocol.proto");
+  GOOGLE_CHECK(file != NULL);
+  ClientGateProtocol_descriptor_ = file->enum_type(0);
+}
+
+namespace {
+
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
+inline void protobuf_AssignDescriptorsOnce() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
+                 &protobuf_AssignDesc_Protocol_2eproto);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) {
+  protobuf_AssignDescriptorsOnce();
+}
+
+}  // namespace
 
 void protobuf_ShutdownFile_Protocol_2eproto() {
 }
@@ -21,6 +54,15 @@ void protobuf_AddDesc_Protocol_2eproto() {
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+    "\n\016Protocol.proto\022\010Protocol*\255\001\n\022ClientGat"
+    "eProtocol\022\024\n\020PROTOCOL_VERSION\020\000\022\030\n\024SERVE"
+    "R_LOGIN_REQUEST\020\000\022\031\n\025SERVER_LOGIN_RESPON"
+    "SE\020\001\022\025\n\021USER_DISCONNECTED\020\002\022\031\n\024CLIENT_LO"
+    "GIN_REQUEST\020\221N\022\032\n\025CLIENT_LOGIN_RESPONSE\020"
+    "\222N", 202);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Protocol_2eproto);
 }
 
@@ -31,6 +73,10 @@ struct StaticDescriptorInitializer_Protocol_2eproto {
   }
 } static_descriptor_initializer_Protocol_2eproto_;
 
+const ::google::protobuf::EnumDescriptor* ClientGateProtocol_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ClientGateProtocol_descriptor_;
+}
 bool ClientGateProtocol_IsValid(int value) {
   switch(value) {
     case 0:

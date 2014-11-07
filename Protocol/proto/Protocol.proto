@@ -1,8 +1,6 @@
 
 package Protocol;
 
-option optimize_for = LITE_RUNTIME;
-
 enum ClientGateProtocol
 {
     PROTOCOL_VERSION            = 0;

@@ -1,8 +1,6 @@
 
 package ClientGate;
 
-option optimize_for = LITE_RUNTIME;
-
 enum EnumLoginType
 {
     enumLoginTypeRegisterNewUser    = 0;

@@ -1,8 +1,6 @@
 
 package PB;
 
-option optimize_for = LITE_RUNTIME;
-
 message Packet
 {
     required uint32     version     = 1;

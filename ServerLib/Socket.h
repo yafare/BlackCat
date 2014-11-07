@@ -19,8 +19,8 @@ public:
 
 public:
     void Connect(const std::function<void(const ErrorCode&)>& cb, const std::string& ip, uint16 port);
-    void Send(const std::function<void(const ErrorCode&, uint32)>& cb, const uint8 *data, uint32 size);
-    void Recv(const std::function<void(const ErrorCode&, uint32)>& cb);
+    void Send(const std::function<void(const ErrorCode&, int32)>& cb, const uint8 *data, int32 size);
+    void Recv(const std::function<void(const ErrorCode&, int32)>& cb);
 
 private:
     IoService                           io_service_;

@@ -22,14 +22,14 @@ private:
 
 private:
     // handler
-    void                Dispatch(const ConnectionPtr& conn, const uint8 *buf, uint32 len);
+    void                Dispatch(const ConnectionPtr& conn, const uint8 *buf, int32 len);
 
     // call backs
     void                OnAccept(const ConnectionPtr& conn);
 
     void                OnConnected(const ConnectionPtr& conn, bool success);
-    uint32              OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len);
-    void                OnWrite(const ConnectionPtr& conn, uint32 len);
+    int32               OnRead(const ConnectionPtr& conn, const uint8 *buf, int32 len);
+    void                OnWrite(const ConnectionPtr& conn, int32 len);
     void                OnDisconnect(const ConnectionPtr& conn);
 
 private:

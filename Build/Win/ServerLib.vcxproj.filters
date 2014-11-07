@@ -59,7 +59,7 @@
     <ClInclude Include="..\..\ServerLib\IndexMgr.h">
       <Filter>server</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\%40TexasPoker\trunk\TexasServer\ServerLib\fasthash.h">
+    <ClInclude Include="../../ServerLib/fasthash.h">
       <Filter>server</Filter>
     </ClInclude>
   </ItemGroup>
@@ -94,8 +94,8 @@
     <ClCompile Include="..\..\ServerLib\md5.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\%40TexasPoker\trunk\TexasServer\ServerLib\fasthash.cpp">
-      <Filter>server</Filter>
+    <ClCompile Include="../../ServerLib/fasthash.cpp">
+      <Filter>log</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

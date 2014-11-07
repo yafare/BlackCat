@@ -1,0 +1,12 @@
+
+package DBService;
+
+// rpc request
+message EchoRequest
+{
+    required string msg             = 1;
+}
+message EchoResponse
+{
+    required string msg             = 1;
+}

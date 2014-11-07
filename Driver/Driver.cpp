@@ -44,7 +44,7 @@ void Driver::OnConnected(const ConnectionPtr& /*conn*/, bool success)
     }
 }
 
-uint32 Driver::OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len)
+uint32 Driver::OnRead(const ConnectionPtr& conn, const uint8 *buf, int32 len)
 {
     if (len > MAX_RECV_BUF) {
         return len;
@@ -52,10 +52,10 @@ uint32 Driver::OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len)
 
     uint32 conn_id = conn->GetId();
 
-    uint32 total_len = 0;
+    int32 total_len = 0;
     while (len > sizeof(PacketHeader)) {
         PacketHeader *p = (PacketHeader *)buf;
-        uint32 cur_len = p->len + sizeof(PacketHeader);
+        int32 cur_len = p->len + sizeof(PacketHeader);
         if (len < p->len) {
             break;
         }
@@ -70,7 +70,7 @@ uint32 Driver::OnRead(const ConnectionPtr& conn, const uint8 *buf, uint32 len)
     return total_len;
 }
 
-void Driver::OnWrite(const ConnectionPtr& /*conn*/, uint32 /*len*/)
+void Driver::OnWrite(const ConnectionPtr& /*conn*/, int32 /*len*/)
 {
 }
 
