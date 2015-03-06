@@ -182,7 +182,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>D:\works\boost_1_55_0;$(SolutionDir)..\..\3rd\lua-5.2.3\src;$(SolutionDir)..\..\3rd\luabind-0.9</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\works\boost_1_55_0;E:\works2\boost_1_55_0;$(SolutionDir)..\..\3rd\lua-5.2.3\src;$(SolutionDir)..\..\3rd\luabind-0.9</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
