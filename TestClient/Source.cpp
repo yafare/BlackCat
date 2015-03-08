@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 #include "../ServerLib/TcpClient.h"
-#include "../ServerLib/fasthash.h"
 
 #include "packet.pb.h"
 #include "Protocol.pb.h"
@@ -44,10 +43,6 @@ void Login()
     std::string user = mac_ + "@test.me";
     std::string deviceid = "";
 
-    std::string strHash = mac_ + "P36J9FH3HF0fujweu9we9dcjn3488CRY0X47CH" + deviceid;
-    std::ostringstream ohash;
-    ohash << fasthash64(strHash.c_str(), strHash.length(), 0);
-
     LoginRequest request;
     request.set_login_type(enumLoginTypeRegisterNewUser);
     request.set_account(user);
@@ -58,7 +53,7 @@ void Login()
     request.set_device_id(deviceid);
     request.set_mac(mac_);
     request.set_channel("unknown");
-    request.set_secure_key(ohash.str().c_str());
+    request.set_secure_key("unknown");
     request.set_version(1000);
 
     SendPacket(CLIENT_LOGIN_REQUEST, request);
