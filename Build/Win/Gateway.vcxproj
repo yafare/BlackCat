@@ -82,7 +82,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Gateway\Router.cpp" />
     <ClCompile Include="..\..\Gateway\GateUserMgr.cpp" />
     <ClCompile Include="..\..\Gateway\GatewayHandler.cpp" />
     <ClCompile Include="..\..\Protocol\cpp\ClientGate.pb.cc" />
@@ -94,7 +93,6 @@
     <ClCompile Include="..\..\Protocol\cpp\Protocol.pb.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Gateway\Router.h" />
     <ClInclude Include="..\..\Protocol\cpp\ClientGate.pb.h" />
     <ClInclude Include="..\..\Protocol\cpp\Gateway.pb.h" />
     <ClInclude Include="..\..\Protocol\cpp\packet.pb.h" />

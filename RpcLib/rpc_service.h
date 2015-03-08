@@ -127,8 +127,8 @@ private:
             auto func = GetCallbackFromName(request.request_name());
             if (func == 0) {
                 std::ostringstream ost;
-                ost << request.service_name() << " 上不提供 " << request.request_name()
-                    << " 服务";
+                ost << request.service_name() << " does not provide the `" << request.request_name()
+                    << "' service";
 
                 RpcServer::RpcError err;
                 err.set_error(ost.str());

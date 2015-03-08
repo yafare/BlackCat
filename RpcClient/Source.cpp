@@ -16,14 +16,14 @@ int main()
     gate0.Connect("127.0.0.1:10001");
 
     Sleep(2000);
-// 
-//     {
-//         db.Register<DBService::EchoRequest>([](const DBService::EchoRequest& req) -> rpclib::RpcResult {
-//             DBService::EchoResponse response;
-//             response.set_msg(req.msg());
-//             return rpclib::MakeRpcResult(response);
-//         });
-//     }
+
+    {
+        db.Register<DBService::EchoRequest>([](const DBService::EchoRequest& req) -> rpclib::RpcResult {
+            DBService::EchoResponse response;
+            response.set_msg(req.msg());
+            return rpclib::MakeRpcResult(response);
+        });
+    }
 
     {
         DBService::EchoRequest req;

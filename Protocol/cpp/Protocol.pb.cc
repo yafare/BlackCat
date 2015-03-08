@@ -55,12 +55,10 @@ void protobuf_AddDesc_Protocol_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\016Protocol.proto\022\010Protocol*\255\001\n\022ClientGat"
-    "eProtocol\022\024\n\020PROTOCOL_VERSION\020\000\022\030\n\024SERVE"
-    "R_LOGIN_REQUEST\020\000\022\031\n\025SERVER_LOGIN_RESPON"
-    "SE\020\001\022\025\n\021USER_DISCONNECTED\020\002\022\031\n\024CLIENT_LO"
-    "GIN_REQUEST\020\221N\022\032\n\025CLIENT_LOGIN_RESPONSE\020"
-    "\222N", 202);
+    "\n\016Protocol.proto\022\010Protocol*a\n\022ClientGate"
+    "Protocol\022\024\n\020PROTOCOL_VERSION\020\000\022\031\n\024CLIENT"
+    "_LOGIN_REQUEST\020\221N\022\032\n\025CLIENT_LOGIN_RESPON"
+    "SE\020\222N", 125);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Protocol.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Protocol_2eproto);
@@ -80,8 +78,6 @@ const ::google::protobuf::EnumDescriptor* ClientGateProtocol_descriptor() {
 bool ClientGateProtocol_IsValid(int value) {
   switch(value) {
     case 0:
-    case 1:
-    case 2:
     case 10001:
     case 10002:
       return true;

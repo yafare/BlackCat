@@ -8,7 +8,24 @@ template <typename T>
 struct general_const_strings
 {
     static const T blank_str;
+    static const typename T::value_type quote;
 };
+
+// FUCK GCC...
+#ifdef _MSC_VER
+    #define WEAK_SYMBOL __declspec(selectany)
+#else
+    #define WEAK_SYMBOL __attribute__((weak))
+#endif // _MSC_VER
+
+template<>
+WEAK_SYMBOL const std::string general_const_strings<std::string>::blank_str = " \t\r\n";
+template<>
+WEAK_SYMBOL const std::wstring general_const_strings<std::wstring>::blank_str = L" \t\r\n";
+template<>
+WEAK_SYMBOL const std::string::value_type general_const_strings<std::string>::quote = '"';
+template<>
+WEAK_SYMBOL const std::wstring::value_type general_const_strings<std::wstring>::quote = L'"';
 
 // input: "    \r\n\t1234   \r\n"
 // output: "1234"
@@ -16,8 +33,8 @@ template <typename T>
 T TrimLeft(const T& str)
 {
     const T& sig = general_const_strings<T>::blank_str;
-    typename T::size_type index = 0;
-    typename T::size_type len = str.size();
+    int index = 0;
+    int len = (int)str.size();
     for (; index < len; index++) {
         if (sig.find(str[index]) == T::npos) {
             break;
@@ -29,7 +46,7 @@ template <typename T>
 T TrimRight(const T& str)
 {
     const T& sig = general_const_strings<T>::blank_str;
-    typename T::size_type len = str.size();
+    int len = (int)str.size();
     int index = len - 1;
     for (; index >= 0; index--) {
         if (sig.rfind(str[index]) == T::npos) {
@@ -51,16 +68,17 @@ std::vector<T> SplitString(const T& input, typename T::value_type splitter, bool
 {
     std::vector<T> tmp;
 
-    auto add_to_vec = [&](T& tmp_str) {
+    auto add_to_vec = [&](const T& tmp_str) {
+        T str(tmp_str);
         if (need_trim) {
-            tmp_str = TrimString(tmp_str);
+            str = TrimString(str);
         }
-        if (!tmp_str.empty() || need_null_str) {
-            tmp.push_back(tmp_str);
+        if (!str.empty() || need_null_str) {
+            tmp.push_back(str);
         }
     };
 
-    int start = 0;
+    auto start = 0;
     auto pos = input.find(splitter, start);
     while (pos != T::npos) {
         T tmp_str(input.substr(start, pos - start));
@@ -69,10 +87,56 @@ std::vector<T> SplitString(const T& input, typename T::value_type splitter, bool
         pos = input.find(splitter, start);
     }
     // last one
-    if (start != (int)input.size()) {
+    if (start != input.size()) {
         T tmp_str(input.substr(start));
         add_to_vec(tmp_str);
+    } else {
+        add_to_vec(T());
     }
+    return tmp;
+}
+
+template <typename T>
+std::vector<T> SplitCsvString(const T& input, const typename T::value_type splitter)
+{
+    const typename T::value_type quote(general_const_strings<T>::quote);
+
+    std::vector<T> tmp;
+    auto add_to_vec = [&](const T& tmp_str) {
+        auto str(TrimString(tmp_str));
+        tmp.push_back(str);
+    };
+
+    auto str = input.c_str();
+    T value;
+    while (*str != 0) {
+        auto ch = *str++;
+        switch (ch)
+        {
+        case quote:
+            while (true) {
+                ch = *str++;
+                if (ch == quote || ch == 0) {
+                    break;
+                }
+                value.push_back(ch);
+            }
+            break;
+        case 0:
+            add_to_vec(value);
+            str--;
+            break;
+        default:
+            if (ch == splitter) {
+                add_to_vec(value);
+                value.clear();
+            } else {
+                value.push_back(ch);
+            }
+            break;
+        }
+    }
+    add_to_vec(value);
     return tmp;
 }
 

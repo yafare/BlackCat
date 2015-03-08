@@ -24,7 +24,6 @@
     <ClInclude Include="../../ServerLib/Timer.h" />
     <ClInclude Include="../../ServerLib/TimerMgr.h" />
     <ClInclude Include="../../ServerLib/TcpClient.h" />
-    <ClInclude Include="../../ServerLib/fasthash.h" />
     <ClInclude Include="..\..\ServerLib\Codec.h" />
     <ClInclude Include="..\..\ServerLib\Dispatcher.h" />
     <ClInclude Include="..\..\ServerLib\IndexMgr.h" />
@@ -38,10 +37,8 @@
     <ClCompile Include="../../ServerLib/Socket.cpp" />
     <ClCompile Include="../../ServerLib/TcpConnection.cpp" />
     <ClCompile Include="../../ServerLib/TcpServer.cpp" />
-    <ClCompile Include="../../ServerLib/strop.cpp" />
     <ClCompile Include="../../ServerLib/TimerMgr.cpp" />
     <ClCompile Include="../../ServerLib/TcpClient.cpp" />
-    <ClCompile Include="../../ServerLib/fasthash.cpp" />
     <ClCompile Include="..\..\ServerLib\md5.cpp" />
     <ClCompile Include="..\..\ServerLib\SessionMgr.cpp" />
   </ItemGroup>

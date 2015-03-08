@@ -38,7 +38,7 @@ void RpcProxyServer::HandleRpcRequest(const ConnectionPtr& conn, const RpcServer
     if (dst_ptr == 0) {
         RpcServer::RpcError err;
         std::ostringstream ost;
-        ost << request.service_name() << " 未上线，请稍后重试";
+        ost << request.service_name() << " is not online now";
         err.set_error(ost.str());
 
         RpcServer::RpcResponse response;

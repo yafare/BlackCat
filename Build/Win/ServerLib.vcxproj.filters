@@ -29,9 +29,6 @@
     <ClInclude Include="../../ServerLib/basic_logger.hpp">
       <Filter>log</Filter>
     </ClInclude>
-    <ClInclude Include="../../ServerLib/io_service_pool.hpp">
-      <Filter>log</Filter>
-    </ClInclude>
     <ClInclude Include="../../ServerLib/logger.hpp">
       <Filter>log</Filter>
     </ClInclude>
@@ -59,9 +56,6 @@
     <ClInclude Include="..\..\ServerLib\IndexMgr.h">
       <Filter>server</Filter>
     </ClInclude>
-    <ClInclude Include="../../ServerLib/fasthash.h">
-      <Filter>server</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\ServerLib\SessionMgr.h">
       <Filter>server</Filter>
     </ClInclude>
@@ -71,11 +65,11 @@
     <ClInclude Include="..\..\ServerLib\Dispatcher.h">
       <Filter>server</Filter>
     </ClInclude>
+    <ClInclude Include="../../ServerLib/io_service_pool.hpp">
+      <Filter>server</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="../../ServerLib/io_service_pool.cpp">
-      <Filter>log</Filter>
-    </ClCompile>
     <ClCompile Include="../../ServerLib/logger.cpp">
       <Filter>log</Filter>
     </ClCompile>
@@ -91,9 +85,6 @@
     <ClCompile Include="../../ServerLib/TcpServer.cpp">
       <Filter>server</Filter>
     </ClCompile>
-    <ClCompile Include="../../ServerLib/strop.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
     <ClCompile Include="../../ServerLib/TcpClient.cpp">
       <Filter>server</Filter>
     </ClCompile>
@@ -103,10 +94,10 @@
     <ClCompile Include="..\..\ServerLib\md5.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="../../ServerLib/fasthash.cpp">
-      <Filter>log</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\ServerLib\SessionMgr.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="../../ServerLib/io_service_pool.cpp">
       <Filter>server</Filter>
     </ClCompile>
   </ItemGroup>

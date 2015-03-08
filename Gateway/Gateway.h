@@ -34,8 +34,6 @@ private:
 
 private:
     void                HandlePacket(const ConnectionPtr& conn, const PB::Packet& packet);
-    void                HandleServerLogin(const ConnectionPtr& conn, const PB::Packet& packet);
-    void                HandleClientLogin(const ConnectionPtr& conn, const PB::Packet& packet);
 };
 
 inline FuncOnAccept Gateway::GetAcceptCallBack()

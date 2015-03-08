@@ -35,9 +35,6 @@ void protobuf_ShutdownFile_Protocol_2eproto();
 
 enum ClientGateProtocol {
   PROTOCOL_VERSION = 0,
-  SERVER_LOGIN_REQUEST = 0,
-  SERVER_LOGIN_RESPONSE = 1,
-  USER_DISCONNECTED = 2,
   CLIENT_LOGIN_REQUEST = 10001,
   CLIENT_LOGIN_RESPONSE = 10002
 };
