@@ -5,12 +5,12 @@
 
 std::shared_ptr<TcpServer> server;
 
-TcpServer::TcpServer(const std::string& address, const std::string& port,
-    std::size_t io_service_pool_size, const FuncOnAccept& func)
-    : io_service_pool_(io_service_pool_size),
+TcpServer::TcpServer(const TcpServerStartupConfig& config)
+    : io_service_pool_(config.io_service_pool_size),
       signals_(io_service_pool_.get_io_service()),
       acceptor_(io_service_pool_.get_io_service()),
-      OnAccept(func)
+      OnAccept(config.on_accept),
+      cb_(config.cb)
 {
     signals_.add(SIGINT);
     signals_.add(SIGTERM);
@@ -24,7 +24,7 @@ TcpServer::TcpServer(const std::string& address, const std::string& port,
     }));
 
     Resolver resolver(acceptor_.get_io_service());
-    Query query(address, port);
+    Query query(config.ip, config.port);
     EndPoint endpoint = *resolver.resolve(query);
     acceptor_.open(endpoint.protocol());
     acceptor_.set_option(boost::asio::ip::tcp::acceptor::reuse_address(true));
@@ -32,6 +32,9 @@ TcpServer::TcpServer(const std::string& address, const std::string& port,
     acceptor_.listen();
 
     logger_.reset(new services::logger(io_service_pool_.get_io_service(), ""));
+
+    OnAccept = config.on_accept;
+    cb_ = config.cb;
 
     StartAccept();
 }

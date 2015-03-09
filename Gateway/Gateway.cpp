@@ -11,12 +11,17 @@ Gateway::Gateway()
 {
 }
 
-void Gateway::Run(const std::string& ip, const std::string& port, int pool_size)
+void Gateway::Run(const GatewayStartupConfig& config)
 {
-    server.reset(new TcpServer(ip, port, pool_size, GetAcceptCallBack()));
-    server->SetCallBacks(GetCallBacks());
+    InitRpcService(config.service_name, config.rpc_server_addr);
 
-    server->Run();
+    GenericServer::Run(config.ip, config.port, config.pool_size);
+}
+
+void Gateway::InitRpcService(const std::string& name, const std::string& rpc_server)
+{
+    gateway_.reset(new rpclib::RpcServiceProvider(name));
+    gateway_->Connect(rpc_server);
 }
 
 void Gateway::Dispatch(const ConnectionPtr& conn, const uint8 *buf, int32 len)
@@ -32,40 +37,6 @@ void Gateway::Dispatch(const ConnectionPtr& conn, const uint8 *buf, int32 len)
 void Gateway::OnAccept(const ConnectionPtr& conn)
 {
     GetGateUserManager().AddUser(conn);
-}
-
-void Gateway::OnConnected(const ConnectionPtr& /*conn*/, bool /*success*/)
-{
-}
-
-int32 Gateway::OnRead(const ConnectionPtr& conn, const uint8 *buf, int32 len)
-{
-    if (len >= MAX_RECV_BUF) {
-        LOG("Recv buffer overflow, shutdown this connection");
-        conn->Shutdown();
-        return len;
-    }
-
-    int32 total_len = 0;
-    while (len > sizeof(PacketHeader)) {
-        PacketHeader *p = (PacketHeader *)buf;
-        int32 cur_len = p->len + sizeof(PacketHeader);
-        if (len < p->len) {
-            break;
-        }
-
-        Dispatch(conn, p->buf, p->len);
-
-        total_len += cur_len;
-        buf += cur_len;
-        len -= cur_len;
-    }
-
-    return total_len;
-}
-
-void Gateway::OnWrite(const ConnectionPtr& /*conn*/, int32 /*len*/)
-{
 }
 
 void Gateway::OnDisconnect(const ConnectionPtr& conn)

@@ -91,6 +91,7 @@
     <ClCompile Include="..\..\Gateway\Gateway.cpp" />
     <ClCompile Include="..\..\Gateway\Main.cpp" />
     <ClCompile Include="..\..\Protocol\cpp\Protocol.pb.cc" />
+    <ClCompile Include="..\..\Protocol\cpp\RpcServer.pb.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Protocol\cpp\ClientGate.pb.h" />
@@ -99,6 +100,10 @@
     <ClInclude Include="..\..\Protocol\cpp\Protocol.pb.h" />
     <ClInclude Include="..\..\Gateway\GateUser.h" />
     <ClInclude Include="..\..\Gateway\Gateway.h" />
+    <ClInclude Include="..\..\Protocol\cpp\RpcServer.pb.h" />
+    <ClInclude Include="..\..\RpcLib\rpc_service.h" />
+    <ClInclude Include="..\..\RpcLib\rpc_stubs.h" />
+    <ClInclude Include="..\..\RpcLib\rpc_task.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

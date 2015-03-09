@@ -8,13 +8,18 @@
 #include "io_service_pool.hpp"
 #include "IndexMgr.h"
 
+struct TcpServerStartupConfig
+{
+    std::string             ip;
+    std::string             port;
+    std::size_t             io_service_pool_size;
+    FuncOnAccept            on_accept;
+    ConnectionCallBacks     cb;
+};
 class TcpServer : private boost::noncopyable
 {
 public:
-    explicit TcpServer(const std::string& address, const std::string& port,
-        std::size_t io_service_pool_size, const FuncOnAccept& func);
-
-    void    SetCallBacks(const ConnectionCallBacks& cb);
+    explicit TcpServer(const TcpServerStartupConfig& config);
 
     void    Run();
 
@@ -34,11 +39,6 @@ private:
     IndexMgr<uint32>                    conn_id_mgr_;
 };
 extern std::shared_ptr<TcpServer> server;
-
-inline void TcpServer::SetCallBacks(const ConnectionCallBacks& cb)
-{
-    cb_ = cb;
-}
 
 inline void TcpServer::Run()
 {

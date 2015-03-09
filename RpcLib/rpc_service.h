@@ -7,6 +7,7 @@
 #include <mutex>
 #include <unordered_map>
 #include <functional>
+#include <memory>
 
 #include "rpc_task.h"
 #include "rpc_stubs.h"
@@ -268,6 +269,7 @@ private:
     PacketDispatcher<ConnectionPtr, ProtobufMessage>    dispatcher_;
     IoService                                           ios_;
 };
+using RpcServiceProviderPtr = std::shared_ptr<RpcServiceProvider>;
 
 }
 

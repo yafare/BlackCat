@@ -17,13 +17,6 @@ RpcProxyServer::RpcProxyServer()
 #undef REG_FUNC
 }
 
-void RpcProxyServer::Run(const std::string& ip, const std::string& port, int pool_size)
-{
-    server.reset(new TcpServer(ip, port, pool_size, GetAcceptCallBack()));
-    server->SetCallBacks(GetCallBacks());
-    server->Run();
-}
-
 void RpcProxyServer::HandleLoginRequest(const ConnectionPtr& conn, const RpcServer::LoginRequest& request)
 {
     std::string service_name = request.service_name();
@@ -74,14 +67,6 @@ void RpcProxyServer::Dispatch(const ConnectionPtr& conn, const std::string& buf)
     delete msg;
 }
 
-void RpcProxyServer::OnAccept(const ConnectionPtr& conn)
-{
-}
-
-void RpcProxyServer::OnConnected(const ConnectionPtr& /*conn*/, bool /*success*/)
-{
-}
-
 int32 RpcProxyServer::OnRead(const ConnectionPtr& conn, const uint8 *buf, int32 len)
 {
     if (len >= MAX_RECV_BUF) {
@@ -105,10 +90,6 @@ int32 RpcProxyServer::OnRead(const ConnectionPtr& conn, const uint8 *buf, int32 
     } while (true);
 
     return total_len;
-}
-
-void RpcProxyServer::OnWrite(const ConnectionPtr& /*conn*/, int32 /*len*/)
-{
 }
 
 void RpcProxyServer::OnDisconnect(const ConnectionPtr& conn)

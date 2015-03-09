@@ -7,6 +7,12 @@
     <Filter Include="ProtoBuf">
       <UniqueIdentifier>{45be5d4a-d826-4a7a-a373-0d5108843c85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ProtoBuf\Rpc">
+      <UniqueIdentifier>{46ab903a-4f5d-4d4e-a0ed-a0e4721e7324}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rpclib">
+      <UniqueIdentifier>{71c6fa6a-acdd-4627-aad8-87df07c4744f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Gateway\Main.cpp">
@@ -36,6 +42,9 @@
     <ClCompile Include="..\..\Gateway\GatewayHandler.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Protocol\cpp\RpcServer.pb.cc">
+      <Filter>ProtoBuf\Rpc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Gateway\Gateway.h">
@@ -55,6 +64,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Protocol\cpp\Protocol.pb.h">
       <Filter>ProtoBuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Protocol\cpp\RpcServer.pb.h">
+      <Filter>ProtoBuf\Rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RpcLib\rpc_service.h">
+      <Filter>rpclib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RpcLib\rpc_stubs.h">
+      <Filter>rpclib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RpcLib\rpc_task.h">
+      <Filter>rpclib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

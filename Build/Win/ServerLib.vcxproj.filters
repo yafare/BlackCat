@@ -68,6 +68,9 @@
     <ClInclude Include="../../ServerLib/io_service_pool.hpp">
       <Filter>server</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\ServerLib\GenericServer.h">
+      <Filter>server</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="../../ServerLib/logger.cpp">
@@ -98,6 +101,9 @@
       <Filter>server</Filter>
     </ClCompile>
     <ClCompile Include="../../ServerLib/io_service_pool.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ServerLib\GenericServer.cpp">
       <Filter>server</Filter>
     </ClCompile>
   </ItemGroup>

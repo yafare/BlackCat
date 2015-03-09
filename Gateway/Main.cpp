@@ -5,28 +5,29 @@
 
 #include "../ServerLib/CfgReader.h"
 
-static std::vector<std::string> GetConfig()
+static GatewayStartupConfig GetConfig()
 {
-    std::vector<std::string> result;
+    GatewayStartupConfig config;
 
     CfgReader reader;
     reader.Read("./Gateway.cfg");
-    std::string ip = reader["GatewayIP"];
-    std::string port = reader["GatewayPort"];
+    config.service_name = reader["ServiceName"];
+    config.rpc_server_addr = reader["RpcProxyServerAddr"];
+    config.ip = reader["IP"];
+    config.port = reader["Port"];
     std::string pool_size = reader["IoServicePoolSize"];
-    if (ip.empty() || port.empty()) {
-        LOG("Please check Gateway.cfg!");
-        return result;
+    if (config.service_name.empty() || config.rpc_server_addr.empty() ||
+        config.ip.empty() || config.port.empty()) {
+        printf("Please check Gateway.cfg");
+        return config;
     }
 
     if (pool_size.empty()) {
         pool_size = "1";
     }
 
-    result.push_back(ip);
-    result.push_back(port);
-    result.push_back(pool_size);
-    return result;
+    config.pool_size = atoi(pool_size.c_str());
+    return config;
 }
 
 int main()
@@ -34,12 +35,8 @@ int main()
     Gateway gate;
 
     auto cfg = GetConfig();
-    if (cfg.empty()) {
-        return 0;
-    }
-
     try {
-        gate.Run(cfg[0], cfg[1], atoi(cfg[2].c_str()));
+        gate.Run(cfg);
     } catch (std::exception& e) {
         LOG("exception: %s", e.what());
     }
