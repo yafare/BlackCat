@@ -10,7 +10,7 @@ GenericServer::GenericServer()
 void GenericServer::Run(const std::string& ip, const std::string& port, int pool_size)
 {
     TcpServerStartupConfig config = {
-        ip, port, pool_size, GetAcceptCallBack(this), GetCallBacks(this)
+        ip, port, pool_size, GetAcceptCallBack(), GetCallBacks()
     };
     server.reset(new TcpServer(config));
     server->Run();
