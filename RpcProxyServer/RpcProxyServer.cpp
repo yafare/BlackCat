@@ -7,7 +7,7 @@
 RpcProxyServer::RpcProxyServer()
 {
 #define REG_FUNC(C) \
-    dispatcher_.RegisterMessageCallback<RpcServer::C>(std::bind(&RpcProxyServer::Handle##C, \
+    dispatcher_.RegisterMessageCallback<ConnectionPtr, RpcServer::C>(std::bind(&RpcProxyServer::Handle##C, \
         this, std::placeholders::_1, std::placeholders::_2));
 
     REG_FUNC(LoginRequest);

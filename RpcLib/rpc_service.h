@@ -163,7 +163,7 @@ private:
     void RegisterHanlders()
     {
 #define REG_FUNC(C) \
-    dispatcher_.RegisterMessageCallback<RpcServer::C>(std::bind(&RpcServiceProvider::Handle##C, \
+    dispatcher_.RegisterMessageCallback<ConnectionPtr, RpcServer::C>(std::bind(&RpcServiceProvider::Handle##C, \
         this, std::placeholders::_1, std::placeholders::_2));
 
         REG_FUNC(RpcRequest);
@@ -254,19 +254,19 @@ private:
     }
 
 private:
-    std::unordered_map<std::string, RpcCallbackPtr> function_map_;
-    std::unordered_map<uint64, ResultCallbackPtr> callback_map_;
+    std::unordered_map<std::string, RpcCallbackPtr>     function_map_;
+    std::unordered_map<uint64, ResultCallbackPtr>       callback_map_;
 
-    std::mutex          mutex_;
+    std::mutex                                          mutex_;
 
-    std::string         name_;
-    RpcTaskMgr          task_mgr_;
-    std::thread         task_runner_;
-    std::thread         network_runner_;
+    std::string                                         name_;
+    RpcTaskMgr                                          task_mgr_;
+    std::thread                                         task_runner_;
+    std::thread                                         network_runner_;
 
-    TcpClientPtr        tcp_client_;
-    PacketDispatcher    dispatcher_;
-    IoService           ios_;
+    TcpClientPtr                                        tcp_client_;
+    PacketDispatcher<ConnectionPtr, ProtobufMessage>    dispatcher_;
+    IoService                                           ios_;
 };
 
 }

@@ -43,10 +43,10 @@ private:
     void                HandlePacket(const ConnectionPtr& conn, const ProtobufMessage& packet);
 
 private:
-    PacketDispatcher    dispatcher_;
+    PacketDispatcher<ConnectionPtr, ProtobufMessage>    dispatcher_;
 
-    std::mutex          mutex_;
-    std::unordered_map<std::string, ConnectionPtr> conn_map_;
+    std::mutex                                          mutex_;
+    std::unordered_map<std::string, ConnectionPtr>      conn_map_;
 };
 
 inline FuncOnAccept RpcProxyServer::GetAcceptCallBack()

@@ -9,50 +9,52 @@
 
 #include "../Common/Types.h"
 
+template <typename T>
 class BasePacketCallback
 {
 public:
     virtual ~BasePacketCallback() {}
-    virtual void OnMessage(const ConnectionPtr&, ProtobufMessage *msg) = 0;
+    virtual void OnMessage(const T&, ProtobufMessage *msg) = 0;
 };
 
-template <typename T>
-class PacketCallbackT : public BasePacketCallback
+template <typename T1, typename T2>
+class PacketCallbackT : public BasePacketCallback<T1>
 {
 public:
-    using MessageCallback = std::function<void(const ConnectionPtr&, const T&)>;
+    using MessageCallback = std::function<void(const T1&, const T2&)>;
     PacketCallbackT(const MessageCallback& cb) : cb_(cb)
     {
     }
 
-    virtual void OnMessage(const ConnectionPtr& conn, ProtobufMessage *msg)
+    virtual void OnMessage(const T1& t1, ProtobufMessage *msg)
     {
-        T *t = dynamic_cast<T *>(msg);
-        cb_(conn, *t);
+        T2 *t2 = dynamic_cast<T2 *>(msg);
+        cb_(t1, *t2);
     }
 
 private:
     MessageCallback cb_;
 };
 
-static void DefaultMessageHandler(const ConnectionPtr& conn, ProtobufMessage* message)
-{
-}
-
 inline uint64 GetIdFromPtr(const void *ptr)
 {
     return reinterpret_cast<uint64>(ptr);
 }
 
+template <typename T1, typename T2>
 class PacketDispatcher
 {
-    using DefaultMessageHandlerFunc = std::function<void(const ConnectionPtr&, ProtobufMessage* message)>;
+    static void DefaultMessageHandler(const T1& t1, T2 *t2)
+    {
+    }
+
+    using DefaultMessageHandlerFunc = std::function<void(const T1&, T2 *message)>;
 public:
     PacketDispatcher() : default_callback_(DefaultMessageHandler)
     {
     }
 
-    PacketDispatcher(const DefaultMessageHandlerFunc& func) :default_callback_(func)
+    PacketDispatcher(const DefaultMessageHandlerFunc& func) : default_callback_(func)
     {
     }
 
@@ -81,7 +83,7 @@ public:
         return result;
     }
 
-    void OnMessage(const ConnectionPtr& conn, ProtobufMessage *message)
+    void OnMessage(const T1& conn, T2 *message)
     {
         auto it = callbacks_.find(GetIdFromPtr(message->GetDescriptor()));
         if (it != callbacks_.end()) {
@@ -91,15 +93,15 @@ public:
         }
     }
 
-    template<typename T>
-    void RegisterMessageCallback(const typename PacketCallbackT<T>::MessageCallback& cb)
+    template <typename T1, typename T2>
+    void RegisterMessageCallback(const typename PacketCallbackT<T1, T2>::MessageCallback& cb)
     {
-        std::shared_ptr<PacketCallbackT<T>> pd(new PacketCallbackT<T>(cb));
-        callbacks_[GetIdFromPtr(T::descriptor())] = pd;
+        std::shared_ptr<PacketCallbackT<T1, T2>> pd(new PacketCallbackT<T1, T2>(cb));
+        callbacks_[GetIdFromPtr(T2::descriptor())] = pd;
     }
 
 private:
-    std::unordered_map<uint64, std::shared_ptr<BasePacketCallback>> callbacks_;
+    std::unordered_map<uint64, std::shared_ptr<BasePacketCallback<T1>>> callbacks_;
     DefaultMessageHandlerFunc default_callback_;
 };
 

@@ -3,6 +3,7 @@
 #include "DBService.pb.h"
 
 #include "../RpcLib/rpc_service.h"
+#include "../ServerLib/Dispatcher.h"
 
 const char *db_name = "db";
 const char *gate0_name = "gate0";
@@ -38,6 +39,7 @@ int main()
                 if (m) {
                     printf("\t%s\n", m->msg().c_str());
                 }
+                delete message;
             }
         });
     }
