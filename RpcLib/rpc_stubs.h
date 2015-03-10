@@ -46,13 +46,11 @@ inline RpcCallbackPtr MakeCallback(const std::function<RpcResult(const T&)>& fun
         }
         virtual RpcResult Execute(const RpcServer::RpcRequest& args)
         {
-            auto message = CreateMessage(args.request_name());
+            boost::scoped_ptr<ProtobufMessage> message(CreateMessage(args.request_name()));
             if (message != 0 && message->ParseFromString(args.request_body())) {
                 RpcResult result = func_(dynamic_cast<const T&>(*message));
-                delete message;
                 return result;
             }
-
             // TODO
             return RpcResult();
         }

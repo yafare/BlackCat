@@ -77,19 +77,17 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)@lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ServerLib.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ServerLib.lib;libprotobuf.lib;RpcLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Protocol\cpp\DBService.pb.h" />
-    <ClInclude Include="..\..\Protocol\cpp\RpcServer.pb.h" />
     <ClInclude Include="..\..\RpcLib\rpc_service.h" />
     <ClInclude Include="..\..\RpcLib\rpc_stubs.h" />
     <ClInclude Include="..\..\RpcLib\rpc_task.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Protocol\cpp\DBService.pb.cc" />
-    <ClCompile Include="..\..\Protocol\cpp\RpcServer.pb.cc" />
     <ClCompile Include="..\..\RpcClient\Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

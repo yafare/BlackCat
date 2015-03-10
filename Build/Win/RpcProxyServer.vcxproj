@@ -78,16 +78,14 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)@lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>ServerLib.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ServerLib.lib;libprotobuf.lib;RpcLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Protocol\cpp\RpcServer.pb.cc" />
     <ClCompile Include="..\..\RpcProxyServer\RpcProxyServer.cpp" />
     <ClCompile Include="..\..\RpcProxyServer\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Protocol\cpp\RpcServer.pb.h" />
     <ClInclude Include="..\..\RpcProxyServer\ConnMgr.h" />
     <ClInclude Include="..\..\RpcProxyServer\RpcProxyServer.h" />
   </ItemGroup>
