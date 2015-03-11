@@ -5,22 +5,29 @@
 
 #include "../ServerLib/CfgReader.h"
 
-static std::vector<std::string> GetConfig()
+static DriverStartupConfig GetConfig()
 {
-    std::vector<std::string> result;
+    DriverStartupConfig config;
 
     CfgReader reader;
-    reader.Read("./Driver.cfg");
-    std::string ip = reader["GatewayIP"];
-    std::string port = reader["GatewayPort"];
-    if (ip.empty() || port.empty()) {
-        LOG("Please check Driver.cfg!");
-        return result;
+    reader.Read("./Gateway.cfg");
+    config.service_name = reader["ServiceName"];
+    config.rpc_server_addr = reader["RpcProxyServerAddr"];
+    config.gateway_ip = reader["GatewayIP"];
+    config.gateway_port = reader["GatewayPort"];
+    std::string pool_size = reader["IoServicePoolSize"];
+    if (config.service_name.empty() || config.rpc_server_addr.empty() ||
+        config.gateway_ip.empty() || config.gateway_port.empty()) {
+        printf("Please check cfg file\n");
+        return config;
     }
 
-    result.push_back(ip);
-    result.push_back(port);
-    return result;
+    if (pool_size.empty()) {
+        pool_size = "1";
+    }
+
+    config.pool_size = atoi(pool_size.c_str());
+    return config;
 }
 
 int main()
@@ -28,12 +35,8 @@ int main()
     driver = new Driver;
 
     auto cfg = GetConfig();
-    if (cfg.empty()) {
-        return 0;
-    }
-
     try {
-        driver->Run(cfg[0], cfg[1]);
+        driver->Run(cfg);
     } catch (std::exception& e) {
         LOG("exception: %s", e.what());
     }

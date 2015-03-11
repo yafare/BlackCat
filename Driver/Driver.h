@@ -1,8 +1,9 @@
 #ifndef _DRIVER_H
 #define _DRIVER_H
 
-#include "../ServerLib/TcpClient.h"
 #include "../ServerLib/TimerMgr.h"
+
+#include "../RpcLib/rpc_service.h"
 
 #include "../Common/Misc.h"
 
@@ -14,74 +15,42 @@
 
 #define SCRIPT_FRAME_INTERVAL 6 // ms
 
+struct DriverStartupConfig
+{
+    std::string     service_name;
+    std::string     rpc_server_addr;
+
+    std::string     gateway_ip;
+    std::string     gateway_port;
+    int             pool_size;
+};
+
 class Driver
 {
 public:
     Driver();
 
 public:
-    void                Run(const std::string& ip, const std::string& port);
-    void                Stop();
+    void        Run(const DriverStartupConfig& config);
+    void        Stop();
 
-    void                Send(uint32 conn_id, const std::string& pkt);
-
-private:
-    template <typename T>
-    void                SendToGate(uint32 cmd, const T& pkt);
+    void        Send(uint32 conn_id, const std::string& pkt);
 
 private:
-    void                LoginToGate();
-
-private:
-    ConnectionCallBacks GetCallBacks();
+    void        InitRpcService(const std::string& name, const std::string& rpc_server);
 
 private:
     // handler
-    void                Dispatch(uint32 conn_id, const uint8 *buf, int32 len);
-
-    // call backs
-    void                OnConnected(const ConnectionPtr& conn, bool success);
-    int32               OnRead(const ConnectionPtr& conn, const uint8 *buf, int32 len);
-    void                OnWrite(const ConnectionPtr& conn, int32 len);
-    void                OnDisconnect(const ConnectionPtr& conn);
+    void        Dispatch(uint32 conn_id, const uint8 *buf, int32 len);
 
 private:
-    IoService           ios_;
-    TcpClientPtr        client_;
-    GameScriptPtr       script_;
-    TimerMgrPtr         timer_mgr_;
+    IoService                       ios_;
+    GameScriptPtr                   script_;
+    TimerMgrPtr                     timer_mgr_;
+    uint32                          script_timer_;
 
-    std::string         gate_ip_, gate_port_;
-
-    uint32              script_timer_;
+    rpclib::RpcServiceProviderPtr   driver_;
 };
 extern Driver *driver;
-
-inline ConnectionCallBacks Driver::GetCallBacks()
-{
-    ConnectionCallBacks cb = {
-        std::bind(&Driver::OnConnected, this, std::placeholders::_1, std::placeholders::_2),
-        std::bind(&Driver::OnRead, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3),
-        std::bind(&Driver::OnWrite, this, std::placeholders::_1, std::placeholders::_2),
-        std::bind(&Driver::OnDisconnect, this, std::placeholders::_1),
-    };
-    return cb;
-}
-
-template <typename T>
-void Driver::SendToGate(uint32 cmd, const T& pkt)
-{
-    PB::Packet packet;
-    packet.set_version(Protocol::PROTOCOL_VERSION);
-    packet.set_command(cmd);
-
-    pkt.SerializeToString(packet.mutable_serialized());
-    uint32 len = packet.ByteSize();
-
-    FastBuf<uint8> buf(len + 4);
-    packet.SerializeToArray(buf.buf + 4, len);
-    memcpy(buf.buf, &len, 4);
-    client_->Send(buf.buf, len + 4);
-}
 
 #endif // _DRIVER_H

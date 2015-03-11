@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Driver", "Driver.vcxproj", "{85AA5602-22D1-4B4E-85FE-5111D8A0E62E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6318585C-947F-482D-B29B-26908FB5F9F8} = {6318585C-947F-482D-B29B-26908FB5F9F8}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RpcLib", "RpcLib.vcxproj", "{6318585C-947F-482D-B29B-26908FB5F9F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{85AA5602-22D1-4B4E-85FE-5111D8A0E62E}.Debug|Win32.Build.0 = Debug|Win32
 		{85AA5602-22D1-4B4E-85FE-5111D8A0E62E}.Release|Win32.ActiveCfg = Release|Win32
 		{85AA5602-22D1-4B4E-85FE-5111D8A0E62E}.Release|Win32.Build.0 = Release|Win32
+		{6318585C-947F-482D-B29B-26908FB5F9F8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6318585C-947F-482D-B29B-26908FB5F9F8}.Debug|Win32.Build.0 = Debug|Win32
+		{6318585C-947F-482D-B29B-26908FB5F9F8}.Release|Win32.ActiveCfg = Release|Win32
+		{6318585C-947F-482D-B29B-26908FB5F9F8}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
