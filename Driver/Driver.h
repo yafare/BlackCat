@@ -10,7 +10,7 @@
 #include "GameScript.h"
 
 #include "Protocol.pb.h"
-#include "packet.pb.h"
+#include "Packet.pb.h"
 #include "Gateway.pb.h"
 
 #define SCRIPT_FRAME_INTERVAL 6 // ms
@@ -20,8 +20,8 @@ struct DriverStartupConfig
     std::string     service_name;
     std::string     rpc_server_addr;
 
-    std::string     gateway_ip;
-    std::string     gateway_port;
+    std::string     gateway_name;
+
     int             pool_size;
 };
 
@@ -49,6 +49,7 @@ private:
     TimerMgrPtr                     timer_mgr_;
     uint32                          script_timer_;
 
+    std::string                     gateway_name_;
     rpclib::RpcServiceProviderPtr   driver_;
 };
 extern Driver *driver;

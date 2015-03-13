@@ -14,7 +14,7 @@
     <ClCompile Include="..\..\Protocol\cpp\ClientGate.pb.cc">
       <Filter>Src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Protocol\cpp\packet.pb.cc">
+    <ClCompile Include="..\..\Protocol\cpp\Packet.pb.cc">
       <Filter>Src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Protocol\cpp\Protocol.pb.cc">
@@ -28,7 +28,7 @@
     <ClInclude Include="..\..\Protocol\cpp\ClientGate.pb.h">
       <Filter>ProtoBuf</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Protocol\cpp\packet.pb.h">
+    <ClInclude Include="..\..\Protocol\cpp\Packet.pb.h">
       <Filter>ProtoBuf</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Protocol\cpp\Protocol.pb.h">

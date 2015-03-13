@@ -17,17 +17,18 @@ namespace GatewayServer {
 
 namespace {
 
-const ::google::protobuf::Descriptor* LoginRequest_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* ReportAvailable_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  LoginRequest_reflection_ = NULL;
-const ::google::protobuf::Descriptor* LoginResponse_descriptor_ = NULL;
+  ReportAvailable_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ReportAvailableResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  LoginResponse_reflection_ = NULL;
+  ReportAvailableResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ForwardingPacket_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ForwardingPacket_reflection_ = NULL;
 const ::google::protobuf::Descriptor* UserDisconnect_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   UserDisconnect_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* EnumServerType_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* EnumResult_descriptor_ = NULL;
 
 }  // namespace
 
@@ -38,39 +39,55 @@ void protobuf_AssignDesc_Gateway_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "Gateway.proto");
   GOOGLE_CHECK(file != NULL);
-  LoginRequest_descriptor_ = file->message_type(0);
-  static const int LoginRequest_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, server_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, account_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, secure_key_),
+  ReportAvailable_descriptor_ = file->message_type(0);
+  static const int ReportAvailable_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReportAvailable, server_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReportAvailable, protocol_),
   };
-  LoginRequest_reflection_ =
+  ReportAvailable_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      LoginRequest_descriptor_,
-      LoginRequest::default_instance_,
-      LoginRequest_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, _unknown_fields_),
+      ReportAvailable_descriptor_,
+      ReportAvailable::default_instance_,
+      ReportAvailable_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReportAvailable, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReportAvailable, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(LoginRequest));
-  LoginResponse_descriptor_ = file->message_type(1);
-  static const int LoginResponse_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, result_),
+      sizeof(ReportAvailable));
+  ReportAvailableResponse_descriptor_ = file->message_type(1);
+  static const int ReportAvailableResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReportAvailableResponse, result_),
   };
-  LoginResponse_reflection_ =
+  ReportAvailableResponse_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      LoginResponse_descriptor_,
-      LoginResponse::default_instance_,
-      LoginResponse_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, _unknown_fields_),
+      ReportAvailableResponse_descriptor_,
+      ReportAvailableResponse::default_instance_,
+      ReportAvailableResponse_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReportAvailableResponse, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReportAvailableResponse, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(LoginResponse));
-  UserDisconnect_descriptor_ = file->message_type(2);
+      sizeof(ReportAvailableResponse));
+  ForwardingPacket_descriptor_ = file->message_type(2);
+  static const int ForwardingPacket_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ForwardingPacket, conn_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ForwardingPacket, packet_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ForwardingPacket, packet_body_),
+  };
+  ForwardingPacket_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      ForwardingPacket_descriptor_,
+      ForwardingPacket::default_instance_,
+      ForwardingPacket_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ForwardingPacket, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ForwardingPacket, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(ForwardingPacket));
+  UserDisconnect_descriptor_ = file->message_type(3);
   static const int UserDisconnect_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserDisconnect, user_id_),
   };
@@ -85,8 +102,6 @@ void protobuf_AssignDesc_Gateway_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(UserDisconnect));
-  EnumServerType_descriptor_ = file->enum_type(0);
-  EnumResult_descriptor_ = file->enum_type(1);
 }
 
 namespace {
@@ -100,9 +115,11 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    LoginRequest_descriptor_, &LoginRequest::default_instance());
+    ReportAvailable_descriptor_, &ReportAvailable::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    LoginResponse_descriptor_, &LoginResponse::default_instance());
+    ReportAvailableResponse_descriptor_, &ReportAvailableResponse::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    ForwardingPacket_descriptor_, &ForwardingPacket::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     UserDisconnect_descriptor_, &UserDisconnect::default_instance());
 }
@@ -110,10 +127,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_Gateway_2eproto() {
-  delete LoginRequest::default_instance_;
-  delete LoginRequest_reflection_;
-  delete LoginResponse::default_instance_;
-  delete LoginResponse_reflection_;
+  delete ReportAvailable::default_instance_;
+  delete ReportAvailable_reflection_;
+  delete ReportAvailableResponse::default_instance_;
+  delete ReportAvailableResponse_reflection_;
+  delete ForwardingPacket::default_instance_;
+  delete ForwardingPacket_reflection_;
   delete UserDisconnect::default_instance_;
   delete UserDisconnect_reflection_;
 }
@@ -125,22 +144,22 @@ void protobuf_AddDesc_Gateway_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rGateway.proto\022\rGatewayServer\"g\n\014LoginR"
-    "equest\0222\n\013server_type\030\001 \002(\0162\035.GatewaySer"
-    "ver.EnumServerType\022\017\n\007account\030\002 \002(\t\022\022\n\ns"
-    "ecure_key\030\003 \002(\t\":\n\rLoginResponse\022)\n\006resu"
-    "lt\030\001 \002(\0162\031.GatewayServer.EnumResult\"!\n\016U"
-    "serDisconnect\022\017\n\007user_id\030\001 \002(\r*8\n\016EnumSe"
-    "rverType\022\021\n\rST_GameServer\020\000\022\023\n\017ST_Record"
-    "Server\020\001*4\n\nEnumResult\022\022\n\016enumResultSucc"
-    "\020\000\022\022\n\016enumResultFail\020\001", 342);
+    "\n\rGateway.proto\022\rGatewayServer\"8\n\017Report"
+    "Available\022\023\n\013server_name\030\001 \002(\t\022\020\n\010protoc"
+    "ol\030\002 \003(\t\")\n\027ReportAvailableResponse\022\016\n\006r"
+    "esult\030\001 \002(\r\"M\n\020ForwardingPacket\022\017\n\007conn_"
+    "id\030\001 \002(\r\022\023\n\013packet_name\030\002 \002(\t\022\023\n\013packet_"
+    "body\030\003 \002(\t\"!\n\016UserDisconnect\022\017\n\007user_id\030"
+    "\001 \002(\r", 245);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Gateway.proto", &protobuf_RegisterTypes);
-  LoginRequest::default_instance_ = new LoginRequest();
-  LoginResponse::default_instance_ = new LoginResponse();
+  ReportAvailable::default_instance_ = new ReportAvailable();
+  ReportAvailableResponse::default_instance_ = new ReportAvailableResponse();
+  ForwardingPacket::default_instance_ = new ForwardingPacket();
   UserDisconnect::default_instance_ = new UserDisconnect();
-  LoginRequest::default_instance_->InitAsDefaultInstance();
-  LoginResponse::default_instance_->InitAsDefaultInstance();
+  ReportAvailable::default_instance_->InitAsDefaultInstance();
+  ReportAvailableResponse::default_instance_->InitAsDefaultInstance();
+  ForwardingPacket::default_instance_->InitAsDefaultInstance();
   UserDisconnect::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Gateway_2eproto);
 }
@@ -152,174 +171,115 @@ struct StaticDescriptorInitializer_Gateway_2eproto {
   }
 } static_descriptor_initializer_Gateway_2eproto_;
 
-const ::google::protobuf::EnumDescriptor* EnumServerType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return EnumServerType_descriptor_;
-}
-bool EnumServerType_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::google::protobuf::EnumDescriptor* EnumResult_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return EnumResult_descriptor_;
-}
-bool EnumResult_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-      return true;
-    default:
-      return false;
-  }
-}
-
 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int LoginRequest::kServerTypeFieldNumber;
-const int LoginRequest::kAccountFieldNumber;
-const int LoginRequest::kSecureKeyFieldNumber;
+const int ReportAvailable::kServerNameFieldNumber;
+const int ReportAvailable::kProtocolFieldNumber;
 #endif  // !_MSC_VER
 
-LoginRequest::LoginRequest()
+ReportAvailable::ReportAvailable()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void LoginRequest::InitAsDefaultInstance() {
+void ReportAvailable::InitAsDefaultInstance() {
 }
 
-LoginRequest::LoginRequest(const LoginRequest& from)
+ReportAvailable::ReportAvailable(const ReportAvailable& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void LoginRequest::SharedCtor() {
+void ReportAvailable::SharedCtor() {
   _cached_size_ = 0;
-  server_type_ = 0;
-  account_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  secure_key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-LoginRequest::~LoginRequest() {
+ReportAvailable::~ReportAvailable() {
   SharedDtor();
 }
 
-void LoginRequest::SharedDtor() {
-  if (account_ != &::google::protobuf::internal::kEmptyString) {
-    delete account_;
-  }
-  if (secure_key_ != &::google::protobuf::internal::kEmptyString) {
-    delete secure_key_;
+void ReportAvailable::SharedDtor() {
+  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete server_name_;
   }
   if (this != default_instance_) {
   }
 }
 
-void LoginRequest::SetCachedSize(int size) const {
+void ReportAvailable::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* LoginRequest::descriptor() {
+const ::google::protobuf::Descriptor* ReportAvailable::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return LoginRequest_descriptor_;
+  return ReportAvailable_descriptor_;
 }
 
-const LoginRequest& LoginRequest::default_instance() {
+const ReportAvailable& ReportAvailable::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_Gateway_2eproto();  return *default_instance_;
 }
 
-LoginRequest* LoginRequest::default_instance_ = NULL;
+ReportAvailable* ReportAvailable::default_instance_ = NULL;
 
-LoginRequest* LoginRequest::New() const {
-  return new LoginRequest;
+ReportAvailable* ReportAvailable::New() const {
+  return new ReportAvailable;
 }
 
-void LoginRequest::Clear() {
+void ReportAvailable::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    server_type_ = 0;
-    if (has_account()) {
-      if (account_ != &::google::protobuf::internal::kEmptyString) {
-        account_->clear();
-      }
-    }
-    if (has_secure_key()) {
-      if (secure_key_ != &::google::protobuf::internal::kEmptyString) {
-        secure_key_->clear();
+    if (has_server_name()) {
+      if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+        server_name_->clear();
       }
     }
   }
+  protocol_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool LoginRequest::MergePartialFromCodedStream(
+bool ReportAvailable::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .GatewayServer.EnumServerType server_type = 1;
+      // required string server_name = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (GatewayServer::EnumServerType_IsValid(value)) {
-            set_server_type(static_cast< GatewayServer::EnumServerType >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_server_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->server_name().data(), this->server_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_account;
+        if (input->ExpectTag(18)) goto parse_protocol;
         break;
       }
       
-      // required string account = 2;
+      // repeated string protocol = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_account:
+         parse_protocol:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_account()));
+                input, this->add_protocol()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->account().data(), this->account().length(),
+            this->protocol(0).data(), this->protocol(0).length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_secure_key;
-        break;
-      }
-      
-      // required string secure_key = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_secure_key:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_secure_key()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->secure_key().data(), this->secure_key().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
+        if (input->ExpectTag(18)) goto parse_protocol;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -340,30 +300,24 @@ bool LoginRequest::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void LoginRequest::SerializeWithCachedSizes(
+void ReportAvailable::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .GatewayServer.EnumServerType server_type = 1;
-  if (has_server_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->server_type(), output);
-  }
-  
-  // required string account = 2;
-  if (has_account()) {
+  // required string server_name = 1;
+  if (has_server_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->account().data(), this->account().length(),
+      this->server_name().data(), this->server_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->account(), output);
+      1, this->server_name(), output);
   }
   
-  // required string secure_key = 3;
-  if (has_secure_key()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->secure_key().data(), this->secure_key().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+  // repeated string protocol = 2;
+  for (int i = 0; i < this->protocol_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->protocol(i).data(), this->protocol(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->secure_key(), output);
+      2, this->protocol(i), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -372,32 +326,25 @@ void LoginRequest::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* LoginRequest::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* ReportAvailable::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .GatewayServer.EnumServerType server_type = 1;
-  if (has_server_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->server_type(), target);
-  }
-  
-  // required string account = 2;
-  if (has_account()) {
+  // required string server_name = 1;
+  if (has_server_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->account().data(), this->account().length(),
+      this->server_name().data(), this->server_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->account(), target);
+        1, this->server_name(), target);
   }
   
-  // required string secure_key = 3;
-  if (has_secure_key()) {
+  // repeated string protocol = 2;
+  for (int i = 0; i < this->protocol_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->secure_key().data(), this->secure_key().length(),
+      this->protocol(i).data(), this->protocol(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->secure_key(), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(2, this->protocol(i), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -407,31 +354,25 @@ void LoginRequest::SerializeWithCachedSizes(
   return target;
 }
 
-int LoginRequest::ByteSize() const {
+int ReportAvailable::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .GatewayServer.EnumServerType server_type = 1;
-    if (has_server_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->server_type());
-    }
-    
-    // required string account = 2;
-    if (has_account()) {
+    // required string server_name = 1;
+    if (has_server_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->account());
-    }
-    
-    // required string secure_key = 3;
-    if (has_secure_key()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->secure_key());
+          this->server_name());
     }
     
   }
+  // repeated string protocol = 2;
+  total_size += 1 * this->protocol_size();
+  for (int i = 0; i < this->protocol_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->protocol(i));
+  }
+  
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -443,10 +384,10 @@ int LoginRequest::ByteSize() const {
   return total_size;
 }
 
-void LoginRequest::MergeFrom(const ::google::protobuf::Message& from) {
+void ReportAvailable::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const LoginRequest* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const LoginRequest*>(
+  const ReportAvailable* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ReportAvailable*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -455,56 +396,50 @@ void LoginRequest::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void LoginRequest::MergeFrom(const LoginRequest& from) {
+void ReportAvailable::MergeFrom(const ReportAvailable& from) {
   GOOGLE_CHECK_NE(&from, this);
+  protocol_.MergeFrom(from.protocol_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_server_type()) {
-      set_server_type(from.server_type());
-    }
-    if (from.has_account()) {
-      set_account(from.account());
-    }
-    if (from.has_secure_key()) {
-      set_secure_key(from.secure_key());
+    if (from.has_server_name()) {
+      set_server_name(from.server_name());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void LoginRequest::CopyFrom(const ::google::protobuf::Message& from) {
+void ReportAvailable::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void LoginRequest::CopyFrom(const LoginRequest& from) {
+void ReportAvailable::CopyFrom(const ReportAvailable& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool LoginRequest::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+bool ReportAvailable::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   
   return true;
 }
 
-void LoginRequest::Swap(LoginRequest* other) {
+void ReportAvailable::Swap(ReportAvailable* other) {
   if (other != this) {
-    std::swap(server_type_, other->server_type_);
-    std::swap(account_, other->account_);
-    std::swap(secure_key_, other->secure_key_);
+    std::swap(server_name_, other->server_name_);
+    protocol_.Swap(&other->protocol_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata LoginRequest::GetMetadata() const {
+::google::protobuf::Metadata ReportAvailable::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = LoginRequest_descriptor_;
-  metadata.reflection = LoginRequest_reflection_;
+  metadata.descriptor = ReportAvailable_descriptor_;
+  metadata.reflection = ReportAvailable_reflection_;
   return metadata;
 }
 
@@ -512,85 +447,80 @@ void LoginRequest::Swap(LoginRequest* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int LoginResponse::kResultFieldNumber;
+const int ReportAvailableResponse::kResultFieldNumber;
 #endif  // !_MSC_VER
 
-LoginResponse::LoginResponse()
+ReportAvailableResponse::ReportAvailableResponse()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void LoginResponse::InitAsDefaultInstance() {
+void ReportAvailableResponse::InitAsDefaultInstance() {
 }
 
-LoginResponse::LoginResponse(const LoginResponse& from)
+ReportAvailableResponse::ReportAvailableResponse(const ReportAvailableResponse& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void LoginResponse::SharedCtor() {
+void ReportAvailableResponse::SharedCtor() {
   _cached_size_ = 0;
-  result_ = 0;
+  result_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-LoginResponse::~LoginResponse() {
+ReportAvailableResponse::~ReportAvailableResponse() {
   SharedDtor();
 }
 
-void LoginResponse::SharedDtor() {
+void ReportAvailableResponse::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void LoginResponse::SetCachedSize(int size) const {
+void ReportAvailableResponse::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* LoginResponse::descriptor() {
+const ::google::protobuf::Descriptor* ReportAvailableResponse::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return LoginResponse_descriptor_;
+  return ReportAvailableResponse_descriptor_;
 }
 
-const LoginResponse& LoginResponse::default_instance() {
+const ReportAvailableResponse& ReportAvailableResponse::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_Gateway_2eproto();  return *default_instance_;
 }
 
-LoginResponse* LoginResponse::default_instance_ = NULL;
+ReportAvailableResponse* ReportAvailableResponse::default_instance_ = NULL;
 
-LoginResponse* LoginResponse::New() const {
-  return new LoginResponse;
+ReportAvailableResponse* ReportAvailableResponse::New() const {
+  return new ReportAvailableResponse;
 }
 
-void LoginResponse::Clear() {
+void ReportAvailableResponse::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    result_ = 0;
+    result_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool LoginResponse::MergePartialFromCodedStream(
+bool ReportAvailableResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .GatewayServer.EnumResult result = 1;
+      // required uint32 result = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (GatewayServer::EnumResult_IsValid(value)) {
-            set_result(static_cast< GatewayServer::EnumResult >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &result_)));
+          set_has_result();
         } else {
           goto handle_uninterpreted;
         }
@@ -614,12 +544,11 @@ bool LoginResponse::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void LoginResponse::SerializeWithCachedSizes(
+void ReportAvailableResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .GatewayServer.EnumResult result = 1;
+  // required uint32 result = 1;
   if (has_result()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->result(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->result(), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -628,12 +557,11 @@ void LoginResponse::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* LoginResponse::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* ReportAvailableResponse::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .GatewayServer.EnumResult result = 1;
+  // required uint32 result = 1;
   if (has_result()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->result(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->result(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -643,14 +571,15 @@ void LoginResponse::SerializeWithCachedSizes(
   return target;
 }
 
-int LoginResponse::ByteSize() const {
+int ReportAvailableResponse::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .GatewayServer.EnumResult result = 1;
+    // required uint32 result = 1;
     if (has_result()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->result());
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->result());
     }
     
   }
@@ -665,10 +594,10 @@ int LoginResponse::ByteSize() const {
   return total_size;
 }
 
-void LoginResponse::MergeFrom(const ::google::protobuf::Message& from) {
+void ReportAvailableResponse::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const LoginResponse* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const LoginResponse*>(
+  const ReportAvailableResponse* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ReportAvailableResponse*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -677,7 +606,7 @@ void LoginResponse::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void LoginResponse::MergeFrom(const LoginResponse& from) {
+void ReportAvailableResponse::MergeFrom(const ReportAvailableResponse& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_result()) {
@@ -687,25 +616,25 @@ void LoginResponse::MergeFrom(const LoginResponse& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void LoginResponse::CopyFrom(const ::google::protobuf::Message& from) {
+void ReportAvailableResponse::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void LoginResponse::CopyFrom(const LoginResponse& from) {
+void ReportAvailableResponse::CopyFrom(const ReportAvailableResponse& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool LoginResponse::IsInitialized() const {
+bool ReportAvailableResponse::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   
   return true;
 }
 
-void LoginResponse::Swap(LoginResponse* other) {
+void ReportAvailableResponse::Swap(ReportAvailableResponse* other) {
   if (other != this) {
     std::swap(result_, other->result_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -714,11 +643,333 @@ void LoginResponse::Swap(LoginResponse* other) {
   }
 }
 
-::google::protobuf::Metadata LoginResponse::GetMetadata() const {
+::google::protobuf::Metadata ReportAvailableResponse::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = LoginResponse_descriptor_;
-  metadata.reflection = LoginResponse_reflection_;
+  metadata.descriptor = ReportAvailableResponse_descriptor_;
+  metadata.reflection = ReportAvailableResponse_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int ForwardingPacket::kConnIdFieldNumber;
+const int ForwardingPacket::kPacketNameFieldNumber;
+const int ForwardingPacket::kPacketBodyFieldNumber;
+#endif  // !_MSC_VER
+
+ForwardingPacket::ForwardingPacket()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void ForwardingPacket::InitAsDefaultInstance() {
+}
+
+ForwardingPacket::ForwardingPacket(const ForwardingPacket& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void ForwardingPacket::SharedCtor() {
+  _cached_size_ = 0;
+  conn_id_ = 0u;
+  packet_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  packet_body_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+ForwardingPacket::~ForwardingPacket() {
+  SharedDtor();
+}
+
+void ForwardingPacket::SharedDtor() {
+  if (packet_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete packet_name_;
+  }
+  if (packet_body_ != &::google::protobuf::internal::kEmptyString) {
+    delete packet_body_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void ForwardingPacket::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ForwardingPacket::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ForwardingPacket_descriptor_;
+}
+
+const ForwardingPacket& ForwardingPacket::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Gateway_2eproto();  return *default_instance_;
+}
+
+ForwardingPacket* ForwardingPacket::default_instance_ = NULL;
+
+ForwardingPacket* ForwardingPacket::New() const {
+  return new ForwardingPacket;
+}
+
+void ForwardingPacket::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    conn_id_ = 0u;
+    if (has_packet_name()) {
+      if (packet_name_ != &::google::protobuf::internal::kEmptyString) {
+        packet_name_->clear();
+      }
+    }
+    if (has_packet_body()) {
+      if (packet_body_ != &::google::protobuf::internal::kEmptyString) {
+        packet_body_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool ForwardingPacket::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint32 conn_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &conn_id_)));
+          set_has_conn_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_packet_name;
+        break;
+      }
+      
+      // required string packet_name = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_packet_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_packet_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->packet_name().data(), this->packet_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_packet_body;
+        break;
+      }
+      
+      // required string packet_body = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_packet_body:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_packet_body()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->packet_body().data(), this->packet_body().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void ForwardingPacket::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint32 conn_id = 1;
+  if (has_conn_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->conn_id(), output);
+  }
+  
+  // required string packet_name = 2;
+  if (has_packet_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->packet_name().data(), this->packet_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->packet_name(), output);
+  }
+  
+  // required string packet_body = 3;
+  if (has_packet_body()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->packet_body().data(), this->packet_body().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->packet_body(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* ForwardingPacket::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint32 conn_id = 1;
+  if (has_conn_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->conn_id(), target);
+  }
+  
+  // required string packet_name = 2;
+  if (has_packet_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->packet_name().data(), this->packet_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->packet_name(), target);
+  }
+  
+  // required string packet_body = 3;
+  if (has_packet_body()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->packet_body().data(), this->packet_body().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->packet_body(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int ForwardingPacket::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint32 conn_id = 1;
+    if (has_conn_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->conn_id());
+    }
+    
+    // required string packet_name = 2;
+    if (has_packet_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->packet_name());
+    }
+    
+    // required string packet_body = 3;
+    if (has_packet_body()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->packet_body());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ForwardingPacket::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ForwardingPacket* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ForwardingPacket*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void ForwardingPacket::MergeFrom(const ForwardingPacket& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_conn_id()) {
+      set_conn_id(from.conn_id());
+    }
+    if (from.has_packet_name()) {
+      set_packet_name(from.packet_name());
+    }
+    if (from.has_packet_body()) {
+      set_packet_body(from.packet_body());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ForwardingPacket::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ForwardingPacket::CopyFrom(const ForwardingPacket& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ForwardingPacket::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  
+  return true;
+}
+
+void ForwardingPacket::Swap(ForwardingPacket* other) {
+  if (other != this) {
+    std::swap(conn_id_, other->conn_id_);
+    std::swap(packet_name_, other->packet_name_);
+    std::swap(packet_body_, other->packet_body_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata ForwardingPacket::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ForwardingPacket_descriptor_;
+  metadata.reflection = ForwardingPacket_reflection_;
   return metadata;
 }
 

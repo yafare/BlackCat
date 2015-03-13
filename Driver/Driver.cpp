@@ -17,6 +17,8 @@ Driver::Driver()
 
 void Driver::Run(const DriverStartupConfig& config)
 {
+    gateway_name_ = config.gateway_name;
+
     InitRpcService(config.service_name, config.rpc_server_addr);
 
     ios_.run();

@@ -57,7 +57,7 @@
     <ClInclude Include="..\..\Protocol\cpp\Gateway.pb.h">
       <Filter>Src\ProtoBuf</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Protocol\cpp\packet.pb.h">
+    <ClInclude Include="..\..\Protocol\cpp\Packet.pb.h">
       <Filter>Src\ProtoBuf</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Protocol\cpp\Protocol.pb.h">

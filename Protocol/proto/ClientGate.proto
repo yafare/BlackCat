@@ -1,83 +1,11 @@
 
 package ClientGate;
 
-enum EnumLoginType
+message Ping
 {
-    enumLoginTypeRegisterNewUser    = 0;
-	enumLoginTypeGuestAccount       = 1;
-	enumLoginTypeRegisterAccount    = 2;
+    required uint32 tick = 1;
 }
-
-enum EnumGender
+message Pong
 {
-	enumGenderFemale    = 0;
-	enumGenderMale      = 1;
-	enumGenderUnknown   = 2;
-}
-
-enum EnumDeviceType
-{
-	enumDeviceTypeiPhone   = 0;
-	enumDeviceTypeiPad	   = 1;
-	enumDeviceTypeAndroid  = 2;
-	enumDeviceTypeWindows  = 3;
-}
-
-enum EnumResult
-{
-	enumResultSucc = 0;
-	enumResultFail = 1;
-}
-
-enum EnumNewVersion
-{
-    enumUpdateTipNoNewVersion                   = 0;
-	enumUpdateTipHasNewVersion                  = 1;
-	enumUpdateTipHasNewVersionMandatoryUpdate   = 2;
-}
-
-enum EnumVIPLevel
-{
-    enumVIPLevelNone        = 0;
-    enumVIPLevelSilver      = 1;
-	enumVIPLevelGold        = 2;
-	enumVIPLevelPlatinum    = 3;
-	enumVIPLevelDiamond     = 4;
-}
-
-message LoginRequest
-{
-    required EnumLoginType login_type       = 1;
-    required string account                 = 2;
-    required string password                = 3;
-    required string nick                    = 4;
-    required EnumGender gender              = 5;
-    required EnumDeviceType device_type     = 6;
-    required string device_id               = 7;
-    optional string device_token            = 8;    //iOS device push token
-    required string mac                     = 9;
-    required string secure_key              = 10;   //avoid hacker attack
-    required string channel                 = 11;   //marketing channel
-    required uint32 version                 = 12;   //current version
-    optional string phone_no                = 13;
-}
-
-message BasicUserInfo
-{
-  required string user_id                   = 1;
-  required string nick                      = 2;
-  required string avatar                    = 3;
-  required EnumGender gender                = 4;
-  required int64 user_score                 = 5;
-  required uint64 experience                = 6;
-}
-
-message LoginResponse
-{
-    required EnumResult result              = 1;
-    required BasicUserInfo basic_user_info  = 2;
-    optional string update_url              = 3;
-    optional string ios_update_url          = 4;
-    optional string latest_version          = 5;
-    optional string update_info             = 6;
+    required uint32 tick = 1;
 }

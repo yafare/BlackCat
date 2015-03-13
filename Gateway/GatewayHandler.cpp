@@ -7,4 +7,5 @@
 
 void Gateway::HandlePacket(const ConnectionPtr& conn, const PB::Packet& packet)
 {
+
 }

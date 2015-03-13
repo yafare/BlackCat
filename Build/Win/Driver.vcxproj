@@ -98,7 +98,7 @@
     <ClInclude Include="..\..\Driver\LuaBinder.h" />
     <ClInclude Include="..\..\Driver\LuaVM.h" />
     <ClInclude Include="..\..\Protocol\cpp\Gateway.pb.h" />
-    <ClInclude Include="..\..\Protocol\cpp\packet.pb.h" />
+    <ClInclude Include="..\..\Protocol\cpp\Packet.pb.h" />
     <ClInclude Include="..\..\Protocol\cpp\Protocol.pb.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

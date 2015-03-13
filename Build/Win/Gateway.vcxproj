@@ -96,7 +96,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Protocol\cpp\ClientGate.pb.h" />
     <ClInclude Include="..\..\Protocol\cpp\Gateway.pb.h" />
-    <ClInclude Include="..\..\Protocol\cpp\packet.pb.h" />
+    <ClInclude Include="..\..\Protocol\cpp\Packet.pb.h" />
     <ClInclude Include="..\..\Protocol\cpp\Protocol.pb.h" />
     <ClInclude Include="..\..\Gateway\GateUser.h" />
     <ClInclude Include="..\..\Gateway\Gateway.h" />

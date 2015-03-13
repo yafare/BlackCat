@@ -2,7 +2,7 @@
 
 #include "../ServerLib/TcpClient.h"
 
-#include "packet.pb.h"
+#include "Packet.pb.h"
 #include "Protocol.pb.h"
 #include "ClientGate.pb.h"
 

@@ -10,15 +10,15 @@ static DriverStartupConfig GetConfig()
     DriverStartupConfig config;
 
     CfgReader reader;
-    reader.Read("./Gateway.cfg");
+    reader.Read("./Driver.cfg");
     config.service_name = reader["ServiceName"];
     config.rpc_server_addr = reader["RpcProxyServerAddr"];
-    config.gateway_ip = reader["GatewayIP"];
-    config.gateway_port = reader["GatewayPort"];
+    config.gateway_name = reader["GatewayServiceName"];
     std::string pool_size = reader["IoServicePoolSize"];
-    if (config.service_name.empty() || config.rpc_server_addr.empty() ||
-        config.gateway_ip.empty() || config.gateway_port.empty()) {
-        printf("Please check cfg file\n");
+    if (config.service_name.empty() ||
+        config.rpc_server_addr.empty() ||
+        config.gateway_name.empty()) {
+        printf("Please check the cfg file\n");
         return config;
     }
 

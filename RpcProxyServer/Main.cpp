@@ -5,7 +5,7 @@
 
 static std::vector<std::string> GetConfig()
 {
-    return{ "0.0.0.0", "10001", "1" };
+    return{ "0.0.0.0", "10001" };
 }
 
 int main()
@@ -18,7 +18,7 @@ int main()
     }
 
     try {
-        serv.Run(cfg[0], cfg[1], atoi(cfg[2].c_str()));
+        serv.Run(cfg[0], cfg[1]);
     } catch (std::exception& e) {
         LOG("exception: %s", e.what());
     }

@@ -17,21 +17,12 @@ namespace ClientGate {
 
 namespace {
 
-const ::google::protobuf::Descriptor* LoginRequest_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* Ping_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  LoginRequest_reflection_ = NULL;
-const ::google::protobuf::Descriptor* BasicUserInfo_descriptor_ = NULL;
+  Ping_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Pong_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  BasicUserInfo_reflection_ = NULL;
-const ::google::protobuf::Descriptor* LoginResponse_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  LoginResponse_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* EnumLoginType_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* EnumGender_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* EnumDeviceType_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* EnumResult_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* EnumNewVersion_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* EnumVIPLevel_descriptor_ = NULL;
+  Pong_reflection_ = NULL;
 
 }  // namespace
 
@@ -42,79 +33,36 @@ void protobuf_AssignDesc_ClientGate_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "ClientGate.proto");
   GOOGLE_CHECK(file != NULL);
-  LoginRequest_descriptor_ = file->message_type(0);
-  static const int LoginRequest_offsets_[13] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, login_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, account_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, password_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, nick_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, gender_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, device_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, device_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, device_token_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, mac_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, secure_key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, channel_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, version_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, phone_no_),
+  Ping_descriptor_ = file->message_type(0);
+  static const int Ping_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Ping, tick_),
   };
-  LoginRequest_reflection_ =
+  Ping_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      LoginRequest_descriptor_,
-      LoginRequest::default_instance_,
-      LoginRequest_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, _unknown_fields_),
+      Ping_descriptor_,
+      Ping::default_instance_,
+      Ping_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Ping, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Ping, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(LoginRequest));
-  BasicUserInfo_descriptor_ = file->message_type(1);
-  static const int BasicUserInfo_offsets_[6] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, user_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, nick_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, avatar_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, gender_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, user_score_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, experience_),
+      sizeof(Ping));
+  Pong_descriptor_ = file->message_type(1);
+  static const int Pong_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pong, tick_),
   };
-  BasicUserInfo_reflection_ =
+  Pong_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      BasicUserInfo_descriptor_,
-      BasicUserInfo::default_instance_,
-      BasicUserInfo_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BasicUserInfo, _unknown_fields_),
+      Pong_descriptor_,
+      Pong::default_instance_,
+      Pong_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pong, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pong, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(BasicUserInfo));
-  LoginResponse_descriptor_ = file->message_type(2);
-  static const int LoginResponse_offsets_[6] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, result_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, basic_user_info_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, update_url_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, ios_update_url_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, latest_version_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, update_info_),
-  };
-  LoginResponse_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      LoginResponse_descriptor_,
-      LoginResponse::default_instance_,
-      LoginResponse_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponse, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(LoginResponse));
-  EnumLoginType_descriptor_ = file->enum_type(0);
-  EnumGender_descriptor_ = file->enum_type(1);
-  EnumDeviceType_descriptor_ = file->enum_type(2);
-  EnumResult_descriptor_ = file->enum_type(3);
-  EnumNewVersion_descriptor_ = file->enum_type(4);
-  EnumVIPLevel_descriptor_ = file->enum_type(5);
+      sizeof(Pong));
 }
 
 namespace {
@@ -128,22 +76,18 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    LoginRequest_descriptor_, &LoginRequest::default_instance());
+    Ping_descriptor_, &Ping::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    BasicUserInfo_descriptor_, &BasicUserInfo::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    LoginResponse_descriptor_, &LoginResponse::default_instance());
+    Pong_descriptor_, &Pong::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_ClientGate_2eproto() {
-  delete LoginRequest::default_instance_;
-  delete LoginRequest_reflection_;
-  delete BasicUserInfo::default_instance_;
-  delete BasicUserInfo_reflection_;
-  delete LoginResponse::default_instance_;
-  delete LoginResponse_reflection_;
+  delete Ping::default_instance_;
+  delete Ping_reflection_;
+  delete Pong::default_instance_;
+  delete Pong_reflection_;
 }
 
 void protobuf_AddDesc_ClientGate_2eproto() {
@@ -153,48 +97,14 @@ void protobuf_AddDesc_ClientGate_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\020ClientGate.proto\022\nClientGate\"\305\002\n\014Login"
-    "Request\022-\n\nlogin_type\030\001 \002(\0162\031.ClientGate"
-    ".EnumLoginType\022\017\n\007account\030\002 \002(\t\022\020\n\010passw"
-    "ord\030\003 \002(\t\022\014\n\004nick\030\004 \002(\t\022&\n\006gender\030\005 \002(\0162"
-    "\026.ClientGate.EnumGender\022/\n\013device_type\030\006"
-    " \002(\0162\032.ClientGate.EnumDeviceType\022\021\n\tdevi"
-    "ce_id\030\007 \002(\t\022\024\n\014device_token\030\010 \001(\t\022\013\n\003mac"
-    "\030\t \002(\t\022\022\n\nsecure_key\030\n \002(\t\022\017\n\007channel\030\013 "
-    "\002(\t\022\017\n\007version\030\014 \002(\r\022\020\n\010phone_no\030\r \001(\t\"\216"
-    "\001\n\rBasicUserInfo\022\017\n\007user_id\030\001 \002(\t\022\014\n\004nic"
-    "k\030\002 \002(\t\022\016\n\006avatar\030\003 \002(\t\022&\n\006gender\030\004 \002(\0162"
-    "\026.ClientGate.EnumGender\022\022\n\nuser_score\030\005 "
-    "\002(\003\022\022\n\nexperience\030\006 \002(\004\"\304\001\n\rLoginRespons"
-    "e\022&\n\006result\030\001 \002(\0162\026.ClientGate.EnumResul"
-    "t\0222\n\017basic_user_info\030\002 \002(\0132\031.ClientGate."
-    "BasicUserInfo\022\022\n\nupdate_url\030\003 \001(\t\022\026\n\016ios"
-    "_update_url\030\004 \001(\t\022\026\n\016latest_version\030\005 \001("
-    "\t\022\023\n\013update_info\030\006 \001(\t*r\n\rEnumLoginType\022"
-    " \n\034enumLoginTypeRegisterNewUser\020\000\022\035\n\031enu"
-    "mLoginTypeGuestAccount\020\001\022 \n\034enumLoginTyp"
-    "eRegisterAccount\020\002*M\n\nEnumGender\022\024\n\020enum"
-    "GenderFemale\020\000\022\022\n\016enumGenderMale\020\001\022\025\n\021en"
-    "umGenderUnknown\020\002*x\n\016EnumDeviceType\022\030\n\024e"
-    "numDeviceTypeiPhone\020\000\022\026\n\022enumDeviceTypei"
-    "Pad\020\001\022\031\n\025enumDeviceTypeAndroid\020\002\022\031\n\025enum"
-    "DeviceTypeWindows\020\003*4\n\nEnumResult\022\022\n\016enu"
-    "mResultSucc\020\000\022\022\n\016enumResultFail\020\001*~\n\016Enu"
-    "mNewVersion\022\035\n\031enumUpdateTipNoNewVersion"
-    "\020\000\022\036\n\032enumUpdateTipHasNewVersion\020\001\022-\n)en"
-    "umUpdateTipHasNewVersionMandatoryUpdate\020"
-    "\002*\205\001\n\014EnumVIPLevel\022\024\n\020enumVIPLevelNone\020\000"
-    "\022\026\n\022enumVIPLevelSilver\020\001\022\024\n\020enumVIPLevel"
-    "Gold\020\002\022\030\n\024enumVIPLevelPlatinum\020\003\022\027\n\023enum"
-    "VIPLevelDiamond\020\004", 1337);
+    "\n\020ClientGate.proto\022\nClientGate\"\024\n\004Ping\022\014"
+    "\n\004tick\030\001 \002(\r\"\024\n\004Pong\022\014\n\004tick\030\001 \002(\r", 74);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ClientGate.proto", &protobuf_RegisterTypes);
-  LoginRequest::default_instance_ = new LoginRequest();
-  BasicUserInfo::default_instance_ = new BasicUserInfo();
-  LoginResponse::default_instance_ = new LoginResponse();
-  LoginRequest::default_instance_->InitAsDefaultInstance();
-  BasicUserInfo::default_instance_->InitAsDefaultInstance();
-  LoginResponse::default_instance_->InitAsDefaultInstance();
+  Ping::default_instance_ = new Ping();
+  Pong::default_instance_ = new Pong();
+  Ping::default_instance_->InitAsDefaultInstance();
+  Pong::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ClientGate_2eproto);
 }
 
@@ -205,493 +115,84 @@ struct StaticDescriptorInitializer_ClientGate_2eproto {
   }
 } static_descriptor_initializer_ClientGate_2eproto_;
 
-const ::google::protobuf::EnumDescriptor* EnumLoginType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return EnumLoginType_descriptor_;
-}
-bool EnumLoginType_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::google::protobuf::EnumDescriptor* EnumGender_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return EnumGender_descriptor_;
-}
-bool EnumGender_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::google::protobuf::EnumDescriptor* EnumDeviceType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return EnumDeviceType_descriptor_;
-}
-bool EnumDeviceType_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::google::protobuf::EnumDescriptor* EnumResult_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return EnumResult_descriptor_;
-}
-bool EnumResult_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::google::protobuf::EnumDescriptor* EnumNewVersion_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return EnumNewVersion_descriptor_;
-}
-bool EnumNewVersion_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::google::protobuf::EnumDescriptor* EnumVIPLevel_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return EnumVIPLevel_descriptor_;
-}
-bool EnumVIPLevel_IsValid(int value) {
-  switch(value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-      return true;
-    default:
-      return false;
-  }
-}
-
 
 // ===================================================================
 
 #ifndef _MSC_VER
-const int LoginRequest::kLoginTypeFieldNumber;
-const int LoginRequest::kAccountFieldNumber;
-const int LoginRequest::kPasswordFieldNumber;
-const int LoginRequest::kNickFieldNumber;
-const int LoginRequest::kGenderFieldNumber;
-const int LoginRequest::kDeviceTypeFieldNumber;
-const int LoginRequest::kDeviceIdFieldNumber;
-const int LoginRequest::kDeviceTokenFieldNumber;
-const int LoginRequest::kMacFieldNumber;
-const int LoginRequest::kSecureKeyFieldNumber;
-const int LoginRequest::kChannelFieldNumber;
-const int LoginRequest::kVersionFieldNumber;
-const int LoginRequest::kPhoneNoFieldNumber;
+const int Ping::kTickFieldNumber;
 #endif  // !_MSC_VER
 
-LoginRequest::LoginRequest()
+Ping::Ping()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void LoginRequest::InitAsDefaultInstance() {
+void Ping::InitAsDefaultInstance() {
 }
 
-LoginRequest::LoginRequest(const LoginRequest& from)
+Ping::Ping(const Ping& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void LoginRequest::SharedCtor() {
+void Ping::SharedCtor() {
   _cached_size_ = 0;
-  login_type_ = 0;
-  account_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  nick_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  gender_ = 0;
-  device_type_ = 0;
-  device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  device_token_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  mac_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  secure_key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  channel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  version_ = 0u;
-  phone_no_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  tick_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-LoginRequest::~LoginRequest() {
+Ping::~Ping() {
   SharedDtor();
 }
 
-void LoginRequest::SharedDtor() {
-  if (account_ != &::google::protobuf::internal::kEmptyString) {
-    delete account_;
-  }
-  if (password_ != &::google::protobuf::internal::kEmptyString) {
-    delete password_;
-  }
-  if (nick_ != &::google::protobuf::internal::kEmptyString) {
-    delete nick_;
-  }
-  if (device_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete device_id_;
-  }
-  if (device_token_ != &::google::protobuf::internal::kEmptyString) {
-    delete device_token_;
-  }
-  if (mac_ != &::google::protobuf::internal::kEmptyString) {
-    delete mac_;
-  }
-  if (secure_key_ != &::google::protobuf::internal::kEmptyString) {
-    delete secure_key_;
-  }
-  if (channel_ != &::google::protobuf::internal::kEmptyString) {
-    delete channel_;
-  }
-  if (phone_no_ != &::google::protobuf::internal::kEmptyString) {
-    delete phone_no_;
-  }
+void Ping::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void LoginRequest::SetCachedSize(int size) const {
+void Ping::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* LoginRequest::descriptor() {
+const ::google::protobuf::Descriptor* Ping::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return LoginRequest_descriptor_;
+  return Ping_descriptor_;
 }
 
-const LoginRequest& LoginRequest::default_instance() {
+const Ping& Ping::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ClientGate_2eproto();  return *default_instance_;
 }
 
-LoginRequest* LoginRequest::default_instance_ = NULL;
+Ping* Ping::default_instance_ = NULL;
 
-LoginRequest* LoginRequest::New() const {
-  return new LoginRequest;
+Ping* Ping::New() const {
+  return new Ping;
 }
 
-void LoginRequest::Clear() {
+void Ping::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    login_type_ = 0;
-    if (has_account()) {
-      if (account_ != &::google::protobuf::internal::kEmptyString) {
-        account_->clear();
-      }
-    }
-    if (has_password()) {
-      if (password_ != &::google::protobuf::internal::kEmptyString) {
-        password_->clear();
-      }
-    }
-    if (has_nick()) {
-      if (nick_ != &::google::protobuf::internal::kEmptyString) {
-        nick_->clear();
-      }
-    }
-    gender_ = 0;
-    device_type_ = 0;
-    if (has_device_id()) {
-      if (device_id_ != &::google::protobuf::internal::kEmptyString) {
-        device_id_->clear();
-      }
-    }
-    if (has_device_token()) {
-      if (device_token_ != &::google::protobuf::internal::kEmptyString) {
-        device_token_->clear();
-      }
-    }
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (has_mac()) {
-      if (mac_ != &::google::protobuf::internal::kEmptyString) {
-        mac_->clear();
-      }
-    }
-    if (has_secure_key()) {
-      if (secure_key_ != &::google::protobuf::internal::kEmptyString) {
-        secure_key_->clear();
-      }
-    }
-    if (has_channel()) {
-      if (channel_ != &::google::protobuf::internal::kEmptyString) {
-        channel_->clear();
-      }
-    }
-    version_ = 0u;
-    if (has_phone_no()) {
-      if (phone_no_ != &::google::protobuf::internal::kEmptyString) {
-        phone_no_->clear();
-      }
-    }
+    tick_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool LoginRequest::MergePartialFromCodedStream(
+bool Ping::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .ClientGate.EnumLoginType login_type = 1;
+      // required uint32 tick = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (ClientGate::EnumLoginType_IsValid(value)) {
-            set_login_type(static_cast< ClientGate::EnumLoginType >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_account;
-        break;
-      }
-      
-      // required string account = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_account:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_account()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->account().data(), this->account().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(26)) goto parse_password;
-        break;
-      }
-      
-      // required string password = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_password:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_password()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->password().data(), this->password().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(34)) goto parse_nick;
-        break;
-      }
-      
-      // required string nick = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_nick:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_nick()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->nick().data(), this->nick().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(40)) goto parse_gender;
-        break;
-      }
-      
-      // required .ClientGate.EnumGender gender = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_gender:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (ClientGate::EnumGender_IsValid(value)) {
-            set_gender(static_cast< ClientGate::EnumGender >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(5, value);
-          }
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(48)) goto parse_device_type;
-        break;
-      }
-      
-      // required .ClientGate.EnumDeviceType device_type = 6;
-      case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_device_type:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (ClientGate::EnumDeviceType_IsValid(value)) {
-            set_device_type(static_cast< ClientGate::EnumDeviceType >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(6, value);
-          }
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(58)) goto parse_device_id;
-        break;
-      }
-      
-      // required string device_id = 7;
-      case 7: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_device_id:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_device_id()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->device_id().data(), this->device_id().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(66)) goto parse_device_token;
-        break;
-      }
-      
-      // optional string device_token = 8;
-      case 8: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_device_token:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_device_token()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->device_token().data(), this->device_token().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(74)) goto parse_mac;
-        break;
-      }
-      
-      // required string mac = 9;
-      case 9: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_mac:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_mac()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->mac().data(), this->mac().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(82)) goto parse_secure_key;
-        break;
-      }
-      
-      // required string secure_key = 10;
-      case 10: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_secure_key:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_secure_key()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->secure_key().data(), this->secure_key().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(90)) goto parse_channel;
-        break;
-      }
-      
-      // required string channel = 11;
-      case 11: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_channel:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_channel()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->channel().data(), this->channel().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(96)) goto parse_version;
-        break;
-      }
-      
-      // required uint32 version = 12;
-      case 12: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_version:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &version_)));
-          set_has_version();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(106)) goto parse_phone_no;
-        break;
-      }
-      
-      // optional string phone_no = 13;
-      case 13: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_phone_no:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_phone_no()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->phone_no().data(), this->phone_no().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+                 input, &tick_)));
+          set_has_tick();
         } else {
           goto handle_uninterpreted;
         }
@@ -715,110 +216,11 @@ bool LoginRequest::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void LoginRequest::SerializeWithCachedSizes(
+void Ping::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .ClientGate.EnumLoginType login_type = 1;
-  if (has_login_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->login_type(), output);
-  }
-  
-  // required string account = 2;
-  if (has_account()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->account().data(), this->account().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->account(), output);
-  }
-  
-  // required string password = 3;
-  if (has_password()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->password().data(), this->password().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->password(), output);
-  }
-  
-  // required string nick = 4;
-  if (has_nick()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nick().data(), this->nick().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->nick(), output);
-  }
-  
-  // required .ClientGate.EnumGender gender = 5;
-  if (has_gender()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      5, this->gender(), output);
-  }
-  
-  // required .ClientGate.EnumDeviceType device_type = 6;
-  if (has_device_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      6, this->device_type(), output);
-  }
-  
-  // required string device_id = 7;
-  if (has_device_id()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->device_id().data(), this->device_id().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      7, this->device_id(), output);
-  }
-  
-  // optional string device_token = 8;
-  if (has_device_token()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->device_token().data(), this->device_token().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      8, this->device_token(), output);
-  }
-  
-  // required string mac = 9;
-  if (has_mac()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->mac().data(), this->mac().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      9, this->mac(), output);
-  }
-  
-  // required string secure_key = 10;
-  if (has_secure_key()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->secure_key().data(), this->secure_key().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      10, this->secure_key(), output);
-  }
-  
-  // required string channel = 11;
-  if (has_channel()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->channel().data(), this->channel().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      11, this->channel(), output);
-  }
-  
-  // required uint32 version = 12;
-  if (has_version()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(12, this->version(), output);
-  }
-  
-  // optional string phone_no = 13;
-  if (has_phone_no()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->phone_no().data(), this->phone_no().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      13, this->phone_no(), output);
+  // required uint32 tick = 1;
+  if (has_tick()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->tick(), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -827,119 +229,11 @@ void LoginRequest::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* LoginRequest::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Ping::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required .ClientGate.EnumLoginType login_type = 1;
-  if (has_login_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->login_type(), target);
-  }
-  
-  // required string account = 2;
-  if (has_account()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->account().data(), this->account().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->account(), target);
-  }
-  
-  // required string password = 3;
-  if (has_password()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->password().data(), this->password().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->password(), target);
-  }
-  
-  // required string nick = 4;
-  if (has_nick()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nick().data(), this->nick().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->nick(), target);
-  }
-  
-  // required .ClientGate.EnumGender gender = 5;
-  if (has_gender()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      5, this->gender(), target);
-  }
-  
-  // required .ClientGate.EnumDeviceType device_type = 6;
-  if (has_device_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      6, this->device_type(), target);
-  }
-  
-  // required string device_id = 7;
-  if (has_device_id()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->device_id().data(), this->device_id().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->device_id(), target);
-  }
-  
-  // optional string device_token = 8;
-  if (has_device_token()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->device_token().data(), this->device_token().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        8, this->device_token(), target);
-  }
-  
-  // required string mac = 9;
-  if (has_mac()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->mac().data(), this->mac().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        9, this->mac(), target);
-  }
-  
-  // required string secure_key = 10;
-  if (has_secure_key()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->secure_key().data(), this->secure_key().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        10, this->secure_key(), target);
-  }
-  
-  // required string channel = 11;
-  if (has_channel()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->channel().data(), this->channel().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        11, this->channel(), target);
-  }
-  
-  // required uint32 version = 12;
-  if (has_version()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(12, this->version(), target);
-  }
-  
-  // optional string phone_no = 13;
-  if (has_phone_no()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->phone_no().data(), this->phone_no().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        13, this->phone_no(), target);
+  // required uint32 tick = 1;
+  if (has_tick()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->tick(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -949,98 +243,15 @@ void LoginRequest::SerializeWithCachedSizes(
   return target;
 }
 
-int LoginRequest::ByteSize() const {
+int Ping::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .ClientGate.EnumLoginType login_type = 1;
-    if (has_login_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->login_type());
-    }
-    
-    // required string account = 2;
-    if (has_account()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->account());
-    }
-    
-    // required string password = 3;
-    if (has_password()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->password());
-    }
-    
-    // required string nick = 4;
-    if (has_nick()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->nick());
-    }
-    
-    // required .ClientGate.EnumGender gender = 5;
-    if (has_gender()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->gender());
-    }
-    
-    // required .ClientGate.EnumDeviceType device_type = 6;
-    if (has_device_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->device_type());
-    }
-    
-    // required string device_id = 7;
-    if (has_device_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->device_id());
-    }
-    
-    // optional string device_token = 8;
-    if (has_device_token()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->device_token());
-    }
-    
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // required string mac = 9;
-    if (has_mac()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->mac());
-    }
-    
-    // required string secure_key = 10;
-    if (has_secure_key()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->secure_key());
-    }
-    
-    // required string channel = 11;
-    if (has_channel()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->channel());
-    }
-    
-    // required uint32 version = 12;
-    if (has_version()) {
+    // required uint32 tick = 1;
+    if (has_tick()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->version());
-    }
-    
-    // optional string phone_no = 13;
-    if (has_phone_no()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->phone_no());
+          this->tick());
     }
     
   }
@@ -1055,10 +266,10 @@ int LoginRequest::ByteSize() const {
   return total_size;
 }
 
-void LoginRequest::MergeFrom(const ::google::protobuf::Message& from) {
+void Ping::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const LoginRequest* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const LoginRequest*>(
+  const Ping* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Ping*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1067,98 +278,48 @@ void LoginRequest::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void LoginRequest::MergeFrom(const LoginRequest& from) {
+void Ping::MergeFrom(const Ping& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_login_type()) {
-      set_login_type(from.login_type());
-    }
-    if (from.has_account()) {
-      set_account(from.account());
-    }
-    if (from.has_password()) {
-      set_password(from.password());
-    }
-    if (from.has_nick()) {
-      set_nick(from.nick());
-    }
-    if (from.has_gender()) {
-      set_gender(from.gender());
-    }
-    if (from.has_device_type()) {
-      set_device_type(from.device_type());
-    }
-    if (from.has_device_id()) {
-      set_device_id(from.device_id());
-    }
-    if (from.has_device_token()) {
-      set_device_token(from.device_token());
-    }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_mac()) {
-      set_mac(from.mac());
-    }
-    if (from.has_secure_key()) {
-      set_secure_key(from.secure_key());
-    }
-    if (from.has_channel()) {
-      set_channel(from.channel());
-    }
-    if (from.has_version()) {
-      set_version(from.version());
-    }
-    if (from.has_phone_no()) {
-      set_phone_no(from.phone_no());
+    if (from.has_tick()) {
+      set_tick(from.tick());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void LoginRequest::CopyFrom(const ::google::protobuf::Message& from) {
+void Ping::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void LoginRequest::CopyFrom(const LoginRequest& from) {
+void Ping::CopyFrom(const Ping& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool LoginRequest::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000f7f) != 0x00000f7f) return false;
+bool Ping::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   
   return true;
 }
 
-void LoginRequest::Swap(LoginRequest* other) {
+void Ping::Swap(Ping* other) {
   if (other != this) {
-    std::swap(login_type_, other->login_type_);
-    std::swap(account_, other->account_);
-    std::swap(password_, other->password_);
-    std::swap(nick_, other->nick_);
-    std::swap(gender_, other->gender_);
-    std::swap(device_type_, other->device_type_);
-    std::swap(device_id_, other->device_id_);
-    std::swap(device_token_, other->device_token_);
-    std::swap(mac_, other->mac_);
-    std::swap(secure_key_, other->secure_key_);
-    std::swap(channel_, other->channel_);
-    std::swap(version_, other->version_);
-    std::swap(phone_no_, other->phone_no_);
+    std::swap(tick_, other->tick_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata LoginRequest::GetMetadata() const {
+::google::protobuf::Metadata Ping::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = LoginRequest_descriptor_;
-  metadata.reflection = LoginRequest_reflection_;
+  metadata.descriptor = Ping_descriptor_;
+  metadata.reflection = Ping_reflection_;
   return metadata;
 }
 
@@ -1166,204 +327,80 @@ void LoginRequest::Swap(LoginRequest* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int BasicUserInfo::kUserIdFieldNumber;
-const int BasicUserInfo::kNickFieldNumber;
-const int BasicUserInfo::kAvatarFieldNumber;
-const int BasicUserInfo::kGenderFieldNumber;
-const int BasicUserInfo::kUserScoreFieldNumber;
-const int BasicUserInfo::kExperienceFieldNumber;
+const int Pong::kTickFieldNumber;
 #endif  // !_MSC_VER
 
-BasicUserInfo::BasicUserInfo()
+Pong::Pong()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void BasicUserInfo::InitAsDefaultInstance() {
+void Pong::InitAsDefaultInstance() {
 }
 
-BasicUserInfo::BasicUserInfo(const BasicUserInfo& from)
+Pong::Pong(const Pong& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void BasicUserInfo::SharedCtor() {
+void Pong::SharedCtor() {
   _cached_size_ = 0;
-  user_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  nick_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  avatar_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  gender_ = 0;
-  user_score_ = GOOGLE_LONGLONG(0);
-  experience_ = GOOGLE_ULONGLONG(0);
+  tick_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-BasicUserInfo::~BasicUserInfo() {
+Pong::~Pong() {
   SharedDtor();
 }
 
-void BasicUserInfo::SharedDtor() {
-  if (user_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete user_id_;
-  }
-  if (nick_ != &::google::protobuf::internal::kEmptyString) {
-    delete nick_;
-  }
-  if (avatar_ != &::google::protobuf::internal::kEmptyString) {
-    delete avatar_;
-  }
+void Pong::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void BasicUserInfo::SetCachedSize(int size) const {
+void Pong::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* BasicUserInfo::descriptor() {
+const ::google::protobuf::Descriptor* Pong::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return BasicUserInfo_descriptor_;
+  return Pong_descriptor_;
 }
 
-const BasicUserInfo& BasicUserInfo::default_instance() {
+const Pong& Pong::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ClientGate_2eproto();  return *default_instance_;
 }
 
-BasicUserInfo* BasicUserInfo::default_instance_ = NULL;
+Pong* Pong::default_instance_ = NULL;
 
-BasicUserInfo* BasicUserInfo::New() const {
-  return new BasicUserInfo;
+Pong* Pong::New() const {
+  return new Pong;
 }
 
-void BasicUserInfo::Clear() {
+void Pong::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_user_id()) {
-      if (user_id_ != &::google::protobuf::internal::kEmptyString) {
-        user_id_->clear();
-      }
-    }
-    if (has_nick()) {
-      if (nick_ != &::google::protobuf::internal::kEmptyString) {
-        nick_->clear();
-      }
-    }
-    if (has_avatar()) {
-      if (avatar_ != &::google::protobuf::internal::kEmptyString) {
-        avatar_->clear();
-      }
-    }
-    gender_ = 0;
-    user_score_ = GOOGLE_LONGLONG(0);
-    experience_ = GOOGLE_ULONGLONG(0);
+    tick_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
 
-bool BasicUserInfo::MergePartialFromCodedStream(
+bool Pong::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string user_id = 1;
+      // required uint32 tick = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_user_id()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->user_id().data(), this->user_id().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_nick;
-        break;
-      }
-      
-      // required string nick = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_nick:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_nick()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->nick().data(), this->nick().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(26)) goto parse_avatar;
-        break;
-      }
-      
-      // required string avatar = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_avatar:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_avatar()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->avatar().data(), this->avatar().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(32)) goto parse_gender;
-        break;
-      }
-      
-      // required .ClientGate.EnumGender gender = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_gender:
-          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (ClientGate::EnumGender_IsValid(value)) {
-            set_gender(static_cast< ClientGate::EnumGender >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(4, value);
-          }
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(40)) goto parse_user_score;
-        break;
-      }
-      
-      // required int64 user_score = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_user_score:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &user_score_)));
-          set_has_user_score();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(48)) goto parse_experience;
-        break;
-      }
-      
-      // required uint64 experience = 6;
-      case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_experience:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &experience_)));
-          set_has_experience();
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &tick_)));
+          set_has_tick();
         } else {
           goto handle_uninterpreted;
         }
@@ -1387,49 +424,11 @@ bool BasicUserInfo::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void BasicUserInfo::SerializeWithCachedSizes(
+void Pong::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // required string user_id = 1;
-  if (has_user_id()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->user_id().data(), this->user_id().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->user_id(), output);
-  }
-  
-  // required string nick = 2;
-  if (has_nick()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nick().data(), this->nick().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->nick(), output);
-  }
-  
-  // required string avatar = 3;
-  if (has_avatar()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->avatar().data(), this->avatar().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->avatar(), output);
-  }
-  
-  // required .ClientGate.EnumGender gender = 4;
-  if (has_gender()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->gender(), output);
-  }
-  
-  // required int64 user_score = 5;
-  if (has_user_score()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(5, this->user_score(), output);
-  }
-  
-  // required uint64 experience = 6;
-  if (has_experience()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->experience(), output);
+  // required uint32 tick = 1;
+  if (has_tick()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->tick(), output);
   }
   
   if (!unknown_fields().empty()) {
@@ -1438,52 +437,11 @@ void BasicUserInfo::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* BasicUserInfo::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Pong::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // required string user_id = 1;
-  if (has_user_id()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->user_id().data(), this->user_id().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->user_id(), target);
-  }
-  
-  // required string nick = 2;
-  if (has_nick()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nick().data(), this->nick().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->nick(), target);
-  }
-  
-  // required string avatar = 3;
-  if (has_avatar()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->avatar().data(), this->avatar().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->avatar(), target);
-  }
-  
-  // required .ClientGate.EnumGender gender = 4;
-  if (has_gender()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->gender(), target);
-  }
-  
-  // required int64 user_score = 5;
-  if (has_user_score()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(5, this->user_score(), target);
-  }
-  
-  // required uint64 experience = 6;
-  if (has_experience()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->experience(), target);
+  // required uint32 tick = 1;
+  if (has_tick()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->tick(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -1493,49 +451,15 @@ void BasicUserInfo::SerializeWithCachedSizes(
   return target;
 }
 
-int BasicUserInfo::ByteSize() const {
+int Pong::ByteSize() const {
   int total_size = 0;
   
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required string user_id = 1;
-    if (has_user_id()) {
+    // required uint32 tick = 1;
+    if (has_tick()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->user_id());
-    }
-    
-    // required string nick = 2;
-    if (has_nick()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->nick());
-    }
-    
-    // required string avatar = 3;
-    if (has_avatar()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->avatar());
-    }
-    
-    // required .ClientGate.EnumGender gender = 4;
-    if (has_gender()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->gender());
-    }
-    
-    // required int64 user_score = 5;
-    if (has_user_score()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->user_score());
-    }
-    
-    // required uint64 experience = 6;
-    if (has_experience()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->experience());
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->tick());
     }
     
   }
@@ -1550,10 +474,10 @@ int BasicUserInfo::ByteSize() const {
   return total_size;
 }
 
-void BasicUserInfo::MergeFrom(const ::google::protobuf::Message& from) {
+void Pong::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const BasicUserInfo* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const BasicUserInfo*>(
+  const Pong* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Pong*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1562,558 +486,48 @@ void BasicUserInfo::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void BasicUserInfo::MergeFrom(const BasicUserInfo& from) {
+void Pong::MergeFrom(const Pong& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_user_id()) {
-      set_user_id(from.user_id());
-    }
-    if (from.has_nick()) {
-      set_nick(from.nick());
-    }
-    if (from.has_avatar()) {
-      set_avatar(from.avatar());
-    }
-    if (from.has_gender()) {
-      set_gender(from.gender());
-    }
-    if (from.has_user_score()) {
-      set_user_score(from.user_score());
-    }
-    if (from.has_experience()) {
-      set_experience(from.experience());
+    if (from.has_tick()) {
+      set_tick(from.tick());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void BasicUserInfo::CopyFrom(const ::google::protobuf::Message& from) {
+void Pong::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void BasicUserInfo::CopyFrom(const BasicUserInfo& from) {
+void Pong::CopyFrom(const Pong& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool BasicUserInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000003f) != 0x0000003f) return false;
+bool Pong::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
   
   return true;
 }
 
-void BasicUserInfo::Swap(BasicUserInfo* other) {
+void Pong::Swap(Pong* other) {
   if (other != this) {
-    std::swap(user_id_, other->user_id_);
-    std::swap(nick_, other->nick_);
-    std::swap(avatar_, other->avatar_);
-    std::swap(gender_, other->gender_);
-    std::swap(user_score_, other->user_score_);
-    std::swap(experience_, other->experience_);
+    std::swap(tick_, other->tick_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata BasicUserInfo::GetMetadata() const {
+::google::protobuf::Metadata Pong::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = BasicUserInfo_descriptor_;
-  metadata.reflection = BasicUserInfo_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int LoginResponse::kResultFieldNumber;
-const int LoginResponse::kBasicUserInfoFieldNumber;
-const int LoginResponse::kUpdateUrlFieldNumber;
-const int LoginResponse::kIosUpdateUrlFieldNumber;
-const int LoginResponse::kLatestVersionFieldNumber;
-const int LoginResponse::kUpdateInfoFieldNumber;
-#endif  // !_MSC_VER
-
-LoginResponse::LoginResponse()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void LoginResponse::InitAsDefaultInstance() {
-  basic_user_info_ = const_cast< ::ClientGate::BasicUserInfo*>(&::ClientGate::BasicUserInfo::default_instance());
-}
-
-LoginResponse::LoginResponse(const LoginResponse& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void LoginResponse::SharedCtor() {
-  _cached_size_ = 0;
-  result_ = 0;
-  basic_user_info_ = NULL;
-  update_url_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  ios_update_url_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  latest_version_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  update_info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-LoginResponse::~LoginResponse() {
-  SharedDtor();
-}
-
-void LoginResponse::SharedDtor() {
-  if (update_url_ != &::google::protobuf::internal::kEmptyString) {
-    delete update_url_;
-  }
-  if (ios_update_url_ != &::google::protobuf::internal::kEmptyString) {
-    delete ios_update_url_;
-  }
-  if (latest_version_ != &::google::protobuf::internal::kEmptyString) {
-    delete latest_version_;
-  }
-  if (update_info_ != &::google::protobuf::internal::kEmptyString) {
-    delete update_info_;
-  }
-  if (this != default_instance_) {
-    delete basic_user_info_;
-  }
-}
-
-void LoginResponse::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* LoginResponse::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return LoginResponse_descriptor_;
-}
-
-const LoginResponse& LoginResponse::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_ClientGate_2eproto();  return *default_instance_;
-}
-
-LoginResponse* LoginResponse::default_instance_ = NULL;
-
-LoginResponse* LoginResponse::New() const {
-  return new LoginResponse;
-}
-
-void LoginResponse::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    result_ = 0;
-    if (has_basic_user_info()) {
-      if (basic_user_info_ != NULL) basic_user_info_->::ClientGate::BasicUserInfo::Clear();
-    }
-    if (has_update_url()) {
-      if (update_url_ != &::google::protobuf::internal::kEmptyString) {
-        update_url_->clear();
-      }
-    }
-    if (has_ios_update_url()) {
-      if (ios_update_url_ != &::google::protobuf::internal::kEmptyString) {
-        ios_update_url_->clear();
-      }
-    }
-    if (has_latest_version()) {
-      if (latest_version_ != &::google::protobuf::internal::kEmptyString) {
-        latest_version_->clear();
-      }
-    }
-    if (has_update_info()) {
-      if (update_info_ != &::google::protobuf::internal::kEmptyString) {
-        update_info_->clear();
-      }
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool LoginResponse::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .ClientGate.EnumResult result = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (ClientGate::EnumResult_IsValid(value)) {
-            set_result(static_cast< ClientGate::EnumResult >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(1, value);
-          }
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_basic_user_info;
-        break;
-      }
-      
-      // required .ClientGate.BasicUserInfo basic_user_info = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_basic_user_info:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_basic_user_info()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(26)) goto parse_update_url;
-        break;
-      }
-      
-      // optional string update_url = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_update_url:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_update_url()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->update_url().data(), this->update_url().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(34)) goto parse_ios_update_url;
-        break;
-      }
-      
-      // optional string ios_update_url = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_ios_update_url:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_ios_update_url()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->ios_update_url().data(), this->ios_update_url().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(42)) goto parse_latest_version;
-        break;
-      }
-      
-      // optional string latest_version = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_latest_version:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_latest_version()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->latest_version().data(), this->latest_version().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(50)) goto parse_update_info;
-        break;
-      }
-      
-      // optional string update_info = 6;
-      case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_update_info:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_update_info()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->update_info().data(), this->update_info().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-      
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void LoginResponse::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required .ClientGate.EnumResult result = 1;
-  if (has_result()) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->result(), output);
-  }
-  
-  // required .ClientGate.BasicUserInfo basic_user_info = 2;
-  if (has_basic_user_info()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->basic_user_info(), output);
-  }
-  
-  // optional string update_url = 3;
-  if (has_update_url()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->update_url().data(), this->update_url().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->update_url(), output);
-  }
-  
-  // optional string ios_update_url = 4;
-  if (has_ios_update_url()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->ios_update_url().data(), this->ios_update_url().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->ios_update_url(), output);
-  }
-  
-  // optional string latest_version = 5;
-  if (has_latest_version()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->latest_version().data(), this->latest_version().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->latest_version(), output);
-  }
-  
-  // optional string update_info = 6;
-  if (has_update_info()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->update_info().data(), this->update_info().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      6, this->update_info(), output);
-  }
-  
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* LoginResponse::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required .ClientGate.EnumResult result = 1;
-  if (has_result()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->result(), target);
-  }
-  
-  // required .ClientGate.BasicUserInfo basic_user_info = 2;
-  if (has_basic_user_info()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->basic_user_info(), target);
-  }
-  
-  // optional string update_url = 3;
-  if (has_update_url()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->update_url().data(), this->update_url().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->update_url(), target);
-  }
-  
-  // optional string ios_update_url = 4;
-  if (has_ios_update_url()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->ios_update_url().data(), this->ios_update_url().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->ios_update_url(), target);
-  }
-  
-  // optional string latest_version = 5;
-  if (has_latest_version()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->latest_version().data(), this->latest_version().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->latest_version(), target);
-  }
-  
-  // optional string update_info = 6;
-  if (has_update_info()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->update_info().data(), this->update_info().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->update_info(), target);
-  }
-  
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int LoginResponse::ByteSize() const {
-  int total_size = 0;
-  
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .ClientGate.EnumResult result = 1;
-    if (has_result()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->result());
-    }
-    
-    // required .ClientGate.BasicUserInfo basic_user_info = 2;
-    if (has_basic_user_info()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->basic_user_info());
-    }
-    
-    // optional string update_url = 3;
-    if (has_update_url()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->update_url());
-    }
-    
-    // optional string ios_update_url = 4;
-    if (has_ios_update_url()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->ios_update_url());
-    }
-    
-    // optional string latest_version = 5;
-    if (has_latest_version()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->latest_version());
-    }
-    
-    // optional string update_info = 6;
-    if (has_update_info()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->update_info());
-    }
-    
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void LoginResponse::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const LoginResponse* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const LoginResponse*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void LoginResponse::MergeFrom(const LoginResponse& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_result()) {
-      set_result(from.result());
-    }
-    if (from.has_basic_user_info()) {
-      mutable_basic_user_info()->::ClientGate::BasicUserInfo::MergeFrom(from.basic_user_info());
-    }
-    if (from.has_update_url()) {
-      set_update_url(from.update_url());
-    }
-    if (from.has_ios_update_url()) {
-      set_ios_update_url(from.ios_update_url());
-    }
-    if (from.has_latest_version()) {
-      set_latest_version(from.latest_version());
-    }
-    if (from.has_update_info()) {
-      set_update_info(from.update_info());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void LoginResponse::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void LoginResponse::CopyFrom(const LoginResponse& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool LoginResponse::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
-  
-  if (has_basic_user_info()) {
-    if (!this->basic_user_info().IsInitialized()) return false;
-  }
-  return true;
-}
-
-void LoginResponse::Swap(LoginResponse* other) {
-  if (other != this) {
-    std::swap(result_, other->result_);
-    std::swap(basic_user_info_, other->basic_user_info_);
-    std::swap(update_url_, other->update_url_);
-    std::swap(ios_update_url_, other->ios_update_url_);
-    std::swap(latest_version_, other->latest_version_);
-    std::swap(update_info_, other->update_info_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata LoginResponse::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = LoginResponse_descriptor_;
-  metadata.reflection = LoginResponse_reflection_;
+  metadata.descriptor = Pong_descriptor_;
+  metadata.reflection = Pong_reflection_;
   return metadata;
 }
 

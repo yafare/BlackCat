@@ -26,7 +26,6 @@ public:
 
 public:
     GETTER_SETTER(std::string, uid);
-    GETTER_SETTER(ClientGate::BasicUserInfo, user_info);
 
 private:
     GateUserStatus              status_;

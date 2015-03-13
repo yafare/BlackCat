@@ -18,7 +18,7 @@ static GatewayStartupConfig GetConfig()
     std::string pool_size = reader["IoServicePoolSize"];
     if (config.service_name.empty() || config.rpc_server_addr.empty() ||
         config.ip.empty() || config.port.empty()) {
-        printf("Please check cfg file\n");
+        printf("Please check the cfg file\n");
         return config;
     }
 

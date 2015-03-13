@@ -32,58 +32,21 @@ void  protobuf_AddDesc_Gateway_2eproto();
 void protobuf_AssignDesc_Gateway_2eproto();
 void protobuf_ShutdownFile_Gateway_2eproto();
 
-class LoginRequest;
-class LoginResponse;
+class ReportAvailable;
+class ReportAvailableResponse;
+class ForwardingPacket;
 class UserDisconnect;
 
-enum EnumServerType {
-  ST_GameServer = 0,
-  ST_RecordServer = 1
-};
-bool EnumServerType_IsValid(int value);
-const EnumServerType EnumServerType_MIN = ST_GameServer;
-const EnumServerType EnumServerType_MAX = ST_RecordServer;
-const int EnumServerType_ARRAYSIZE = EnumServerType_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* EnumServerType_descriptor();
-inline const ::std::string& EnumServerType_Name(EnumServerType value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    EnumServerType_descriptor(), value);
-}
-inline bool EnumServerType_Parse(
-    const ::std::string& name, EnumServerType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<EnumServerType>(
-    EnumServerType_descriptor(), name, value);
-}
-enum EnumResult {
-  enumResultSucc = 0,
-  enumResultFail = 1
-};
-bool EnumResult_IsValid(int value);
-const EnumResult EnumResult_MIN = enumResultSucc;
-const EnumResult EnumResult_MAX = enumResultFail;
-const int EnumResult_ARRAYSIZE = EnumResult_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* EnumResult_descriptor();
-inline const ::std::string& EnumResult_Name(EnumResult value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    EnumResult_descriptor(), value);
-}
-inline bool EnumResult_Parse(
-    const ::std::string& name, EnumResult* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<EnumResult>(
-    EnumResult_descriptor(), name, value);
-}
 // ===================================================================
 
-class LoginRequest : public ::google::protobuf::Message {
+class ReportAvailable : public ::google::protobuf::Message {
  public:
-  LoginRequest();
-  virtual ~LoginRequest();
+  ReportAvailable();
+  virtual ~ReportAvailable();
   
-  LoginRequest(const LoginRequest& from);
+  ReportAvailable(const ReportAvailable& from);
   
-  inline LoginRequest& operator=(const LoginRequest& from) {
+  inline ReportAvailable& operator=(const ReportAvailable& from) {
     CopyFrom(from);
     return *this;
   }
@@ -97,17 +60,17 @@ class LoginRequest : public ::google::protobuf::Message {
   }
   
   static const ::google::protobuf::Descriptor* descriptor();
-  static const LoginRequest& default_instance();
+  static const ReportAvailable& default_instance();
   
-  void Swap(LoginRequest* other);
+  void Swap(ReportAvailable* other);
   
   // implements Message ----------------------------------------------
   
-  LoginRequest* New() const;
+  ReportAvailable* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const LoginRequest& from);
-  void MergeFrom(const LoginRequest& from);
+  void CopyFrom(const ReportAvailable& from);
+  void MergeFrom(const ReportAvailable& from);
   void Clear();
   bool IsInitialized() const;
   
@@ -130,70 +93,63 @@ class LoginRequest : public ::google::protobuf::Message {
   
   // accessors -------------------------------------------------------
   
-  // required .GatewayServer.EnumServerType server_type = 1;
-  inline bool has_server_type() const;
-  inline void clear_server_type();
-  static const int kServerTypeFieldNumber = 1;
-  inline GatewayServer::EnumServerType server_type() const;
-  inline void set_server_type(GatewayServer::EnumServerType value);
+  // required string server_name = 1;
+  inline bool has_server_name() const;
+  inline void clear_server_name();
+  static const int kServerNameFieldNumber = 1;
+  inline const ::std::string& server_name() const;
+  inline void set_server_name(const ::std::string& value);
+  inline void set_server_name(const char* value);
+  inline void set_server_name(const char* value, size_t size);
+  inline ::std::string* mutable_server_name();
+  inline ::std::string* release_server_name();
   
-  // required string account = 2;
-  inline bool has_account() const;
-  inline void clear_account();
-  static const int kAccountFieldNumber = 2;
-  inline const ::std::string& account() const;
-  inline void set_account(const ::std::string& value);
-  inline void set_account(const char* value);
-  inline void set_account(const char* value, size_t size);
-  inline ::std::string* mutable_account();
-  inline ::std::string* release_account();
+  // repeated string protocol = 2;
+  inline int protocol_size() const;
+  inline void clear_protocol();
+  static const int kProtocolFieldNumber = 2;
+  inline const ::std::string& protocol(int index) const;
+  inline ::std::string* mutable_protocol(int index);
+  inline void set_protocol(int index, const ::std::string& value);
+  inline void set_protocol(int index, const char* value);
+  inline void set_protocol(int index, const char* value, size_t size);
+  inline ::std::string* add_protocol();
+  inline void add_protocol(const ::std::string& value);
+  inline void add_protocol(const char* value);
+  inline void add_protocol(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& protocol() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_protocol();
   
-  // required string secure_key = 3;
-  inline bool has_secure_key() const;
-  inline void clear_secure_key();
-  static const int kSecureKeyFieldNumber = 3;
-  inline const ::std::string& secure_key() const;
-  inline void set_secure_key(const ::std::string& value);
-  inline void set_secure_key(const char* value);
-  inline void set_secure_key(const char* value, size_t size);
-  inline ::std::string* mutable_secure_key();
-  inline ::std::string* release_secure_key();
-  
-  // @@protoc_insertion_point(class_scope:GatewayServer.LoginRequest)
+  // @@protoc_insertion_point(class_scope:GatewayServer.ReportAvailable)
  private:
-  inline void set_has_server_type();
-  inline void clear_has_server_type();
-  inline void set_has_account();
-  inline void clear_has_account();
-  inline void set_has_secure_key();
-  inline void clear_has_secure_key();
+  inline void set_has_server_name();
+  inline void clear_has_server_name();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
-  ::std::string* account_;
-  ::std::string* secure_key_;
-  int server_type_;
+  ::std::string* server_name_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> protocol_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
   
   friend void  protobuf_AddDesc_Gateway_2eproto();
   friend void protobuf_AssignDesc_Gateway_2eproto();
   friend void protobuf_ShutdownFile_Gateway_2eproto();
   
   void InitAsDefaultInstance();
-  static LoginRequest* default_instance_;
+  static ReportAvailable* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class LoginResponse : public ::google::protobuf::Message {
+class ReportAvailableResponse : public ::google::protobuf::Message {
  public:
-  LoginResponse();
-  virtual ~LoginResponse();
+  ReportAvailableResponse();
+  virtual ~ReportAvailableResponse();
   
-  LoginResponse(const LoginResponse& from);
+  ReportAvailableResponse(const ReportAvailableResponse& from);
   
-  inline LoginResponse& operator=(const LoginResponse& from) {
+  inline ReportAvailableResponse& operator=(const ReportAvailableResponse& from) {
     CopyFrom(from);
     return *this;
   }
@@ -207,17 +163,17 @@ class LoginResponse : public ::google::protobuf::Message {
   }
   
   static const ::google::protobuf::Descriptor* descriptor();
-  static const LoginResponse& default_instance();
+  static const ReportAvailableResponse& default_instance();
   
-  void Swap(LoginResponse* other);
+  void Swap(ReportAvailableResponse* other);
   
   // implements Message ----------------------------------------------
   
-  LoginResponse* New() const;
+  ReportAvailableResponse* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const LoginResponse& from);
-  void MergeFrom(const LoginResponse& from);
+  void CopyFrom(const ReportAvailableResponse& from);
+  void MergeFrom(const ReportAvailableResponse& from);
   void Clear();
   bool IsInitialized() const;
   
@@ -240,21 +196,21 @@ class LoginResponse : public ::google::protobuf::Message {
   
   // accessors -------------------------------------------------------
   
-  // required .GatewayServer.EnumResult result = 1;
+  // required uint32 result = 1;
   inline bool has_result() const;
   inline void clear_result();
   static const int kResultFieldNumber = 1;
-  inline GatewayServer::EnumResult result() const;
-  inline void set_result(GatewayServer::EnumResult value);
+  inline ::google::protobuf::uint32 result() const;
+  inline void set_result(::google::protobuf::uint32 value);
   
-  // @@protoc_insertion_point(class_scope:GatewayServer.LoginResponse)
+  // @@protoc_insertion_point(class_scope:GatewayServer.ReportAvailableResponse)
  private:
   inline void set_has_result();
   inline void clear_has_result();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
-  int result_;
+  ::google::protobuf::uint32 result_;
   
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -264,7 +220,117 @@ class LoginResponse : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_Gateway_2eproto();
   
   void InitAsDefaultInstance();
-  static LoginResponse* default_instance_;
+  static ReportAvailableResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ForwardingPacket : public ::google::protobuf::Message {
+ public:
+  ForwardingPacket();
+  virtual ~ForwardingPacket();
+  
+  ForwardingPacket(const ForwardingPacket& from);
+  
+  inline ForwardingPacket& operator=(const ForwardingPacket& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ForwardingPacket& default_instance();
+  
+  void Swap(ForwardingPacket* other);
+  
+  // implements Message ----------------------------------------------
+  
+  ForwardingPacket* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ForwardingPacket& from);
+  void MergeFrom(const ForwardingPacket& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required uint32 conn_id = 1;
+  inline bool has_conn_id() const;
+  inline void clear_conn_id();
+  static const int kConnIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 conn_id() const;
+  inline void set_conn_id(::google::protobuf::uint32 value);
+  
+  // required string packet_name = 2;
+  inline bool has_packet_name() const;
+  inline void clear_packet_name();
+  static const int kPacketNameFieldNumber = 2;
+  inline const ::std::string& packet_name() const;
+  inline void set_packet_name(const ::std::string& value);
+  inline void set_packet_name(const char* value);
+  inline void set_packet_name(const char* value, size_t size);
+  inline ::std::string* mutable_packet_name();
+  inline ::std::string* release_packet_name();
+  
+  // required string packet_body = 3;
+  inline bool has_packet_body() const;
+  inline void clear_packet_body();
+  static const int kPacketBodyFieldNumber = 3;
+  inline const ::std::string& packet_body() const;
+  inline void set_packet_body(const ::std::string& value);
+  inline void set_packet_body(const char* value);
+  inline void set_packet_body(const char* value, size_t size);
+  inline ::std::string* mutable_packet_body();
+  inline ::std::string* release_packet_body();
+  
+  // @@protoc_insertion_point(class_scope:GatewayServer.ForwardingPacket)
+ private:
+  inline void set_has_conn_id();
+  inline void clear_has_conn_id();
+  inline void set_has_packet_name();
+  inline void clear_has_packet_name();
+  inline void set_has_packet_body();
+  inline void clear_has_packet_body();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::std::string* packet_name_;
+  ::std::string* packet_body_;
+  ::google::protobuf::uint32 conn_id_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_Gateway_2eproto();
+  friend void protobuf_AssignDesc_Gateway_2eproto();
+  friend void protobuf_ShutdownFile_Gateway_2eproto();
+  
+  void InitAsDefaultInstance();
+  static ForwardingPacket* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -353,172 +419,276 @@ class UserDisconnect : public ::google::protobuf::Message {
 
 // ===================================================================
 
-// LoginRequest
+// ReportAvailable
 
-// required .GatewayServer.EnumServerType server_type = 1;
-inline bool LoginRequest::has_server_type() const {
+// required string server_name = 1;
+inline bool ReportAvailable::has_server_name() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LoginRequest::set_has_server_type() {
+inline void ReportAvailable::set_has_server_name() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LoginRequest::clear_has_server_type() {
+inline void ReportAvailable::clear_has_server_name() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LoginRequest::clear_server_type() {
-  server_type_ = 0;
-  clear_has_server_type();
-}
-inline GatewayServer::EnumServerType LoginRequest::server_type() const {
-  return static_cast< GatewayServer::EnumServerType >(server_type_);
-}
-inline void LoginRequest::set_server_type(GatewayServer::EnumServerType value) {
-  GOOGLE_DCHECK(GatewayServer::EnumServerType_IsValid(value));
-  set_has_server_type();
-  server_type_ = value;
-}
-
-// required string account = 2;
-inline bool LoginRequest::has_account() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void LoginRequest::set_has_account() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void LoginRequest::clear_has_account() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void LoginRequest::clear_account() {
-  if (account_ != &::google::protobuf::internal::kEmptyString) {
-    account_->clear();
+inline void ReportAvailable::clear_server_name() {
+  if (server_name_ != &::google::protobuf::internal::kEmptyString) {
+    server_name_->clear();
   }
-  clear_has_account();
+  clear_has_server_name();
 }
-inline const ::std::string& LoginRequest::account() const {
-  return *account_;
+inline const ::std::string& ReportAvailable::server_name() const {
+  return *server_name_;
 }
-inline void LoginRequest::set_account(const ::std::string& value) {
-  set_has_account();
-  if (account_ == &::google::protobuf::internal::kEmptyString) {
-    account_ = new ::std::string;
+inline void ReportAvailable::set_server_name(const ::std::string& value) {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
   }
-  account_->assign(value);
+  server_name_->assign(value);
 }
-inline void LoginRequest::set_account(const char* value) {
-  set_has_account();
-  if (account_ == &::google::protobuf::internal::kEmptyString) {
-    account_ = new ::std::string;
+inline void ReportAvailable::set_server_name(const char* value) {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
   }
-  account_->assign(value);
+  server_name_->assign(value);
 }
-inline void LoginRequest::set_account(const char* value, size_t size) {
-  set_has_account();
-  if (account_ == &::google::protobuf::internal::kEmptyString) {
-    account_ = new ::std::string;
+inline void ReportAvailable::set_server_name(const char* value, size_t size) {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
   }
-  account_->assign(reinterpret_cast<const char*>(value), size);
+  server_name_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* LoginRequest::mutable_account() {
-  set_has_account();
-  if (account_ == &::google::protobuf::internal::kEmptyString) {
-    account_ = new ::std::string;
+inline ::std::string* ReportAvailable::mutable_server_name() {
+  set_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
+    server_name_ = new ::std::string;
   }
-  return account_;
+  return server_name_;
 }
-inline ::std::string* LoginRequest::release_account() {
-  clear_has_account();
-  if (account_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* ReportAvailable::release_server_name() {
+  clear_has_server_name();
+  if (server_name_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = account_;
-    account_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = server_name_;
+    server_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
 
-// required string secure_key = 3;
-inline bool LoginRequest::has_secure_key() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+// repeated string protocol = 2;
+inline int ReportAvailable::protocol_size() const {
+  return protocol_.size();
 }
-inline void LoginRequest::set_has_secure_key() {
-  _has_bits_[0] |= 0x00000004u;
+inline void ReportAvailable::clear_protocol() {
+  protocol_.Clear();
 }
-inline void LoginRequest::clear_has_secure_key() {
-  _has_bits_[0] &= ~0x00000004u;
+inline const ::std::string& ReportAvailable::protocol(int index) const {
+  return protocol_.Get(index);
 }
-inline void LoginRequest::clear_secure_key() {
-  if (secure_key_ != &::google::protobuf::internal::kEmptyString) {
-    secure_key_->clear();
-  }
-  clear_has_secure_key();
+inline ::std::string* ReportAvailable::mutable_protocol(int index) {
+  return protocol_.Mutable(index);
 }
-inline const ::std::string& LoginRequest::secure_key() const {
-  return *secure_key_;
+inline void ReportAvailable::set_protocol(int index, const ::std::string& value) {
+  protocol_.Mutable(index)->assign(value);
 }
-inline void LoginRequest::set_secure_key(const ::std::string& value) {
-  set_has_secure_key();
-  if (secure_key_ == &::google::protobuf::internal::kEmptyString) {
-    secure_key_ = new ::std::string;
-  }
-  secure_key_->assign(value);
+inline void ReportAvailable::set_protocol(int index, const char* value) {
+  protocol_.Mutable(index)->assign(value);
 }
-inline void LoginRequest::set_secure_key(const char* value) {
-  set_has_secure_key();
-  if (secure_key_ == &::google::protobuf::internal::kEmptyString) {
-    secure_key_ = new ::std::string;
-  }
-  secure_key_->assign(value);
+inline void ReportAvailable::set_protocol(int index, const char* value, size_t size) {
+  protocol_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
 }
-inline void LoginRequest::set_secure_key(const char* value, size_t size) {
-  set_has_secure_key();
-  if (secure_key_ == &::google::protobuf::internal::kEmptyString) {
-    secure_key_ = new ::std::string;
-  }
-  secure_key_->assign(reinterpret_cast<const char*>(value), size);
+inline ::std::string* ReportAvailable::add_protocol() {
+  return protocol_.Add();
 }
-inline ::std::string* LoginRequest::mutable_secure_key() {
-  set_has_secure_key();
-  if (secure_key_ == &::google::protobuf::internal::kEmptyString) {
-    secure_key_ = new ::std::string;
-  }
-  return secure_key_;
+inline void ReportAvailable::add_protocol(const ::std::string& value) {
+  protocol_.Add()->assign(value);
 }
-inline ::std::string* LoginRequest::release_secure_key() {
-  clear_has_secure_key();
-  if (secure_key_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = secure_key_;
-    secure_key_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
+inline void ReportAvailable::add_protocol(const char* value) {
+  protocol_.Add()->assign(value);
+}
+inline void ReportAvailable::add_protocol(const char* value, size_t size) {
+  protocol_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+ReportAvailable::protocol() const {
+  return protocol_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+ReportAvailable::mutable_protocol() {
+  return &protocol_;
 }
 
 // -------------------------------------------------------------------
 
-// LoginResponse
+// ReportAvailableResponse
 
-// required .GatewayServer.EnumResult result = 1;
-inline bool LoginResponse::has_result() const {
+// required uint32 result = 1;
+inline bool ReportAvailableResponse::has_result() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LoginResponse::set_has_result() {
+inline void ReportAvailableResponse::set_has_result() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LoginResponse::clear_has_result() {
+inline void ReportAvailableResponse::clear_has_result() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LoginResponse::clear_result() {
-  result_ = 0;
+inline void ReportAvailableResponse::clear_result() {
+  result_ = 0u;
   clear_has_result();
 }
-inline GatewayServer::EnumResult LoginResponse::result() const {
-  return static_cast< GatewayServer::EnumResult >(result_);
+inline ::google::protobuf::uint32 ReportAvailableResponse::result() const {
+  return result_;
 }
-inline void LoginResponse::set_result(GatewayServer::EnumResult value) {
-  GOOGLE_DCHECK(GatewayServer::EnumResult_IsValid(value));
+inline void ReportAvailableResponse::set_result(::google::protobuf::uint32 value) {
   set_has_result();
   result_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ForwardingPacket
+
+// required uint32 conn_id = 1;
+inline bool ForwardingPacket::has_conn_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ForwardingPacket::set_has_conn_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ForwardingPacket::clear_has_conn_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ForwardingPacket::clear_conn_id() {
+  conn_id_ = 0u;
+  clear_has_conn_id();
+}
+inline ::google::protobuf::uint32 ForwardingPacket::conn_id() const {
+  return conn_id_;
+}
+inline void ForwardingPacket::set_conn_id(::google::protobuf::uint32 value) {
+  set_has_conn_id();
+  conn_id_ = value;
+}
+
+// required string packet_name = 2;
+inline bool ForwardingPacket::has_packet_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ForwardingPacket::set_has_packet_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ForwardingPacket::clear_has_packet_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ForwardingPacket::clear_packet_name() {
+  if (packet_name_ != &::google::protobuf::internal::kEmptyString) {
+    packet_name_->clear();
+  }
+  clear_has_packet_name();
+}
+inline const ::std::string& ForwardingPacket::packet_name() const {
+  return *packet_name_;
+}
+inline void ForwardingPacket::set_packet_name(const ::std::string& value) {
+  set_has_packet_name();
+  if (packet_name_ == &::google::protobuf::internal::kEmptyString) {
+    packet_name_ = new ::std::string;
+  }
+  packet_name_->assign(value);
+}
+inline void ForwardingPacket::set_packet_name(const char* value) {
+  set_has_packet_name();
+  if (packet_name_ == &::google::protobuf::internal::kEmptyString) {
+    packet_name_ = new ::std::string;
+  }
+  packet_name_->assign(value);
+}
+inline void ForwardingPacket::set_packet_name(const char* value, size_t size) {
+  set_has_packet_name();
+  if (packet_name_ == &::google::protobuf::internal::kEmptyString) {
+    packet_name_ = new ::std::string;
+  }
+  packet_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* ForwardingPacket::mutable_packet_name() {
+  set_has_packet_name();
+  if (packet_name_ == &::google::protobuf::internal::kEmptyString) {
+    packet_name_ = new ::std::string;
+  }
+  return packet_name_;
+}
+inline ::std::string* ForwardingPacket::release_packet_name() {
+  clear_has_packet_name();
+  if (packet_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = packet_name_;
+    packet_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// required string packet_body = 3;
+inline bool ForwardingPacket::has_packet_body() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ForwardingPacket::set_has_packet_body() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ForwardingPacket::clear_has_packet_body() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ForwardingPacket::clear_packet_body() {
+  if (packet_body_ != &::google::protobuf::internal::kEmptyString) {
+    packet_body_->clear();
+  }
+  clear_has_packet_body();
+}
+inline const ::std::string& ForwardingPacket::packet_body() const {
+  return *packet_body_;
+}
+inline void ForwardingPacket::set_packet_body(const ::std::string& value) {
+  set_has_packet_body();
+  if (packet_body_ == &::google::protobuf::internal::kEmptyString) {
+    packet_body_ = new ::std::string;
+  }
+  packet_body_->assign(value);
+}
+inline void ForwardingPacket::set_packet_body(const char* value) {
+  set_has_packet_body();
+  if (packet_body_ == &::google::protobuf::internal::kEmptyString) {
+    packet_body_ = new ::std::string;
+  }
+  packet_body_->assign(value);
+}
+inline void ForwardingPacket::set_packet_body(const char* value, size_t size) {
+  set_has_packet_body();
+  if (packet_body_ == &::google::protobuf::internal::kEmptyString) {
+    packet_body_ = new ::std::string;
+  }
+  packet_body_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* ForwardingPacket::mutable_packet_body() {
+  set_has_packet_body();
+  if (packet_body_ == &::google::protobuf::internal::kEmptyString) {
+    packet_body_ = new ::std::string;
+  }
+  return packet_body_;
+}
+inline ::std::string* ForwardingPacket::release_packet_body() {
+  clear_has_packet_body();
+  if (packet_body_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = packet_body_;
+    packet_body_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
 }
 
 // -------------------------------------------------------------------
@@ -556,14 +726,6 @@ inline void UserDisconnect::set_user_id(::google::protobuf::uint32 value) {
 namespace google {
 namespace protobuf {
 
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< GatewayServer::EnumServerType>() {
-  return GatewayServer::EnumServerType_descriptor();
-}
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< GatewayServer::EnumResult>() {
-  return GatewayServer::EnumResult_descriptor();
-}
 
 }  // namespace google
 }  // namespace protobuf

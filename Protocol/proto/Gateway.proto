@@ -1,26 +1,21 @@
 
 package GatewayServer;
 
-enum EnumServerType
+message ReportAvailable
 {
-    ST_GameServer   = 0;
-    ST_RecordServer = 1;
+    required string server_name             = 1;
+    repeated string protocol                = 2;
 }
-message LoginRequest
+message ReportAvailableResponse
 {
-    required EnumServerType server_type     = 1;
-    required string account                 = 2;
-    required string secure_key              = 3;   //avoid hacker attack
+    required uint32 result                  = 1;
 }
 
-enum EnumResult
+message ForwardingPacket
 {
-    enumResultSucc = 0;
-    enumResultFail = 1;
-}
-message LoginResponse
-{
-    required EnumResult result              = 1;
+    required uint32 conn_id                 = 1;
+    required string packet_name             = 2;
+    required string packet_body             = 3;
 }
 
 message UserDisconnect

@@ -3,7 +3,8 @@
 #include "../ServerLib/TcpServer.h"
 #include "../ServerLib/TcpConnection.h"
 
-#include "packet.pb.h"
+#include "Packet.pb.h"
+#include "Gateway.pb.h"
 
 #include "GateUser.h"
 
@@ -18,9 +19,25 @@ void Gateway::Run(const GatewayStartupConfig& config)
     GenericServer::Run(config.ip, config.port, config.pool_size);
 }
 
+void Gateway::InitRpcHandler()
+{
+    gateway_->Register<GatewayServer::ReportAvailable>([this](const GatewayServer::ReportAvailable& req) -> rpclib::RpcResult {
+        const std::string& serv_name = req.server_name();
+        for (int i = 0; i < req.protocol_size(); i++) {
+            protocol_handlers_[req.protocol(i)].insert(serv_name);
+        }
+
+        GatewayServer::ReportAvailableResponse response;
+        response.set_result(1);
+        return rpclib::MakeRpcResult(response);
+    });
+}
 void Gateway::InitRpcService(const std::string& name, const std::string& rpc_server)
 {
     gateway_.reset(new rpclib::RpcServiceProvider(name));
+    {
+        InitRpcHandler();
+    }
     gateway_->Connect(rpc_server);
 }
 

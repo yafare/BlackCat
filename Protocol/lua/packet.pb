@@ -1,8 +1,7 @@
 
-R
-packet.protoPB">
+L
+Packet.protoPB"8
 Packet
 version (
-command (
-
-serialized (
+command (	
+body (	

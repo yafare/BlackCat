@@ -4,6 +4,9 @@
 #include "../ServerLib/GenericServer.h"
 #include "../RpcLib/rpc_service.h"
 
+#include <unordered_set>
+#include <unordered_map>
+
 namespace PB
 {
     class Packet;
@@ -29,6 +32,7 @@ public:
 
 private:
     void            InitRpcService(const std::string& name, const std::string& rpc_server);
+    void            InitRpcHandler();
 
 private:
     // handler
@@ -41,6 +45,7 @@ private:
 
 private:
     rpclib::RpcServiceProviderPtr gateway_;
+    std::unordered_map<std::string, std::unordered_set<std::string>> protocol_handlers_;
 };
 
 #endif // _GATEWAY_H
