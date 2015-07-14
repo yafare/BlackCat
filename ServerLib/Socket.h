@@ -48,6 +48,7 @@ inline void Socket::Shutdown()
     // NO EXCEPTION
     ErrorCode ec;
     socket_.shutdown(boost::asio::socket_base::shutdown_both, ec);
+    socket_.close(ec);
 }
 
 #endif // _SOCKET_H
