@@ -3,6 +3,8 @@
 
 #include "ServerCommon.h"
 
+#include <array>
+
 class Socket
 {
 public:
@@ -25,7 +27,7 @@ public:
 private:
     IoService                           io_service_;
     TcpSocket                           socket_;
-    boost::array<uint8, MAX_RECV_BUF>   buffer_;
+    std::array<uint8, MAX_RECV_BUF>     buffer_;
 };
 
 inline TcpSocket& Socket::socket()
